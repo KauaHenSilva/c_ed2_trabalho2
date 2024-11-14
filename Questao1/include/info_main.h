@@ -4,9 +4,8 @@
 
 typedef struct st_InfoMain
 {
-  ArvoreBinaria *palavra_ingles;
+  ArvoreBinaria *arv_binaria_palavra_ingles;
   char *palavra_portugues;
-  char *nome_unidade;
 } InfoMain;
 
-void alocar_info_main(InfoMain *info, char *palavra_ingles, char *palavra_portugues, char *nome_unidade);
+int atualizar_info(InfoMain *info, InfoMain *new_info);
