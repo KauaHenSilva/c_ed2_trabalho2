@@ -21,4 +21,4 @@ void aloca_arvore_vermelho_preto(ArvoreVermelhoPreto **raiz);
 void free_arvore_vermelho_preto(ArvoreVermelhoPreto **raiz);
 void def_arvore_vermelho_preto(ArvoreVermelhoPreto *raiz, char *plv_ingles, char *plv_portugues, char *nome_unidade);
 int inserir_arvore_vermelho_preto(ArvoreVermelhoPreto **raiz, ArvoreVermelhoPreto *new);
-int show_arvore_vermelho_preto(ArvoreVermelhoPreto *raiz);
+void show_arvore_vermelho_preto(const ArvoreVermelhoPreto *raiz);

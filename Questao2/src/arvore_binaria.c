@@ -61,7 +61,7 @@ int insercao_arvore_binaria(ArvoreBinaria **raiz, ArvoreBinaria *new)
   return ver;
 }
 
-void show_arvore_binaria(ArvoreBinaria *raiz)
+int show_arvore_binaria(ArvoreBinaria *raiz)
 {
   if (raiz)
   {

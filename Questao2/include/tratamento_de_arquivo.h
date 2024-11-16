@@ -10,6 +10,6 @@ typedef enum en_TipoEntrada
   PALAVRA_INGLES_PORTUGUES,
 } TipoEntrada;
 
-TipoEntrada ler_indentificar_linha(char *linha);
-int prencher_arvore_por_linha(ArvoreVermelhoPreto **raiz, char *linha, char *nome_unidade);
+TipoEntrada ler_indentificar_linha(const char *linha);
+int prencher_arvore_por_linha(ArvoreVermelhoPreto **raiz, const char *linha, char *nome_unidade);
 int ler_blocos(ArvoreVermelhoPreto **raiz);

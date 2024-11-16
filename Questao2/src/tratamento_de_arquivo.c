@@ -1,6 +1,5 @@
 #include "include/tratamento_de_arquivo.h"
 #include "include/arvore_vermelho_preto.h"
-#include "include/info_main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,9 +17,9 @@
 // Fan: ventilador;
 // Network: rede de relacionamento;
 
-TipoEntrada ler_indentificar_linha(char *linha)
+TipoEntrada ler_indentificar_linha(const char *linha)
 {
-  TipoEntrada tipo = -1;
+  TipoEntrada tipo;
   if (linha[0] == '%')
     tipo = NOME_UNIDADE;
   else
@@ -28,7 +27,7 @@ TipoEntrada ler_indentificar_linha(char *linha)
   return tipo;
 }
 
-int prencher_arvore_por_linha(ArvoreVermelhoPreto **raiz, char *linha, char *nome_unidade)
+int prencher_arvore_por_linha(ArvoreVermelhoPreto **raiz, const char *linha, char *nome_unidade)
 {
   char palavra_em_ingles[255];
   char palavras_em_portugues[255];
@@ -71,11 +70,10 @@ int prencher_arvore_por_linha(ArvoreVermelhoPreto **raiz, char *linha, char *nom
 int ler_blocos(ArvoreVermelhoPreto **raiz)
 {
   int confirm = 1;
-  FILE *arquivo;
   char buffer[255];
   char nome_unidade_atual[255];
+  FILE *arquivo = fopen(PATH_ARQUIVO, "r");
 
-  arquivo = fopen(PATH_ARQUIVO, "r");
 
   if (!arquivo)
     confirm = 0;

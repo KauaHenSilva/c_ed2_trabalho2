@@ -26,7 +26,7 @@ int main()
   UNITY_BEGIN();
   RUN_TEST(test_aloca_arvore_vermelha_preta);
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo);
-  // RUN_TEST(test_insercao_arvore_vermelha_preta_valor_unico);
+  RUN_TEST(test_insercao_arvore_vermelha_preta_valor_unico);
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_1);
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_2);
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_3);

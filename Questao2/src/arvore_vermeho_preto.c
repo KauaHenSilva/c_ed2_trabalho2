@@ -63,7 +63,7 @@ static void troca_cor(ArvoreVermelhoPreto **raiz)
     (*raiz)->dir->cor = !(*raiz)->dir->cor;
 }
 
-static Cor pegarCor(ArvoreVermelhoPreto *raiz)
+static Cor pegarCor(const ArvoreVermelhoPreto *raiz)
 {
   Cor reposta;
   if (raiz)
@@ -105,7 +105,7 @@ int inserir_arvore_vermelho_preto(ArvoreVermelhoPreto **raiz, ArvoreVermelhoPret
   return ver;
 }
 
-int show_arvore_vermelho_preto(ArvoreVermelhoPreto *raiz)
+void show_arvore_vermelho_preto(const ArvoreVermelhoPreto *raiz)
 {
   if (raiz)
   {
