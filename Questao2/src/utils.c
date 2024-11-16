@@ -11,11 +11,11 @@ int tamanho_string(char *string)
 
 int aloca_string(char **string, int tamanho)
 {
-  *string = (char *)realloc(NULL, (size_t)tamanho * sizeof(char));
+  *string = (char *)realloc(*string, (size_t)tamanho * sizeof(char));
   return *string ? 1 : 0;
 }
 
-int nome_presente(char *nome_procurar, char *nomes)
+int nome_presente(const char *nome_procurar, const char *nomes)
 {
   int posicao_nome = 0;
   int posicao_nome_procurar = 0;

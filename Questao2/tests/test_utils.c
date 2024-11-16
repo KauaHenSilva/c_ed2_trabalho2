@@ -36,8 +36,19 @@ void test_tamanho_string()
 
 void test_aloca_string()
 {
+  char *str = NULL;
+  TEST_ASSERT_EQUAL(1, aloca_string(&str, 10));
+  TEST_ASSERT_NOT_NULL(str);
+  free(str);
+}
+
+void test_realoca_string()
+{
   char *str;
   TEST_ASSERT_EQUAL(1, aloca_string(&str, 10));
+  TEST_ASSERT_NOT_NULL(str);
+
+  TEST_ASSERT_EQUAL(1, aloca_string(&str, 20));
   TEST_ASSERT_NOT_NULL(str);
   free(str);
 }
@@ -51,7 +62,7 @@ void test_nome_presente()
 
 void test_juntar_nome_por_virgula()
 {
-  char *result;
+  char *result = NULL;
   aloca_string(&result, 20);
   juntar_nome_por_virgula("john", "doe", &result);
   TEST_ASSERT_EQUAL_STRING("john, doe", result);

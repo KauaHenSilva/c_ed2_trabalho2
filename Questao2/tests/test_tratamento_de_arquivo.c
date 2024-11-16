@@ -61,7 +61,61 @@ void test_prencher_arvore_por_linha()
 
 void test_ler_blocos()
 {
+  FILE *fp = freopen("output/test_ler_blocos.txt", "w", stdout);
   int resultado = ler_blocos(&raiz);
   show_arvore_vermelho_preto(raiz);
+  fclose(fp);
+  freopen("/dev/tty", "w", stdout);
+
   TEST_ASSERT_EQUAL_INT(1, resultado);
+
+  FILE *fp2 = fopen("output/test_ler_blocos.txt", "r");
+  char buffer[1024];
+
+  char *experado[] = {
+    "Cor: 0\n",
+    "Palavra em portugues: barramento\n",
+    "Ingles: Bus\n",
+    "Apareceu em: Unidade 1\n",
+    "Cor: 1\n",
+    "Palavra em portugues: bicicleta\n",
+    "Ingles: Bicycle\n",
+    "Apareceu em: Unidade 2\n",
+    "Ingles: Bike\n",
+    "Apareceu em: Unidade 1\n",
+    "Cor: 1\n",
+    "Palavra em portugues: inseto\n",
+    "Ingles: Bug\n",
+    "Apareceu em: Unidade 1, Unidade 2\n",
+    "Cor: 1\n",
+    "Palavra em portugues: onibus\n",
+    "Ingles: Bus\n",
+    "Apareceu em: Unidade 1\n",
+    "Cor: 1\n",
+    "Palavra em portugues: problema\n",
+    "Ingles: Bug\n",
+    "Apareceu em: Unidade 1\n",
+    "Cor: 0\n",
+    "Palavra em portugues: rede de computadores\n",
+    "Ingles: Network\n",
+    "Apareceu em: Unidade 1\n",
+    "Cor: 1\n",
+    "Palavra em portugues: rede de relacionamento\n",
+    "Ingles: Network\n",
+    "Apareceu em: Unidade 2\n",
+    "Cor: 1\n",
+    "Palavra em portugues: sistema\n",
+    "Ingles: System\n",
+    "Apareceu em: Unidade 1\n",
+    "Cor: 1\n",
+    "Palavra em portugues: ventilador\n",
+    "Ingles: Coller\n",
+    "Apareceu em: Unidade 1\n",
+    "Ingles: Fan\n",
+    "Apareceu em: Unidade 2\n",
+  };
+
+  for (int i = 0; i < 40; i++)
+    TEST_ASSERT_EQUAL_STRING(experado[i], fgets(buffer, 1024, fp2));
+
 }

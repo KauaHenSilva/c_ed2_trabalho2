@@ -4,19 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// % Unidade 1
-// Bus: ônibus, barramento;
-// Bug: inseto, problema;
-// Bike: bicicleta;
-// Coller: ventilador;
-// Network: rede de computadores;
-// System: sistema;
-// % Unidade 2
-// Bug: inseto;
-// Bicycle: bicicleta;
-// Fan: ventilador;
-// Network: rede de relacionamento;
-
 TipoEntrada ler_indentificar_linha(const char *linha)
 {
   TipoEntrada tipo;
@@ -48,7 +35,6 @@ int prencher_arvore_por_linha(ArvoreVermelhoPreto **raiz, const char *linha, cha
       def_arvore_vermelho_preto(new, palavra_em_ingles, palavra_atual, nome_unidade);
 
       if (!inserir_arvore_vermelho_preto(raiz, new))
-      
         perror("Erro ao inserir na arvore vermelho preto");
 
       if (palavras_em_portugues[posicao_palavra_atual] == ',')

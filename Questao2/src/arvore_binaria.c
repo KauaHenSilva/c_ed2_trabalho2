@@ -7,6 +7,8 @@
 void aloca_arvore_binaria(ArvoreBinaria **raiz)
 {
   *raiz = (ArvoreBinaria *)malloc(sizeof(ArvoreBinaria));
+  (*raiz)->nome_unidade = NULL;
+  (*raiz)->palavra_ingles = NULL;
   (*raiz)->esquerda = NULL;
   (*raiz)->direita = NULL;
 }
@@ -37,7 +39,12 @@ int atualizar_nome_unidade(ArvoreBinaria *raiz, char *nome_unidade)
 
   if (raiz)
     if (!nome_presente(nome_unidade, raiz->nome_unidade))
-      juntar_nome_por_virgula(raiz->nome_unidade, nome_unidade, &raiz->nome_unidade);
+    {
+      char *new_nome = NULL;
+      juntar_nome_por_virgula(raiz->nome_unidade, nome_unidade, &new_nome);
+      free(raiz->nome_unidade);
+      raiz->nome_unidade = new_nome;
+    }
     else
       confirm = 0;
 
@@ -61,7 +68,7 @@ int insercao_arvore_binaria(ArvoreBinaria **raiz, ArvoreBinaria *new)
   return ver;
 }
 
-int show_arvore_binaria(ArvoreBinaria *raiz)
+void show_arvore_binaria(ArvoreBinaria *raiz)
 {
   if (raiz)
   {

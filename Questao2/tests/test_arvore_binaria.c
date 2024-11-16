@@ -89,6 +89,19 @@ void test_atualizar_nome_unidade()
   TEST_ASSERT_NOT_NULL(raiz);
   TEST_ASSERT_NULL(raiz->esquerda);
   TEST_ASSERT_NULL(raiz->direita);
+
+  // Atualização
+  ArvoreBinaria *new3;
+  aloca_arvore_binaria(&new3);
+  def_arvore_binaria(new3, "Palavra2", "Unidade3");
+
+  resultado_atualizacao = atualizar_nome_unidade(raiz, new3->nome_unidade);
+  TEST_ASSERT_EQUAL_INT(1, resultado_atualizacao);
+  TEST_ASSERT_EQUAL_STRING("Unidade, Unidade2, Unidade3", raiz->nome_unidade);
+  TEST_ASSERT_NOT_NULL(raiz);
+  TEST_ASSERT_NULL(raiz->esquerda);
+  TEST_ASSERT_NULL(raiz->direita);
+  
 }
 
 void test_aloca_arvore_binaria()
