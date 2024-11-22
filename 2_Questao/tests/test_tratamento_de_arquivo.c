@@ -51,8 +51,8 @@ void test_prencher_arvore_por_linha()
   int resultado = prencher_arvore_por_linha(&raiz, linha, "Unidade 1");
   TEST_ASSERT_EQUAL_INT(1, resultado);
   TEST_ASSERT_NOT_NULL(raiz);
-  TEST_ASSERT_EQUAL_STRING("Unidade 1", raiz->info.arv_binaria_palavra_ingles->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("Bus", raiz->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("Unidade 1", raiz->info.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
+  TEST_ASSERT_EQUAL_STRING("Bus", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("onibus", raiz->info.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("barramento", raiz->esq->info.palavra_portugues);
   TEST_ASSERT_NOT_NULL(raiz->esq);
@@ -73,41 +73,41 @@ void test_ler_blocos()
   char buffer[1024];
 
   char *experado[] = {
-    "Cor: 0\n",
+    "Cor: VERMELHO\n",
     "Palavra em portugues: barramento\n",
     "Ingles: Bus\n",
     "Apareceu em: Unidade 1\n",
-    "Cor: 1\n",
+    "Cor: PRETO\n",
     "Palavra em portugues: bicicleta\n",
     "Ingles: Bicycle\n",
     "Apareceu em: Unidade 2\n",
     "Ingles: Bike\n",
     "Apareceu em: Unidade 1\n",
-    "Cor: 1\n",
+    "Cor: PRETO\n",
     "Palavra em portugues: inseto\n",
     "Ingles: Bug\n",
-    "Apareceu em: Unidade 1, Unidade 2\n",
-    "Cor: 1\n",
+    "Apareceu em: Unidade 2, Unidade 1\n",
+    "Cor: PRETO\n",
     "Palavra em portugues: onibus\n",
     "Ingles: Bus\n",
     "Apareceu em: Unidade 1\n",
-    "Cor: 1\n",
+    "Cor: PRETO\n",
     "Palavra em portugues: problema\n",
     "Ingles: Bug\n",
     "Apareceu em: Unidade 1\n",
-    "Cor: 0\n",
+    "Cor: VERMELHO\n",
     "Palavra em portugues: rede de computadores\n",
     "Ingles: Network\n",
     "Apareceu em: Unidade 1\n",
-    "Cor: 1\n",
+    "Cor: PRETO\n",
     "Palavra em portugues: rede de relacionamento\n",
     "Ingles: Network\n",
     "Apareceu em: Unidade 2\n",
-    "Cor: 1\n",
+    "Cor: PRETO\n",
     "Palavra em portugues: sistema\n",
     "Ingles: System\n",
     "Apareceu em: Unidade 1\n",
-    "Cor: 1\n",
+    "Cor: PRETO\n",
     "Palavra em portugues: ventilador\n",
     "Ingles: Coller\n",
     "Apareceu em: Unidade 1\n",

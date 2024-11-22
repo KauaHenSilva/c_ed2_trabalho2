@@ -9,6 +9,9 @@
     "info_main.h": "c",
     "arvore_binaria.h": "c",
     "utils.h": "c",
-    "exibicao_valores.h": "c"
+    "exibicao_valores.h": "c",
+    "remocao_valores.h": "c",
+    "lista_encadeada.h": "c",
+    "stdio.h": "c"
   }
 }

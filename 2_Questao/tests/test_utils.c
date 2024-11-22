@@ -12,8 +12,6 @@ void tearDown()
 
 void test_tamanho_string();
 void test_aloca_string();
-void test_nome_presente();
-void test_juntar_nome_por_virgula();
 void test_remover_virgula();
 
 int main()
@@ -21,8 +19,6 @@ int main()
   UNITY_BEGIN();
   RUN_TEST(test_tamanho_string);
   RUN_TEST(test_aloca_string);
-  RUN_TEST(test_nome_presente);
-  RUN_TEST(test_juntar_nome_por_virgula);
   RUN_TEST(test_remover_virgula);
   return UNITY_END();
 }
@@ -53,21 +49,6 @@ void test_realoca_string()
   free(str);
 }
 
-void test_nome_presente()
-{
-  TEST_ASSERT_EQUAL(1, nome_presente("john", "john, doe, jane"));
-  TEST_ASSERT_EQUAL(0, nome_presente("mike", "john, doe, jane"));
-  TEST_ASSERT_EQUAL(1, nome_presente("jane", "john, doe, jane"));
-}
-
-void test_juntar_nome_por_virgula()
-{
-  char *result = NULL;
-  aloca_string(&result, 20);
-  juntar_nome_por_virgula("john", "doe", &result);
-  TEST_ASSERT_EQUAL_STRING("john, doe", result);
-  free(result);
-}
 
 void test_remover_virgula()
 {

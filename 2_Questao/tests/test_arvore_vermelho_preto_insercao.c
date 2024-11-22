@@ -12,9 +12,8 @@ void tearDown(void)
   free_arvore_vermelho_preto(&raiz);
 }
 
-void test_aloca_arvore_vermelha_preta();
 void test_insercao_arvore_vermelha_preta_inserindo();
-void test_insercao_arvore_vermelha_preta_valor_unico();
+void test_insercao_arvore_vermelha_preta_inserindo_valor_unico();
 void test_insercao_arvore_vermelha_preta_inserindo_caso_1(); // 1 -> 2 -> 3
 void test_insercao_arvore_vermelha_preta_inserindo_caso_2(); // 3 -> 2 -> 1
 void test_insercao_arvore_vermelha_preta_inserindo_caso_3(); // 2 -> 1 -> 3
@@ -24,28 +23,14 @@ void test_insercao_arvore_vermelha_preta_atualizando_caso_1();
 int main()
 {
   UNITY_BEGIN();
-  RUN_TEST(test_aloca_arvore_vermelha_preta);
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo);
-  RUN_TEST(test_insercao_arvore_vermelha_preta_valor_unico);
+  RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_valor_unico);
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_1);
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_2);
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_3);
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_4);
   RUN_TEST(test_insercao_arvore_vermelha_preta_atualizando_caso_1);
   return UNITY_END();
-}
-
-void test_aloca_arvore_vermelha_preta()
-{
-  aloca_arvore_vermelho_preto(&raiz);
-  def_arvore_vermelho_preto(raiz, "Bus", "Onibus", "Unidade 1");
-
-  TEST_ASSERT_NOT_NULL(raiz);
-  TEST_ASSERT_EQUAL_STRING("Bus", raiz->info.arv_binaria_palavra_ingles->palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("Onibus", raiz->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_INT(VERMELHO, raiz->cor);
-  TEST_ASSERT_NULL(raiz->esq);
-  TEST_ASSERT_NULL(raiz->dir);
 }
 
 void test_insercao_arvore_vermelha_preta_inserindo()
@@ -57,14 +42,14 @@ void test_insercao_arvore_vermelha_preta_inserindo()
   int resultado = inserir_arvore_vermelho_preto(&raiz, newTree);
   TEST_ASSERT_EQUAL_INT(1, resultado);
   TEST_ASSERT_NOT_NULL(raiz);
-  TEST_ASSERT_EQUAL_STRING("Bus", raiz->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("Bus", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("Onibus", raiz->info.palavra_portugues);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
   TEST_ASSERT_NULL(raiz->esq);
   TEST_ASSERT_NULL(raiz->dir);
 }
 
-void test_insercao_arvore_vermelha_preta_valor_unico()
+void test_insercao_arvore_vermelha_preta_inserindo_valor_unico()
 {
   ArvoreVermelhoPreto *newTree;
   aloca_arvore_vermelho_preto(&newTree);
@@ -96,9 +81,9 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_1()
   TEST_ASSERT_EQUAL_INT(1, resultado);
 
   TEST_ASSERT_NOT_NULL(raiz->esq);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
   TEST_ASSERT_EQUAL_INT(VERMELHO, raiz->esq->cor);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
@@ -110,11 +95,11 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_1()
 
   resultado = inserir_arvore_vermelho_preto(&raiz, newTree3);
   TEST_ASSERT_EQUAL_INT(1, resultado);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.palavra_portugues);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->esq->cor);
@@ -138,9 +123,9 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_2()
   int resultado = inserir_arvore_vermelho_preto(&raiz, newTree2);
 
   TEST_ASSERT_EQUAL_INT(1, resultado);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("3", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("3", raiz->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->esq->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("2", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->esq->info.palavra_portugues);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
   TEST_ASSERT_EQUAL_INT(VERMELHO, raiz->esq->cor);
@@ -153,11 +138,11 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_2()
   resultado = inserir_arvore_vermelho_preto(&raiz, newTree3);
 
   TEST_ASSERT_EQUAL_INT(1, resultado);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.palavra_portugues);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->esq->cor);
@@ -181,9 +166,9 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_3()
   int confirmacao = inserir_arvore_vermelho_preto(&raiz, newTree2);
 
   TEST_ASSERT_EQUAL_INT(1, confirmacao);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.palavra_portugues);
   TEST_ASSERT_EQUAL_INT(VERMELHO, raiz->esq->cor);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
@@ -196,11 +181,11 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_3()
   confirmacao = inserir_arvore_vermelho_preto(&raiz, newTree3);
 
   TEST_ASSERT_EQUAL_INT(1, confirmacao);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.palavra_portugues);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->esq->cor);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->dir->cor);
@@ -227,11 +212,11 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_4()
 
   inserir_arvore_vermelho_preto(&raiz, newTree3);
 
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.arv_binaria_palavra_ingles->palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("3", raiz->dir->info.palavra_portugues);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->esq->cor);
@@ -257,8 +242,8 @@ void test_insercao_arvore_vermelha_preta_atualizando_caso_1()
   int confirmacao = inserir_arvore_vermelho_preto(&raiz, newTree2);
   TEST_ASSERT_EQUAL_INT(1, confirmacao);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("Unidade 1", raiz->info.arv_binaria_palavra_ingles->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->info.arv_binaria_palavra_ingles->esquerda->palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("Unidade 2", raiz->info.arv_binaria_palavra_ingles->esquerda->nome_unidade);
+  TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("Unidade 1", raiz->info.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->info.arv_binaria_palavra_ingles->esquerda->info.palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("Unidade 2", raiz->info.arv_binaria_palavra_ingles->esquerda->info.unidades->nome_unidade);
 }
