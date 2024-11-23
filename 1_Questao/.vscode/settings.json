@@ -1,0 +1,18 @@
+{
+  "files.associations": {
+    ".env.*": "dotenv",
+    ".prettierrc": "json",
+    "*.css": "css",
+    "unity.h": "c",
+    "arvore_vermelho_preto.h": "c",
+    "tratamento_de_arquivo.h": "c",
+    "info_main.h": "c",
+    "arvore_binaria.h": "c",
+    "utils.h": "c",
+    "exibicao_valores.h": "c",
+    "remocao_valores.h": "c",
+    "lista_encadeada.h": "c",
+    "stdio.h": "c",
+    "arvore_2_3.h": "c"
+  }
+}
