@@ -53,14 +53,14 @@ int buscar_lista_encadeada_unidade(const ListaEncadeadaUnidade *lista, const cha
   return confirmacao;
 }
 
-void free_lista_encadeada_unidade(ListaEncadeadaUnidade **lista)
+void free_lista_encadeada_unidade(ListaEncadeadaUnidade *lista)
 {
-  if (*lista)
+  if (lista)
   {
-    free_lista_encadeada_unidade(&(*lista)->prox);
-    free((*lista)->nome_unidade);
-    free(*lista);
-    *lista = NULL;
+    free_lista_encadeada_unidade(lista->prox);
+    free(lista->nome_unidade);
+    free(lista);
+    lista = NULL;
   }
 }
 

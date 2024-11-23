@@ -1,5 +1,6 @@
 #include "include/arvore_2_3.h"
 #include "include/lista_encadeada.h"
+#include "include/arvore_binaria.h"
 #include "include/utils.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -36,19 +37,20 @@ void aloca_arvore_2_3(Arvore_2_3 **raiz)
   (*raiz)->info2.palavra_portugues = NULL;
 }
 
-void free_arvore_2_3(Arvore_2_3 **raiz)
+void free_arvore_2_3(Arvore_2_3 *raiz)
 {
-  if (*raiz)
+  if (raiz)
   {
-    free_arvore_2_3(&(*raiz)->esquerda);
-    free_info_arvore_2_3(&(*raiz)->info1);
+    free_arvore_2_3(raiz->esquerda);
+    free_arvore_2_3(raiz->centro);
+    if (raiz->n_info == 2)
+      free_arvore_2_3(raiz->direita);
 
-    if ((*raiz)->n_info == 2)
-    {
-      free_arvore_2_3(&(*raiz)->centro);
-      free_arvore_2_3(&(*raiz)->direita);
-      free_info_arvore_2_3(&(*raiz)->info2);
-    }
+    if (raiz->n_info == 2)
+      free_info_arvore_2_3(&raiz->info2);
+    free_info_arvore_2_3(&raiz->info1);
+
+    free(raiz);
   }
 }
 
@@ -81,7 +83,6 @@ int adicionando_valor_em_arvore_2_3(Arvore_2_3 *raiz, InfoMain *info, Arvore_2_3
       raiz->info2 = *info;
       raiz->direita = filho;
     }
-
     else
     {
       raiz->info2 = raiz->info1;
@@ -129,17 +130,55 @@ void quebra_no(Arvore_2_3 **raiz, Arvore_2_3 **new_node, InfoMain info, InfoMain
   (*raiz)->n_info = 1;
 }
 
+int value_equals(const Arvore_2_3 *raiz, const InfoMain *info)
+{
+  int equal = 0;
+  if (raiz->n_info == 2)
+  {
+    if (strcmp(raiz->info1.palavra_portugues, info->palavra_portugues) == 0)
+      equal = 1;
+    else if (strcmp(raiz->info2.palavra_portugues, info->palavra_portugues) == 0)
+      equal = 2;
+  }
+  else if (strcmp(raiz->info1.palavra_portugues, info->palavra_portugues) == 0)
+    equal = 1;
+
+  return equal;
+}
+
+int inserir_valor_arvore_binaria(Arvore_2_3 **raiz, InfoMain info)
+{
+  int confirm = 1;
+
+  ArvoreBinaria *new = NULL;
+  aloca_arvore_binaria(&new);
+  copia_arvore_binaria(new, info.arv_binaria_palavra_ingles);
+
+  if (value_equals(*raiz, &info) == 1)
+    insercao_arvore_binaria(&(*raiz)->info1.arv_binaria_palavra_ingles, new);
+  else if (value_equals(*raiz, &info) == 2)
+    insercao_arvore_binaria(&(*raiz)->info2.arv_binaria_palavra_ingles, new);
+  else
+    confirm = 0;
+
+  return confirm;
+}
+
 int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvore_2_3 **pai, Arvore_2_3 **new_node)
 {
   InfoMain promove_rec;
+  int confirm = 1;
 
   if (!*raiz)
     cria_no(raiz, info, NULL, NULL);
+  else if (value_equals(*raiz, &info))
+    confirm = inserir_valor_arvore_binaria(raiz, info);
   else
   {
     if (eh_folha_arvore_2_3(*raiz))
+    {
       if ((*raiz)->n_info == 1)
-        adicionando_valor_em_arvore_2_3(*raiz, &info, NULL);
+        confirm = adicionando_valor_em_arvore_2_3(*raiz, &info, NULL);
       else
       {
         quebra_no(raiz, new_node, info, promove, NULL);
@@ -149,18 +188,15 @@ int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvo
           new_node = NULL;
         }
       }
-
+    }
     else
     {
       if (strcmp(info.palavra_portugues, (*raiz)->info1.palavra_portugues) < 0)
-        inserir_arvore_2_3(&(*raiz)->esquerda, info, promove, raiz, new_node);
+        confirm = inserir_arvore_2_3(&(*raiz)->esquerda, info, promove, raiz, new_node) || confirm;
+      else if ((*raiz)->n_info == 1 || strcmp(info.palavra_portugues, (*raiz)->info2.palavra_portugues) < 0)
+        confirm = inserir_arvore_2_3(&(*raiz)->centro, info, promove, raiz, new_node) || confirm;
       else
-      {
-        if ((*raiz)->n_info == 1 || strcmp(info.palavra_portugues, (*raiz)->info2.palavra_portugues) < 0)
-          inserir_arvore_2_3(&(*raiz)->centro, info, promove, raiz, new_node);
-        else
-          inserir_arvore_2_3(&(*raiz)->direita, info, promove, raiz, new_node);
-      }
+        confirm = inserir_arvore_2_3(&(*raiz)->direita, info, promove, raiz, new_node) || confirm;
 
       if (*new_node)
       {
@@ -184,7 +220,7 @@ int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvo
     }
   }
 
-  return 1;
+  return confirm;
 }
 
 static void show_info(const InfoMain *info)
@@ -197,9 +233,17 @@ void show_arvore_2_3(const Arvore_2_3 *raiz)
 {
   if (raiz)
   {
+
+    printf("Nó: 1\n");
     show_info(&raiz->info1);
     if (raiz->n_info == 2)
+    {
+      printf("Nó: 2\n");
       show_info(&raiz->info2);
+    }
+
+    printf("\n");
+
     show_arvore_2_3(raiz->esquerda);
     show_arvore_2_3(raiz->centro);
     show_arvore_2_3(raiz->direita);

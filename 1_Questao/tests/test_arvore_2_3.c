@@ -9,7 +9,7 @@ void setUp(void)
 }
 void tearDown(void)
 {
-  free_arvore_2_3(&raiz);
+  free_arvore_2_3(raiz);
 }
 
 void test_aloca_arvore_2_3();
@@ -148,7 +148,7 @@ void test_quebra_no_caso_1()
   TEST_ASSERT_EQUAL_STRING("2", info_up.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", info_up.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
 
-  free_arvore_2_3(&new_node);
+  free_arvore_2_3(new_node);
 }
 
 void test_quebra_no_caso_2()

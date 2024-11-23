@@ -30,7 +30,7 @@ void def_info_arvore_2_3(InfoMain *info, char *plv_ingles, char *plv_portugues, 
 void free_info_arvore_2_3(InfoMain *info);
 void copia_info_arvore_2_3(InfoMain *info, InfoMain *info2);
 void aloca_arvore_2_3(Arvore_2_3 **raiz);
-void free_arvore_2_3(Arvore_2_3 **raiz);
+void free_arvore_2_3(Arvore_2_3 *raiz);
 
 // Funções de inserção
 void cria_no(Arvore_2_3 **new, InfoMain info, Arvore_2_3 *esquerda, Arvore_2_3 *centro);

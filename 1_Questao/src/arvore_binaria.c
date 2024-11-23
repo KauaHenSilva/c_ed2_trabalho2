@@ -22,10 +22,8 @@ void def_arvore_binaria(ArvoreBinaria *raiz, char *palavra_ingles, char *nome_un
 
 void free_info_arvore_binaria(InfoArvoreBinaria info)
 {
-  free_lista_encadeada_unidade(&info.unidades);
+  free_lista_encadeada_unidade(info.unidades);
   free(info.palavra_ingles);
-  info.palavra_ingles = NULL;
-  info.unidades = NULL;
 }
 
 void copia_arvore_binaria(ArvoreBinaria *recebe, ArvoreBinaria *envia)
@@ -45,7 +43,6 @@ void free_arvore_binaria(ArvoreBinaria *raiz)
     free_arvore_binaria(raiz->direita);
     free_info_arvore_binaria(raiz->info);
     free(raiz);
-    raiz = NULL;
   }
 }
 
