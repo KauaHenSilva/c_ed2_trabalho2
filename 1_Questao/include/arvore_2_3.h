@@ -41,4 +41,4 @@ int remover_NO_arvore_2_3(Arvore_2_3 **raiz, char *plv_portugues);
 int remover_arvore_2_3(Arvore_2_3 **raiz, char *plv_portugues);
 void show_arvore_2_3(const Arvore_2_3 *raiz);
 
-Arvore_2_3 *inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvore_2_3 **pai);
+int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvore_2_3 **pai, Arvore_2_3 **new_node);

@@ -129,9 +129,8 @@ void quebra_no(Arvore_2_3 **raiz, Arvore_2_3 **new_node, InfoMain info, InfoMain
   (*raiz)->n_info = 1;
 }
 
-Arvore_2_3 *inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvore_2_3 **pai)
+int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvore_2_3 **pai, Arvore_2_3 **new_node)
 {
-  Arvore_2_3 *new_node = NULL;
   InfoMain promove_rec;
 
   if (!*raiz)
@@ -143,10 +142,10 @@ Arvore_2_3 *inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promo
         adicionando_valor_em_arvore_2_3(*raiz, &info, NULL);
       else
       {
-        quebra_no(raiz, &new_node, info, promove, NULL);
+        quebra_no(raiz, new_node, info, promove, NULL);
         if (!(*pai))
         {
-          cria_no(raiz, *promove, *raiz, new_node);
+          cria_no(raiz, *promove, *raiz, *new_node);
           new_node = NULL;
         }
       }
@@ -154,30 +153,30 @@ Arvore_2_3 *inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promo
     else
     {
       if (strcmp(info.palavra_portugues, (*raiz)->info1.palavra_portugues) < 0)
-        new_node = inserir_arvore_2_3(&(*raiz)->esquerda, info, promove, raiz);
+        inserir_arvore_2_3(&(*raiz)->esquerda, info, promove, raiz, new_node);
       else
       {
         if ((*raiz)->n_info == 1 || strcmp(info.palavra_portugues, (*raiz)->info2.palavra_portugues) < 0)
-          new_node = inserir_arvore_2_3(&(*raiz)->centro, info, promove, raiz);
+          inserir_arvore_2_3(&(*raiz)->centro, info, promove, raiz, new_node);
         else
-          new_node = inserir_arvore_2_3(&(*raiz)->direita, info, promove, raiz);
+          inserir_arvore_2_3(&(*raiz)->direita, info, promove, raiz, new_node);
       }
 
-      if (new_node)
+      if (*new_node)
       {
         if ((*raiz)->n_info == 1)
         {
-          adicionando_valor_em_arvore_2_3(*raiz, promove, new_node);
+          adicionando_valor_em_arvore_2_3(*raiz, promove, *new_node);
           new_node = NULL;
         }
         else
         {
-          quebra_no(raiz, &new_node, *promove, &promove_rec, &new_node);
+          quebra_no(raiz, new_node, *promove, &promove_rec, new_node);
           *promove = promove_rec;
 
           if (!(*pai))
           {
-            cria_no(raiz, promove_rec, *raiz, new_node);
+            cria_no(raiz, promove_rec, *raiz, *new_node);
             new_node = NULL;
           }
         }
@@ -185,7 +184,7 @@ Arvore_2_3 *inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promo
     }
   }
 
-  return new_node;
+  return 1;
 }
 
 static void show_info(const InfoMain *info)
