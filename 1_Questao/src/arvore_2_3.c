@@ -146,7 +146,7 @@ int value_equals(const Arvore_2_3 *raiz, const InfoMain *info)
   return equal;
 }
 
-int inserir_valor_arvore_binaria(Arvore_2_3 **raiz, InfoMain info)
+int inserir_valor_arvore_binaria(Arvore_2_3 **raiz, InfoMain info, int value_equals)
 {
   int confirm = 1;
 
@@ -154,9 +154,9 @@ int inserir_valor_arvore_binaria(Arvore_2_3 **raiz, InfoMain info)
   aloca_arvore_binaria(&new);
   copia_arvore_binaria(new, info.arv_binaria_palavra_ingles);
 
-  if (value_equals(*raiz, &info) == 1)
+  if (value_equals == 1)
     insercao_arvore_binaria(&(*raiz)->info1.arv_binaria_palavra_ingles, new);
-  else if (value_equals(*raiz, &info) == 2)
+  else if (value_equals == 2)
     insercao_arvore_binaria(&(*raiz)->info2.arv_binaria_palavra_ingles, new);
   else
     confirm = 0;
@@ -167,12 +167,12 @@ int inserir_valor_arvore_binaria(Arvore_2_3 **raiz, InfoMain info)
 int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvore_2_3 **pai, Arvore_2_3 **new_node)
 {
   InfoMain promove_rec;
-  int confirm = 1;
+  int confirm = 1, value_equal;
 
   if (!*raiz)
     cria_no(raiz, info, NULL, NULL);
-  else if (value_equals(*raiz, &info))
-    confirm = inserir_valor_arvore_binaria(raiz, info);
+  else if (value_equal = value_equals(*raiz, &info))
+    confirm = inserir_valor_arvore_binaria(raiz, info, value_equal);
   else
   {
     if (eh_folha_arvore_2_3(*raiz))
