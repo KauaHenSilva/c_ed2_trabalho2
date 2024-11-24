@@ -155,9 +155,9 @@ int inserir_valor_arvore_binaria(Arvore_2_3 **raiz, InfoMain info, int value_equ
   copia_arvore_binaria(new, info.arv_binaria_palavra_ingles);
 
   if (value_equals == 1)
-    insercao_arvore_binaria(&(*raiz)->info1.arv_binaria_palavra_ingles, new);
+    confirm = insercao_arvore_binaria(&(*raiz)->info1.arv_binaria_palavra_ingles, new);
   else if (value_equals == 2)
-    insercao_arvore_binaria(&(*raiz)->info2.arv_binaria_palavra_ingles, new);
+    confirm = insercao_arvore_binaria(&(*raiz)->info2.arv_binaria_palavra_ingles, new);
   else
     confirm = 0;
 
@@ -192,11 +192,11 @@ int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvo
     else
     {
       if (strcmp(info.palavra_portugues, (*raiz)->info1.palavra_portugues) < 0)
-        confirm = inserir_arvore_2_3(&(*raiz)->esquerda, info, promove, raiz, new_node) || confirm;
+        confirm = inserir_arvore_2_3(&(*raiz)->esquerda, info, promove, raiz, new_node);
       else if ((*raiz)->n_info == 1 || strcmp(info.palavra_portugues, (*raiz)->info2.palavra_portugues) < 0)
-        confirm = inserir_arvore_2_3(&(*raiz)->centro, info, promove, raiz, new_node) || confirm;
+        confirm = inserir_arvore_2_3(&(*raiz)->centro, info, promove, raiz, new_node);
       else
-        confirm = inserir_arvore_2_3(&(*raiz)->direita, info, promove, raiz, new_node) || confirm;
+        confirm = inserir_arvore_2_3(&(*raiz)->direita, info, promove, raiz, new_node);
 
       if (*new_node)
       {

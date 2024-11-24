@@ -90,11 +90,13 @@ void test_insercao_arvore_2_3_inserindo_valor_unico()
   InfoMain promove;
 
   inserir_arvore_2_3(&raiz, newInfo, &promove, &pai, &new_node);
-  inserir_arvore_2_3(&raiz, newInfo, &promove, &pai, &new_node);
+  int resposta = inserir_arvore_2_3(&raiz, newInfo, &promove, &pai, &new_node);
 
+  TEST_ASSERT_EQUAL_INT(0, resposta);
   TEST_ASSERT_NOT_NULL(raiz);
   TEST_ASSERT_EQUAL_STRING("Bus", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("Onibus", raiz->info1.palavra_portugues);
+  TEST_ASSERT_EQUAL_STRING("Unidade 1", raiz->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
   TEST_ASSERT_EQUAL_INT(1, raiz->n_info);
   TEST_ASSERT_NULL(raiz->esquerda);
   TEST_ASSERT_NULL(raiz->centro);
