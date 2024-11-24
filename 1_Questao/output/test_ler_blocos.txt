@@ -25,15 +25,6 @@ Ingles: Bus
 Apareceu em: Unidade 1
 
 Nó: 1
-Palavra em portugues: rede de computadores
-Ingles: Network
-Apareceu em: Unidade 1
-Nó: 2
-Palavra em portugues: rede de relacionamento
-Ingles: Network
-Apareceu em: Unidade 2
-
-Nó: 1
 Palavra em portugues: sistema
 Ingles: System
 Apareceu em: Unidade 1

@@ -1,3 +1,9 @@
-Palavra em portugues: Onibus
-Ingles: Bus
-Apareceu em: Unidade 1
+Nó: 1
+Palavra em portugues: 1
+Ingles: 1
+Apareceu em: 1
+Nó: 2
+Palavra em portugues: 2
+Ingles: 2
+Apareceu em: 2
+

@@ -3,6 +3,28 @@
 
 Arvore_2_3 *raiz;
 
+void func_test_inserindo_valores_automatico(int *valores, int qtd)
+{
+  for (int i = 0; i < qtd; i++)
+  {
+    InfoMain newInfo;
+    char nome_unidade[20];
+    char palavra_portugues[20];
+    char unidade[20];
+
+    sprintf(nome_unidade, "%d", valores[i]);
+    sprintf(palavra_portugues, "%d", valores[i]);
+    sprintf(unidade, "%d", valores[i]);
+
+    InfoMain promove;
+    Arvore_2_3 *pai = NULL;
+    Arvore_2_3 *new_node = NULL;
+
+    def_info_arvore_2_3(&newInfo, palavra_portugues, palavra_portugues, nome_unidade);
+    inserir_arvore_2_3(&raiz, newInfo, &promove, &pai, &new_node);
+  }
+}
+
 void setUp(void)
 {
   raiz = NULL;
@@ -17,12 +39,13 @@ void test_def_info_arvore_2_3();
 void test_cria_no_arvore_2_3();
 void test_adicionando_valor_em_arvore_2_3_caso_1();
 void test_adicionando_valor_em_arvore_2_3_caso_2();
-void test_quebra_no_caso_1(); // inc: 1, 2, 3
-void test_quebra_no_caso_2(); // inc: 3, 1, 2
-void test_quebra_no_caso_3(); // inc: 2, 3, 1
-// void test_quebra_no_caso_3(); // inc: 2, 1, 3
-// void test_show_arvore_2_3_caso_1();
-// void test_show_arvore_2_3_caso_2();
+void test_quebra_no_caso_1();       // inc: 1, 2, 3
+void test_quebra_no_caso_2();       // inc: 3, 1, 2
+void test_quebra_no_caso_3();       // inc: 2, 3, 1
+void test_show_arvore_2_3_caso_1(); // inc: 1, 2
+void test_show_arvore_2_3_caso_2(); // inc: 1, 2, 3
+void test_show_arvore_2_3_caso_3(); // inc: 1, 2, 3, 4, 5
+void test_show_arvore_2_3_caso_4(); // inc: 1, 2, 3, 4, 5, 6, 7
 
 int main()
 {
@@ -35,8 +58,10 @@ int main()
   RUN_TEST(test_quebra_no_caso_1);
   RUN_TEST(test_quebra_no_caso_2);
   RUN_TEST(test_quebra_no_caso_3);
-  // RUN_TEST(test_show_arvore_2_3_caso_1);
-  // RUN_TEST(test_show_arvore_2_3_caso_2);
+  RUN_TEST(test_show_arvore_2_3_caso_1);
+  RUN_TEST(test_show_arvore_2_3_caso_2);
+  RUN_TEST(test_show_arvore_2_3_caso_3);
+  RUN_TEST(test_show_arvore_2_3_caso_4);
   return UNITY_END();
 }
 
@@ -211,50 +236,170 @@ void test_quebra_no_caso_3()
   TEST_ASSERT_EQUAL_STRING("2", info_up.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
 }
 
-// void test_show_arvore_2_3_caso_1()
-// {
-//   aloca_arvore_2_3(&raiz);
-//   def(raiz, "Bus", "Onibus", "Unidade 1");
+void test_show_arvore_2_3_caso_1()
+{
+  int valores_adicinar[] = {1, 2};
+  func_test_inserindo_valores_automatico(valores_adicinar, 2);
 
-//   FILE *fp = freopen("output/test_show_arvore_2_3_caso_1.txt", "w", stdout);
-//   show_arvore_2_3(raiz);
-//   fclose(fp);
-//   freopen("/dev/tty", "w", stdout);
+  FILE *fp = freopen("output/test_show_arvore_2_3_caso_1.txt", "w", stdout);
+  show_arvore_2_3(raiz);
+  fclose(fp);
+  freopen("/dev/tty", "w", stdout);
 
-//   FILE *f1 = fopen("output/test_show_arvore_2_3_caso_1.txt", "r");
-//   char buffer[255];
+  FILE *fp2 = fopen("output/test_show_arvore_2_3_caso_1.txt", "r");
+  char buffer[1024];
 
-//   char *expected[] = {
-//       "Palavra em portugues: Onibus\n",
-//       "Ingles: Bus\n",
-//       "Apareceu em: Unidade 1\n"};
+  char *expected[] = {
+      "Nó: 1\n",
+      "Palavra em portugues: 1\n",
+      "Ingles: 1\n",
+      "Apareceu em: 1\n",
+      "Nó: 2\n",
+      "Palavra em portugues: 2\n",
+      "Ingles: 2\n",
+      "Apareceu em: 2\n"};
 
-//   for (int i = 0; fgets(buffer, 255, f1) != NULL; i++)
-//     TEST_ASSERT_EQUAL_STRING(expected[i], buffer);
-// }
+  for (int i = 0; i < 8; i++)
+  {
+    fgets(buffer, 1024, fp2);
+    TEST_ASSERT_EQUAL_STRING(expected[i], buffer);
+  }
+}
 
-// void test_show_arvore_2_3_caso_2()
-// {
-//   aloca_arvore_2_3(&raiz);
-//   def_arvore_2_3(raiz, "Bus", "Onibus", "Unidade 1");
-//   def_arvore_2_3(raiz, "Car", "Carro", "Unidade 2");
+void test_show_arvore_2_3_caso_2()
+{
+  int valores_adicinar[] = {1, 2, 3};
+  func_test_inserindo_valores_automatico(valores_adicinar, 3);
 
-//   FILE *fp = freopen("output/test_show_arvore_2_3_caso_2.txt", "w", stdout);
-//   show_arvore_2_3(raiz);
-//   fclose(fp);
-//   freopen("/dev/tty", "w", stdout);
+  FILE *fp = freopen("output/test_show_arvore_2_3_caso_2.txt", "w", stdout);
+  show_arvore_2_3(raiz);
+  fclose(fp);
+  freopen("/dev/tty", "w", stdout);
 
-//   FILE *f1 = fopen("output/test_show_arvore_2_3_caso_2.txt", "r");
-//   char buffer[255];
+  FILE *fp2 = fopen("output/test_show_arvore_2_3_caso_2.txt", "r");
+  char buffer[1024];
 
-//   char *expected[] = {
-//       "Palavra em portugues: Onibus\n",
-//       "Ingles: Bus\n",
-//       "Apareceu em: Unidade 1\n",
-//       "Palavra em portugues: Carro\n",
-//       "Ingles: Car\n",
-//       "Apareceu em: Unidade 2\n"};
+  char *expected[] = {
+      "Nó: 1\n",
+      "Palavra em portugues: 2\n",
+      "Ingles: 2\n",
+      "Apareceu em: 2\n",
+      "\n",
+      "Nó: 1\n",
+      "Palavra em portugues: 1\n",
+      "Ingles: 1\n",
+      "Apareceu em: 1\n",
+      "\n",
+      "Nó: 1\n",
+      "Palavra em portugues: 3\n",
+      "Ingles: 3\n",
+      "Apareceu em: 3\n",
+      "\n"};
 
-//   for (int i = 0; fgets(buffer, 255, f1) != NULL; i++)
-//     TEST_ASSERT_EQUAL_STRING(expected[i], buffer);
-// }
+  for (int i = 0; i < 12; i++)
+  {
+    fgets(buffer, 1024, fp2);
+    TEST_ASSERT_EQUAL_STRING(expected[i], buffer);
+  }
+}
+
+void test_show_arvore_2_3_caso_3()
+{
+  int valores_adicinar[] = {1, 2, 3, 4, 5};
+  func_test_inserindo_valores_automatico(valores_adicinar, 5);
+
+  FILE *fp = freopen("output/test_show_arvore_2_3_caso_3.txt", "w", stdout);
+  show_arvore_2_3(raiz);
+  fclose(fp);
+  freopen("/dev/tty", "w", stdout);
+
+  FILE *fp2 = fopen("output/test_show_arvore_2_3_caso_3.txt", "r");
+  char buffer[1024];
+  char *expected[] = {
+      "Nó: 1\n",
+      "Palavra em portugues: 2\n",
+      "Ingles: 2\n",
+      "Apareceu em: 2\n",
+      "Nó: 2\n",
+      "Palavra em portugues: 4\n",
+      "Ingles: 4\n",
+      "Apareceu em: 4\n",
+      "\n",
+      "Nó: 1\n",
+      "Palavra em portugues: 1\n",
+      "Ingles: 1\n",
+      "Apareceu em: 1\n",
+      "\n",
+      "Nó: 1\n",
+      "Palavra em portugues: 3\n",
+      "Ingles: 3\n",
+      "Apareceu em: 3\n",
+      "\n",
+      "Nó: 1\n",
+      "Palavra em portugues: 5\n",
+      "Ingles: 5\n",
+      "Apareceu em: 5\n",
+      "\n"};
+
+  for (int i = 0; i < 12; i++)
+  {
+    fgets(buffer, 1024, fp2);
+    TEST_ASSERT_EQUAL_STRING(expected[i], buffer);
+  }
+}
+
+void test_show_arvore_2_3_caso_4()
+{
+  int valores_adicinar[] = {1, 2, 3, 4, 5, 6, 7};
+  func_test_inserindo_valores_automatico(valores_adicinar, 7);
+
+  FILE *fp = freopen("output/test_show_arvore_2_3_caso_4.txt", "w", stdout);
+  show_arvore_2_3(raiz);
+  fclose(fp);
+  freopen("/dev/tty", "w", stdout);
+
+  FILE *fp2 = fopen("output/test_show_arvore_2_3_caso_4.txt", "r");
+  char buffer[1024];
+  char *expected[] = {
+      "Nó: 1\n",
+      "Palavra em portugues: 4\n",
+      "Ingles: 4\n",
+      "Apareceu em: 4\n",
+      "\n",
+      "Nó: 1\n",
+      "Palavra em portugues: 2\n",
+      "Ingles: 2\n",
+      "Apareceu em: 2\n",
+      "\n",
+      "Nó: 1\n",
+      "Palavra em portugues: 1\n",
+      "Ingles: 1\n",
+      "Apareceu em: 1\n",
+      "\n",
+      "Nó: 1\n",
+      "Palavra em portugues: 3\n",
+      "Ingles: 3\n",
+      "Apareceu em: 3\n",
+      "\n",
+      "Nó: 1\n",
+      "Palavra em portugues: 6\n",
+      "Ingles: 6\n",
+      "Apareceu em: 6\n",
+      "\n",
+      "Nó: 1\n",
+      "Palavra em portugues: 5\n",
+      "Ingles: 5\n",
+      "Apareceu em: 5\n",
+      "\n",
+      "Nó: 1\n",
+      "Palavra em portugues: 7\n",
+      "Ingles: 7\n",
+      "Apareceu em: 7\n",
+      "\n"};
+
+  for (int i = 0; i < 12; i++)
+  {
+    fgets(buffer, 1024, fp2);
+    TEST_ASSERT_EQUAL_STRING(expected[i], buffer);
+  }
+}
