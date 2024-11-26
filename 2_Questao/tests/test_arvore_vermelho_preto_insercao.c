@@ -3,6 +3,23 @@
 
 ArvoreVermelhoPreto *raiz;
 
+int prencher_automatico(int *valores, int qtd)
+{
+  int qtd_erros = 0;
+  for (int i = 0; i < qtd; i++)
+  {
+    ArvoreVermelhoPreto *newTree = NULL;
+    aloca_arvore_vermelho_preto(&newTree);
+    char nome_unidade[20];
+    char palavra_portugues[20];
+    sprintf(nome_unidade, "Unidade %d", valores[i]);
+    sprintf(palavra_portugues, "%d", valores[i]);
+    def_arvore_vermelho_preto(newTree, palavra_portugues, palavra_portugues, nome_unidade);
+    qtd_erros += !inserir_arvore_vermelho_preto(&raiz, newTree);
+  }
+  return qtd_erros;
+}
+
 void setUp(void)
 {
   raiz = NULL;
@@ -18,6 +35,7 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_1(); // 1 -> 2 -> 3
 void test_insercao_arvore_vermelha_preta_inserindo_caso_2(); // 3 -> 2 -> 1
 void test_insercao_arvore_vermelha_preta_inserindo_caso_3(); // 2 -> 1 -> 3
 void test_insercao_arvore_vermelha_preta_inserindo_caso_4(); // 3 -> 1 -> 2
+void test_insercao_arvore_vermelha_preta_inserindo_caso_5(); // 1 -> 2 -> 3 -> 4 -> 5
 void test_insercao_arvore_vermelha_preta_atualizando_caso_1();
 
 int main()
@@ -35,15 +53,12 @@ int main()
 
 void test_insercao_arvore_vermelha_preta_inserindo()
 {
-  ArvoreVermelhoPreto *newTree;
-  aloca_arvore_vermelho_preto(&newTree);
-  def_arvore_vermelho_preto(newTree, "Bus", "Onibus", "Unidade 1");
+  int valores_inserir[] = {1};
+  prencher_automatico(valores_inserir, 1);
 
-  int resultado = inserir_arvore_vermelho_preto(&raiz, newTree);
-  TEST_ASSERT_EQUAL_INT(1, resultado);
   TEST_ASSERT_NOT_NULL(raiz);
-  TEST_ASSERT_EQUAL_STRING("Bus", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("Onibus", raiz->info.palavra_portugues);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->info.palavra_portugues);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
   TEST_ASSERT_NULL(raiz->esq);
   TEST_ASSERT_NULL(raiz->dir);
@@ -51,36 +66,22 @@ void test_insercao_arvore_vermelha_preta_inserindo()
 
 void test_insercao_arvore_vermelha_preta_inserindo_valor_unico()
 {
-  ArvoreVermelhoPreto *newTree;
-  aloca_arvore_vermelho_preto(&newTree);
-  def_arvore_vermelho_preto(newTree, "Bus", "Onibus", "Unidade 1");
+  int valores_inserir[] = {1, 1};
+  int qtd_erros = prencher_automatico(valores_inserir, 2);
 
-  int resultado = inserir_arvore_vermelho_preto(&raiz, newTree);
-  TEST_ASSERT_EQUAL_INT(1, resultado);
-
-  resultado = inserir_arvore_vermelho_preto(&raiz, newTree);
-  TEST_ASSERT_EQUAL_INT(0, resultado);
+  TEST_ASSERT_EQUAL_INT(1, qtd_erros);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->info.palavra_portugues);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING("Unidade 1", raiz->info.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
 }
 
 void test_insercao_arvore_vermelha_preta_inserindo_caso_1()
 {
-  // Passo 1
-  ArvoreVermelhoPreto *newTree1;
-  aloca_arvore_vermelho_preto(&newTree1);
-  def_arvore_vermelho_preto(newTree1, "1", "1", "Unidade");
-
-  int resultado = inserir_arvore_vermelho_preto(&raiz, newTree1);
-  TEST_ASSERT_EQUAL_INT(1, resultado);
-
-  // Passo 2
-  ArvoreVermelhoPreto *newTree2;
-  aloca_arvore_vermelho_preto(&newTree2);
-  def_arvore_vermelho_preto(newTree2, "2", "2", "Unidade");
-
-  resultado = inserir_arvore_vermelho_preto(&raiz, newTree2);
-  TEST_ASSERT_EQUAL_INT(1, resultado);
+  int valores_inserir_pt1[] = {1, 2};
+  int qtd_erros = prencher_automatico(valores_inserir_pt1, 2);
 
   TEST_ASSERT_NOT_NULL(raiz->esq);
+  TEST_ASSERT_EQUAL_INT(0, qtd_erros);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
@@ -88,13 +89,10 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_1()
   TEST_ASSERT_EQUAL_INT(VERMELHO, raiz->esq->cor);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
 
-  // Passo 3
-  ArvoreVermelhoPreto *newTree3;
-  aloca_arvore_vermelho_preto(&newTree3);
-  def_arvore_vermelho_preto(newTree3, "3", "3", "Unidade");
+  int valores_inserir_pt2[] = {3};
+  qtd_erros = prencher_automatico(valores_inserir_pt2, 1);
 
-  resultado = inserir_arvore_vermelho_preto(&raiz, newTree3);
-  TEST_ASSERT_EQUAL_INT(1, resultado);
+  TEST_ASSERT_EQUAL_INT(0, qtd_erros);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
@@ -108,21 +106,10 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_1()
 
 void test_insercao_arvore_vermelha_preta_inserindo_caso_2()
 {
-  // Passo 1
-  ArvoreVermelhoPreto *newTree1;
-  aloca_arvore_vermelho_preto(&newTree1);
-  def_arvore_vermelho_preto(newTree1, "3", "3", "Unidade");
+  int valores_inserir_pt1[] = {3, 2};
+  int qtd_erros = prencher_automatico(valores_inserir_pt1, 2);
 
-  inserir_arvore_vermelho_preto(&raiz, newTree1);
-
-  // Passo 2
-  ArvoreVermelhoPreto *newTree2;
-  aloca_arvore_vermelho_preto(&newTree2);
-  def_arvore_vermelho_preto(newTree2, "2", "2", "Unidade");
-
-  int resultado = inserir_arvore_vermelho_preto(&raiz, newTree2);
-
-  TEST_ASSERT_EQUAL_INT(1, resultado);
+  TEST_ASSERT_EQUAL_INT(0, qtd_erros);
   TEST_ASSERT_EQUAL_STRING("3", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("3", raiz->info.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("2", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
@@ -130,14 +117,10 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_2()
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
   TEST_ASSERT_EQUAL_INT(VERMELHO, raiz->esq->cor);
 
-  // Passo 3
-  ArvoreVermelhoPreto *newTree3;
-  aloca_arvore_vermelho_preto(&newTree3);
-  def_arvore_vermelho_preto(newTree3, "1", "1", "Unidade");
+  int valores_inserir_pt2[] = {1};
+  qtd_erros = prencher_automatico(valores_inserir_pt2, 1);
 
-  resultado = inserir_arvore_vermelho_preto(&raiz, newTree3);
-
-  TEST_ASSERT_EQUAL_INT(1, resultado);
+  TEST_ASSERT_EQUAL_INT(0, qtd_erros);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
@@ -151,21 +134,10 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_2()
 
 void test_insercao_arvore_vermelha_preta_inserindo_caso_3()
 {
-  // Passo 1, inserindo o 2.
-  ArvoreVermelhoPreto *newTree1;
-  aloca_arvore_vermelho_preto(&newTree1);
-  def_arvore_vermelho_preto(newTree1, "2", "2", "Unidade");
+  int valores_inserir_pt1[] = {2, 1};
+  int qtd_erros = prencher_automatico(valores_inserir_pt1, 2);
 
-  inserir_arvore_vermelho_preto(&raiz, newTree1);
-
-  // Passo 2, inserindo o 1.
-  ArvoreVermelhoPreto *newTree2;
-  aloca_arvore_vermelho_preto(&newTree2);
-  def_arvore_vermelho_preto(newTree2, "1", "1", "Unidade");
-
-  int confirmacao = inserir_arvore_vermelho_preto(&raiz, newTree2);
-
-  TEST_ASSERT_EQUAL_INT(1, confirmacao);
+  TEST_ASSERT_EQUAL_INT(0, qtd_erros);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
@@ -173,14 +145,10 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_3()
   TEST_ASSERT_EQUAL_INT(VERMELHO, raiz->esq->cor);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
 
-  // Passo 3, inserindo o 3.
-  ArvoreVermelhoPreto *newTree3;
-  aloca_arvore_vermelho_preto(&newTree3);
-  def_arvore_vermelho_preto(newTree3, "3", "3", "Unidade");
+  int valores_inserir_pt2[] = {3};
+  qtd_erros = prencher_automatico(valores_inserir_pt2, 1);
 
-  confirmacao = inserir_arvore_vermelho_preto(&raiz, newTree3);
-
-  TEST_ASSERT_EQUAL_INT(1, confirmacao);
+  TEST_ASSERT_EQUAL_INT(0, qtd_erros);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("1", raiz->esq->info.arv_binaria_palavra_ingles->info.palavra_ingles);
@@ -194,23 +162,8 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_3()
 
 void test_insercao_arvore_vermelha_preta_inserindo_caso_4()
 {
-  ArvoreVermelhoPreto *newTree1;
-  aloca_arvore_vermelho_preto(&newTree1);
-  def_arvore_vermelho_preto(newTree1, "3", "3", "Unidade");
-
-  inserir_arvore_vermelho_preto(&raiz, newTree1);
-
-  ArvoreVermelhoPreto *newTree2;
-  aloca_arvore_vermelho_preto(&newTree2);
-  def_arvore_vermelho_preto(newTree2, "1", "1", "Unidade");
-
-  inserir_arvore_vermelho_preto(&raiz, newTree2);
-
-  ArvoreVermelhoPreto *newTree3;
-  aloca_arvore_vermelho_preto(&newTree3);
-  def_arvore_vermelho_preto(newTree3, "2", "2", "Unidade");
-
-  inserir_arvore_vermelho_preto(&raiz, newTree3);
+  int valores_inserir_pt1[] = {3, 1, 2};
+  int qtd_erros = prencher_automatico(valores_inserir_pt1, 3);
 
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("2", raiz->info.palavra_portugues);
@@ -221,6 +174,25 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_4()
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->esq->cor);
   TEST_ASSERT_EQUAL_INT(PRETO, raiz->dir->cor);
+}
+
+void test_insercao_arvore_vermelha_preta_inserindo_caso_5()
+{
+  int valores_inserir_pt1[] = {1, 2, 3, 4, 5};
+  int qtd_erros = prencher_automatico(valores_inserir_pt1, 5);
+
+  TEST_ASSERT_EQUAL_STRING("4", raiz->info.palavra_portugues);
+  TEST_ASSERT_EQUAL_STRING("2", raiz->esq->info.palavra_portugues);
+  TEST_ASSERT_EQUAL_STRING("1", raiz->esq->esq->info.palavra_portugues);
+  TEST_ASSERT_EQUAL_STRING("3", raiz->esq->dir->info.palavra_portugues);
+  TEST_ASSERT_EQUAL_STRING("5", raiz->dir->info.palavra_portugues);
+
+  TEST_ASSERT_EQUAL_INT(PRETO, raiz->cor);
+  TEST_ASSERT_EQUAL_INT(PRETO, raiz->dir->cor);
+  TEST_ASSERT_EQUAL_INT(VERMELHO, raiz->esq->cor);
+  TEST_ASSERT_EQUAL_INT(PRETO, raiz->esq->esq->cor);
+  TEST_ASSERT_EQUAL_INT(PRETO, raiz->esq->dir->cor);
+
 }
 
 void test_insercao_arvore_vermelha_preta_atualizando_caso_1()
