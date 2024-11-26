@@ -1,0 +1,40 @@
+Cor: PRETO
+Palavra em portugues: barramento
+Ingles: Bus
+Apareceu em: Unidade 1
+Cor: PRETO
+Palavra em portugues: bicicleta
+Ingles: Bicycle
+Apareceu em: Unidade 2
+Ingles: Bike
+Apareceu em: Unidade 1
+Cor: PRETO
+Palavra em portugues: inseto
+Ingles: Bug
+Apareceu em: Unidade 1
+Cor: PRETO
+Palavra em portugues: onibus
+Ingles: Bus
+Apareceu em: Unidade 1
+Cor: PRETO
+Palavra em portugues: problema
+Ingles: Bug
+Apareceu em: Unidade 1
+Cor: PRETO
+Palavra em portugues: rede de computadores
+Ingles: Network
+Apareceu em: Unidade 1
+Cor: PRETO
+Palavra em portugues: rede de relacionamento
+Ingles: Network
+Apareceu em: Unidade 2
+Cor: PRETO
+Palavra em portugues: sistema
+Ingles: System
+Apareceu em: Unidade 1
+Cor: PRETO
+Palavra em portugues: ventilador
+Ingles: Coller
+Apareceu em: Unidade 1
+Ingles: Fan
+Apareceu em: Unidade 2
