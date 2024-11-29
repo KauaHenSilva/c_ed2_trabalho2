@@ -102,9 +102,9 @@ static int inserir_NO_vermelha_preta(ArvoreVermelhoPreto **raiz, ArvoreVermelhoP
 
   if (!*raiz)
     *raiz = new;
-  else if (strcmp((*raiz)->info.palavra_portugues, new->info.palavra_portugues) > 0)
+  else if (strcmp(new->info.palavra_portugues, (*raiz)->info.palavra_portugues) < 0)
     ver = inserir_NO_vermelha_preta(&(*raiz)->esq, new);
-  else if (strcmp((*raiz)->info.palavra_portugues, new->info.palavra_portugues) < 0)
+  else if (strcmp(new->info.palavra_portugues, (*raiz)->info.palavra_portugues) > 0)
     ver = inserir_NO_vermelha_preta(&(*raiz)->dir, new);
   else
     ver = insercao_arvore_binaria(&(*raiz)->info.arv_binaria_palavra_ingles, new->info.arv_binaria_palavra_ingles);

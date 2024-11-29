@@ -28,15 +28,15 @@ void tearDown(void)
   free_arvore_vermelho_preto(&raiz);
 }
 
-void test_remocao_arvore_vermelha_preta_caso_1(); // inc: 4, 2, 5, 1, 3 -> rem: 3
-void test_remocao_arvore_vermelho_preto_caso_2(); // inc: 4, 2, 5, 1, 3 -> rem: 2
-void test_remocao_arvore_vermelho_preto_caso_3(); // inc: 4, 2, 5, 1, 3 -> rem: 4
-void test_remocao_arvore_vermelho_preto_caso_4(); // inc: 4, 2, 5, 1, 3 -> rem: 5
-void test_remocao_arvore_vermelho_preto_caso_5(); // inc: 4, 2, 5, 1, 3 -> rem: 1
-void test_remocao_arvore_vermelho_preto_caso_6(); // inc: 3 -> rem: 2
-void test_remocao_arvore_vermelho_preto_caso_7(); // inc: 3 -> rem: 3
-void test_remocao_arvore_vermelho_preto_caso_8(); // inc: 3 -> rem: 4
-void test_remocao_arvore_vermelho_preto_caso_9(); // inc: 1, 2, 3, 4, 5 -> 0
+void test_remocao_arvore_vermelha_preta_caso_1();  // inc: 4, 2, 5, 1, 3 -> rem: 3
+void test_remocao_arvore_vermelho_preto_caso_2();  // inc: 4, 2, 5, 1, 3 -> rem: 2
+void test_remocao_arvore_vermelho_preto_caso_3();  // inc: 4, 2, 5, 1, 3 -> rem: 4
+void test_remocao_arvore_vermelho_preto_caso_4();  // inc: 4, 2, 5, 1, 3 -> rem: 5
+void test_remocao_arvore_vermelho_preto_caso_5();  // inc: 4, 2, 5, 1, 3 -> rem: 1
+void test_remocao_arvore_vermelho_preto_caso_6();  // inc: 3 -> rem: 2
+void test_remocao_arvore_vermelho_preto_caso_7();  // inc: 3 -> rem: 3
+void test_remocao_arvore_vermelho_preto_caso_8();  // inc: 3 -> rem: 4
+void test_remocao_arvore_vermelho_preto_caso_9();  // inc: 1, 2, 3, 4, 5 -> 0
 
 int main()
 {
