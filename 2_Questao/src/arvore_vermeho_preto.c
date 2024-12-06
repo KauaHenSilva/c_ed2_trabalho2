@@ -177,7 +177,7 @@ static int remover_menor(ArvoreVermelhoPreto **raiz)
   return ver;
 }
 
-int remover_NO_vermelho_preto(ArvoreVermelhoPreto **raiz, char *plv_portugues)
+int remover_NO_vermelho_preto(ArvoreVermelhoPreto **raiz, const char *plv_portugues)
 {
   int ver = 0;
 
@@ -223,7 +223,7 @@ int remover_NO_vermelho_preto(ArvoreVermelhoPreto **raiz, char *plv_portugues)
   return ver;
 }
 
-int remover_arvore_vermelho_preto(ArvoreVermelhoPreto **raiz, char *plv_portugues)
+int remover_arvore_vermelho_preto(ArvoreVermelhoPreto **raiz, const char *plv_portugues)
 {
   int ver = remover_NO_vermelho_preto(raiz, plv_portugues);
   if (ver && *raiz)

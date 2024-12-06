@@ -42,3 +42,48 @@ int remove_palavra_ingles_unidade(ArvoreVermelhoPreto **raiz, const char *palavr
     (*raiz)->cor = PRETO;
   return 1;
 }
+
+int _remove_palavra_portugues_unidade(ArvoreBinaria **raiz, const char *palavra_portugues, const char *unidade)
+{
+  int confirm = 1;
+  if (*raiz)
+  {
+    confirm = _remove_palavra_portugues_unidade(&(*raiz)->esquerda, palavra_portugues, unidade);
+    confirm = _remove_palavra_portugues_unidade(&(*raiz)->direita, palavra_portugues, unidade);
+
+    ListaEncadeadaUnidade *aux_unidades = (*raiz)->info.unidades;
+    int achou = 0;
+    while (aux_unidades && !achou)
+    {
+      if (strcmp(aux_unidades->nome_unidade, unidade) == 0)
+      {
+        confirm = remover_lista_encadeada_unidade(&(*raiz)->info.unidades, unidade);
+        achou = 1;
+      }
+      aux_unidades = aux_unidades->prox;
+    }
+
+    if (*raiz && !(*raiz)->info.unidades)
+      remocao_arvore_binaria(raiz, (*raiz)->info.palavra_ingles);
+  }
+}
+
+int remove_palavra_portugues_unidade(ArvoreVermelhoPreto **raiz, const char *palavra_portugues, const char *unidade)
+{
+  int confirm = 1;
+  if (*raiz)
+  {
+    if (strcmp((*raiz)->info.palavra_portugues, palavra_portugues) == 0)
+    {
+      confirm = _remove_palavra_portugues_unidade(&(*raiz)->info.arv_binaria_palavra_ingles, palavra_portugues, unidade);
+      if (!(*raiz)->info.arv_binaria_palavra_ingles)
+        confirm = remover_NO_vermelho_preto(raiz, palavra_portugues);
+    }
+    else if (strcmp((*raiz)->info.palavra_portugues, palavra_portugues) > 0)
+      confirm = remove_palavra_portugues_unidade(&(*raiz)->esq, palavra_portugues, unidade);
+    else
+      confirm = remove_palavra_portugues_unidade(&(*raiz)->dir, palavra_portugues, unidade);
+  }
+
+  return 0;
+}
