@@ -1,6 +1,6 @@
 #pragma once
 
-// #include "arvore_vermelho_preto.h"
+#include "include/arvore_2_3.h"
 
-// void exibir_arvore_vermelho_preto_por_unidade(const ArvoreVermelhoPreto *raiz, const char *unidade);
-// void exibir_arvore_vermelho_preto_por_palavra_portugues(const ArvoreVermelhoPreto *raiz, const char *palavra);
+void exibir_arvore_2_3_por_unidade(const Arvore_2_3 *raiz, const char *unidade);
+void exibir_arvore_2_3_por_palavra_portugues(const Arvore_2_3 *raiz, const char *palavra);

@@ -229,46 +229,42 @@ static void show_info(const InfoMain *info)
   show_arvore_binaria(info->arv_binaria_palavra_ingles);
 }
 
-/* Isso é em ordem, Utilize para testar */
-void show_arvore_2_3(const Arvore_2_3 *raiz)
-{
-  if (raiz)
-  {
-
-    printf("Nó: 1\n");
-    show_info(&raiz->info1);
-    if (raiz->n_info == 2)
-    {
-      printf("Nó: 2\n");
-      show_info(&raiz->info2);
-    }
-
-    printf("\n");
-
-    show_arvore_2_3(raiz->esquerda);
-    show_arvore_2_3(raiz->centro);
-    if (raiz->n_info == 2)
-      show_arvore_2_3(raiz->direita);
-  }
-}
-
-/* Isso é em ordem, Utilize para deploymet */
+// /* Isso é em ordem, Utilize para testar */
 // void show_arvore_2_3(const Arvore_2_3 *raiz)
 // {
 //   if (raiz)
 //   {
-//     show_arvore_2_3(raiz->esquerda);
+
 //     printf("Nó: 1\n");
 //     show_info(&raiz->info1);
-
-//     show_arvore_2_3(raiz->centro);
 //     if (raiz->n_info == 2)
 //     {
 //       printf("Nó: 2\n");
 //       show_info(&raiz->info2);
-//       show_arvore_2_3(raiz->direita);
 //     }
 
 //     printf("\n");
+
+//     show_arvore_2_3(raiz->esquerda);
+//     show_arvore_2_3(raiz->centro);
+//     if (raiz->n_info == 2)
+//       show_arvore_2_3(raiz->direita);
 //   }
 // }
+
+/* Isso é em ordem, Utilize para deploymet */
+void show_arvore_2_3(const Arvore_2_3 *raiz)
+{
+  if (raiz)
+  {
+    show_arvore_2_3(raiz->esquerda);
+    show_info(&raiz->info1);
+
+    show_arvore_2_3(raiz->centro);
+    if (raiz->n_info == 2)
+    {
+      show_info(&raiz->info2);
+      show_arvore_2_3(raiz->direita);
+    }
+  }
+}

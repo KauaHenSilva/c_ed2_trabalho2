@@ -1,15 +1,9 @@
-Nó: 1
-Palavra em portugues: 2
-Ingles: 2
-Apareceu em: 2
-
-Nó: 1
 Palavra em portugues: 1
-Ingles: 1
+Possivel traducao em ingles: 1
 Apareceu em: 1
-
-Nó: 1
+Palavra em portugues: 2
+Possivel traducao em ingles: 2
+Apareceu em: 2
 Palavra em portugues: 3
-Ingles: 3
+Possivel traducao em ingles: 3
 Apareceu em: 3
-

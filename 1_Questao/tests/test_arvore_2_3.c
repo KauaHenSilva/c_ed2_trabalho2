@@ -250,16 +250,14 @@ void test_show_arvore_2_3_caso_1()
   char buffer[1024];
 
   char *expected[] = {
-      "Nó: 1\n",
       "Palavra em portugues: 1\n",
-      "Ingles: 1\n",
+      "Possivel traducao em ingles: 1\n",
       "Apareceu em: 1\n",
-      "Nó: 2\n",
       "Palavra em portugues: 2\n",
-      "Ingles: 2\n",
+      "Possivel traducao em ingles: 2\n",
       "Apareceu em: 2\n"};
 
-  for (int i = 0; i < 8; i++)
+  for (int i = 0; i < 6; i++)
   {
     fgets(buffer, 1024, fp2);
     TEST_ASSERT_EQUAL_STRING(expected[i], buffer);
@@ -280,23 +278,18 @@ void test_show_arvore_2_3_caso_2()
   char buffer[1024];
 
   char *expected[] = {
-      "Nó: 1\n",
-      "Palavra em portugues: 2\n",
-      "Ingles: 2\n",
-      "Apareceu em: 2\n",
-      "\n",
-      "Nó: 1\n",
       "Palavra em portugues: 1\n",
-      "Ingles: 1\n",
+      "Possivel traducao em ingles: 1\n",
       "Apareceu em: 1\n",
-      "\n",
-      "Nó: 1\n",
+      "Palavra em portugues: 2\n",
+      "Possivel traducao em ingles: 2\n",
+      "Apareceu em: 2\n",
       "Palavra em portugues: 3\n",
-      "Ingles: 3\n",
+      "Possivel traducao em ingles: 3\n",
       "Apareceu em: 3\n",
-      "\n"};
+  };
 
-  for (int i = 0; i < 12; i++)
+  for (int i = 0; i < 9; i++)
   {
     fgets(buffer, 1024, fp2);
     TEST_ASSERT_EQUAL_STRING(expected[i], buffer);
@@ -316,32 +309,24 @@ void test_show_arvore_2_3_caso_3()
   FILE *fp2 = fopen("output/test_show_arvore_2_3_caso_3.txt", "r");
   char buffer[1024];
   char *expected[] = {
-      "Nó: 1\n",
-      "Palavra em portugues: 2\n",
-      "Ingles: 2\n",
-      "Apareceu em: 2\n",
-      "Nó: 2\n",
-      "Palavra em portugues: 4\n",
-      "Ingles: 4\n",
-      "Apareceu em: 4\n",
-      "\n",
-      "Nó: 1\n",
       "Palavra em portugues: 1\n",
-      "Ingles: 1\n",
+      "Possivel traducao em ingles: 1\n",
       "Apareceu em: 1\n",
-      "\n",
-      "Nó: 1\n",
+      "Palavra em portugues: 2\n",
+      "Possivel traducao em ingles: 2\n",
+      "Apareceu em: 2\n",
       "Palavra em portugues: 3\n",
-      "Ingles: 3\n",
+      "Possivel traducao em ingles: 3\n",
       "Apareceu em: 3\n",
-      "\n",
-      "Nó: 1\n",
+      "Palavra em portugues: 4\n",
+      "Possivel traducao em ingles: 4\n",
+      "Apareceu em: 4\n",
       "Palavra em portugues: 5\n",
-      "Ingles: 5\n",
+      "Possivel traducao em ingles: 5\n",
       "Apareceu em: 5\n",
-      "\n"};
+  };
 
-  for (int i = 0; i < 12; i++)
+  for (int i = 0; i < 15; i++)
   {
     fgets(buffer, 1024, fp2);
     TEST_ASSERT_EQUAL_STRING(expected[i], buffer);
@@ -361,43 +346,30 @@ void test_show_arvore_2_3_caso_4()
   FILE *fp2 = fopen("output/test_show_arvore_2_3_caso_4.txt", "r");
   char buffer[1024];
   char *expected[] = {
-      "Nó: 1\n",
-      "Palavra em portugues: 4\n",
-      "Ingles: 4\n",
-      "Apareceu em: 4\n",
-      "\n",
-      "Nó: 1\n",
-      "Palavra em portugues: 2\n",
-      "Ingles: 2\n",
-      "Apareceu em: 2\n",
-      "\n",
-      "Nó: 1\n",
       "Palavra em portugues: 1\n",
-      "Ingles: 1\n",
+      "Possivel traducao em ingles: 1\n",
       "Apareceu em: 1\n",
-      "\n",
-      "Nó: 1\n",
+      "Palavra em portugues: 2\n",
+      "Possivel traducao em ingles: 2\n",
+      "Apareceu em: 2\n",
       "Palavra em portugues: 3\n",
-      "Ingles: 3\n",
+      "Possivel traducao em ingles: 3\n",
       "Apareceu em: 3\n",
-      "\n",
-      "Nó: 1\n",
-      "Palavra em portugues: 6\n",
-      "Ingles: 6\n",
-      "Apareceu em: 6\n",
-      "\n",
-      "Nó: 1\n",
+      "Palavra em portugues: 4\n",
+      "Possivel traducao em ingles: 4\n",
+      "Apareceu em: 4\n",
       "Palavra em portugues: 5\n",
-      "Ingles: 5\n",
+      "Possivel traducao em ingles: 5\n",
       "Apareceu em: 5\n",
-      "\n",
-      "Nó: 1\n",
+      "Palavra em portugues: 6\n",
+      "Possivel traducao em ingles: 6\n",
+      "Apareceu em: 6\n",
       "Palavra em portugues: 7\n",
-      "Ingles: 7\n",
+      "Possivel traducao em ingles: 7\n",
       "Apareceu em: 7\n",
-      "\n"};
+  };
 
-  for (int i = 0; i < 12; i++)
+  for (int i = 0; i < 21; i++)
   {
     fgets(buffer, 1024, fp2);
     TEST_ASSERT_EQUAL_STRING(expected[i], buffer);

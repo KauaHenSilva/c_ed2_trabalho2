@@ -142,7 +142,7 @@ void show_arvore_binaria(ArvoreBinaria *raiz)
   if (raiz)
   {
     show_arvore_binaria(raiz->esquerda);
-    printf("Ingles: %s\n", raiz->info.palavra_ingles);
+    printf("Possivel traducao em ingles: %s\n", raiz->info.palavra_ingles);
     printf("Apareceu em: ");
     show_lista_encadeada_unidade(raiz->info.unidades);
     show_arvore_binaria(raiz->direita);
