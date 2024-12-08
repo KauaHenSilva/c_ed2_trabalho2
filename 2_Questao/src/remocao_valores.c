@@ -7,6 +7,8 @@
 int _remove_palavra_ingles_unidade(ArvoreVermelhoPreto **raiz, const char *palavra_ingles, const char *unidade)
 {
   int confirm = 1;
+  int removel_vermelho_preto = 0;
+
   if (*raiz)
   {
     confirm = remove_palavra_ingles_unidade(&(*raiz)->esq, palavra_ingles, unidade);
@@ -28,11 +30,16 @@ int _remove_palavra_ingles_unidade(ArvoreVermelhoPreto **raiz, const char *palav
     }
 
     if (aux && !aux->info.unidades)
-      remocao_arvore_binaria(&(*raiz)->info.arv_binaria_palavra_ingles, palavra_ingles);
+      confirm = remocao_arvore_binaria(&(*raiz)->info.arv_binaria_palavra_ingles, palavra_ingles);
 
     if (*raiz && !(*raiz)->info.arv_binaria_palavra_ingles)
-      remover_NO_vermelho_preto(raiz, (*raiz)->info.palavra_portugues);
+      confirm = removel_vermelho_preto = remover_NO_vermelho_preto(raiz, (*raiz)->info.palavra_portugues);
   }
+
+  if (*raiz && removel_vermelho_preto)
+    balancear(raiz);
+
+  return confirm;
 }
 
 int remove_palavra_ingles_unidade(ArvoreVermelhoPreto **raiz, const char *palavras_ingles, const char *unidade)
@@ -71,19 +78,24 @@ int _remove_palavra_portugues_unidade(ArvoreBinaria **raiz, const char *palavra_
 int remove_palavra_portugues_unidade(ArvoreVermelhoPreto **raiz, const char *palavra_portugues, const char *unidade)
 {
   int confirm = 1;
+  int removel_vermelho_preto = 0;
+
   if (*raiz)
   {
     if (strcmp((*raiz)->info.palavra_portugues, palavra_portugues) == 0)
     {
       confirm = _remove_palavra_portugues_unidade(&(*raiz)->info.arv_binaria_palavra_ingles, palavra_portugues, unidade);
       if (!(*raiz)->info.arv_binaria_palavra_ingles)
-        confirm = remover_NO_vermelho_preto(raiz, palavra_portugues);
+        confirm = removel_vermelho_preto = remover_NO_vermelho_preto(raiz, palavra_portugues);
     }
     else if (strcmp((*raiz)->info.palavra_portugues, palavra_portugues) > 0)
       confirm = remove_palavra_portugues_unidade(&(*raiz)->esq, palavra_portugues, unidade);
     else
       confirm = remove_palavra_portugues_unidade(&(*raiz)->dir, palavra_portugues, unidade);
   }
+
+  if (*raiz && removel_vermelho_preto)
+    balancear(raiz);
 
   return 0;
 }

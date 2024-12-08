@@ -86,7 +86,7 @@ static Cor pegarCor(const ArvoreVermelhoPreto *raiz)
   return reposta;
 }
 
-static void balancear(ArvoreVermelhoPreto **raiz)
+void balancear(ArvoreVermelhoPreto **raiz)
 {
   if (pegarCor((*raiz)->dir) == VERMELHO && pegarCor((*raiz)->esq) == PRETO)
     rotacao_esquerda(raiz);
