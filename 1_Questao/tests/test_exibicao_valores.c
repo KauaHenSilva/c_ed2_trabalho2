@@ -18,7 +18,7 @@ void tearDown()
 }
 
 void test_exibir_arvore_2_3_por_unidade_caso_1();
-// void test_exibir_arvore_2_3_por_unidade_caso_2();
+void test_exibir_arvore_2_3_por_unidade_caso_2();
 // void test_exibir_arvore_2_3_por_palavra_portugues_caso_1();
 // void test_exibir_arvore_2_3_por_palavra_portugues_caso_2();
 
@@ -26,7 +26,7 @@ int main()
 {
   UNITY_BEGIN();
   RUN_TEST(test_exibir_arvore_2_3_por_unidade_caso_1);
-  // RUN_TEST(test_exibir_arvore_2_3_por_unidade_caso_2);
+  RUN_TEST(test_exibir_arvore_2_3_por_unidade_caso_2);
   // RUN_TEST(test_exibir_arvore_2_3_por_palavra_portugues_caso_1);
   // RUN_TEST(test_exibir_arvore_2_3_por_palavra_portugues_caso_2);
   return UNITY_END();
@@ -66,35 +66,31 @@ void test_exibir_arvore_2_3_por_unidade_caso_1()
   TEST_ASSERT_EQUAL_STRING(NULL, fgets(buffer, 1024, fp));
 }
 
-// void test_exibir_arvore_2_3_por_unidade_caso_2()
-// {
-//   FILE *fp = freopen("output/test_exibir_arvore_2_3_por_unidade_caso_2.txt", "w", stdout);
-//   exibir_arvore_2_3_por_unidade(raiz, "Unidade 2");
-//   fclose(fp);
-//   freopen("/dev/tty", "w", stdout);
+void test_exibir_arvore_2_3_por_unidade_caso_2()
+{
+  FILE *fp = freopen("output/test_exibir_arvore_2_3_por_unidade_caso_2.txt", "w", stdout);
+  exibir_arvore_2_3_por_unidade(raiz, "Unidade 2");
+  fclose(fp);
+  freopen("/dev/tty", "w", stdout);
 
-//   fp = fopen("output/test_exibir_arvore_2_3_por_unidade_caso_2.txt", "r");
-//   char buffer[1024];
+  fp = fopen("output/test_exibir_arvore_2_3_por_unidade_caso_2.txt", "r");
+  char buffer[1024];
 
-//   char *experado[] = {
-//     "Palavra em portugues: bicicleta\n",
-//     "Possivel traducao em ingles: Bicycle\n",
-//     "\n",
-//     "Palavra em portugues: inseto\n",
-//     "Possivel traducao em ingles: Bug\n",
-//     "\n",
-//     "Palavra em portugues: rede de relacionamento\n",
-//     "Possivel traducao em ingles: Network\n",
-//     "\n",
-//     "Palavra em portugues: ventilador\n",
-//     "Possivel traducao em ingles: Fan\n",
-//     "\n"
-//   };
+  char *experado[] = {
+    "Palavra em portugues: bicicleta\n",
+    "Possivel traducao em ingles: Bicycle\n",
+    "Palavra em portugues: inseto\n",
+    "Possivel traducao em ingles: Bug\n",
+    "Palavra em portugues: rede de relacionamento\n",
+    "Possivel traducao em ingles: Network\n",
+    "Palavra em portugues: ventilador\n",
+    "Possivel traducao em ingles: Fan\n",
+  };
 
-//   for (int i = 0; i < (int)(sizeof(experado) / sizeof(char *)); i++)
-//     TEST_ASSERT_EQUAL_STRING(experado[i], fgets(buffer, 1024, fp));
-//   TEST_ASSERT_EQUAL_STRING(NULL, fgets(buffer, 1024, fp));
-// }
+  for (int i = 0; i < (int)(sizeof(experado) / sizeof(char *)); i++)
+    TEST_ASSERT_EQUAL_STRING(experado[i], fgets(buffer, 1024, fp));
+  TEST_ASSERT_EQUAL_STRING(NULL, fgets(buffer, 1024, fp));
+}
 
 // void test_exibir_arvore_2_3_por_palavra_portugues_caso_1()
 // {
