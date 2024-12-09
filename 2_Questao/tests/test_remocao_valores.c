@@ -45,7 +45,7 @@ void test_remove_palavra_ingles_unidade_caso_bus_unidade_1()
   fp = fopen("output/test_remove_palavra_ingles_unidade_caso_bus_unidade_1.txt", "r");
   char buffer[1024];
   char *experado[] = {
-      "Cor: PRETO\n",
+      "Cor: VERMELHO\n",
       "Palavra em portugues: bicicleta\n",
       "Ingles: Bicycle\n",
       "Apareceu em: Unidade 2\n",
@@ -55,7 +55,7 @@ void test_remove_palavra_ingles_unidade_caso_bus_unidade_1()
       "Palavra em portugues: inseto\n",
       "Ingles: Bug\n",
       "Apareceu em: Unidade 2, Unidade 1\n",
-      "Cor: PRETO\n",
+      "Cor: VERMELHO\n",
       "Palavra em portugues: problema\n",
       "Ingles: Bug\n",
       "Apareceu em: Unidade 1\n",
@@ -97,7 +97,7 @@ void test_remove_palavra_ingles_unidade_caso_bug_unidade_1()
   fp = fopen("output/test_remove_palavra_ingles_unicade_caso_bug_unidade_1.txt", "r");
   char buffer[1024];
   char *experado[] = {
-      "Cor: PRETO\n",
+      "Cor: VERMELHO\n",
       "Palavra em portugues: barramento\n",
       "Ingles: Bus\n",
       "Apareceu em: Unidade 1\n",
@@ -107,7 +107,7 @@ void test_remove_palavra_ingles_unidade_caso_bug_unidade_1()
       "Apareceu em: Unidade 2\n",
       "Ingles: Bike\n",
       "Apareceu em: Unidade 1\n",
-      "Cor: VERMELHO\n",
+      "Cor: PRETO\n",
       "Palavra em portugues: inseto\n",
       "Ingles: Bug\n",
       "Apareceu em: Unidade 2\n",
@@ -123,7 +123,7 @@ void test_remove_palavra_ingles_unidade_caso_bug_unidade_1()
       "Palavra em portugues: rede de relacionamento\n",
       "Ingles: Network\n",
       "Apareceu em: Unidade 2\n",
-      "Cor: VERMELHO\n",
+      "Cor: PRETO\n",
       "Palavra em portugues: sistema\n",
       "Ingles: System\n",
       "Apareceu em: Unidade 1\n",
@@ -153,7 +153,7 @@ void test_remove_palavra_ingles_unidade_caso_bug_unidade_2()
   fp = fopen("output/test_remove_palavra_ingles_unidade_caso_bug_unidade_2.txt", "r");
   char buffer[1024];
   char *experado[] = {
-      "Cor: PRETO\n",
+      "Cor: VERMELHO\n",
       "Palavra em portugues: barramento\n",
       "Ingles: Bus\n",
       "Apareceu em: Unidade 1\n",
@@ -175,7 +175,7 @@ void test_remove_palavra_ingles_unidade_caso_bug_unidade_2()
       "Palavra em portugues: problema\n",
       "Ingles: Bug\n",
       "Apareceu em: Unidade 1\n",
-      "Cor: PRETO\n",
+      "Cor: VERMELHO\n",
       "Palavra em portugues: rede de computadores\n",
       "Ingles: Network\n",
       "Apareceu em: Unidade 1\n",

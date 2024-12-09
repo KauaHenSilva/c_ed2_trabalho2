@@ -1,4 +1,4 @@
-Cor: PRETO
+Cor: VERMELHO
 Palavra em portugues: barramento
 Ingles: Bus
 Apareceu em: Unidade 1
@@ -20,7 +20,7 @@ Cor: PRETO
 Palavra em portugues: problema
 Ingles: Bug
 Apareceu em: Unidade 1
-Cor: PRETO
+Cor: VERMELHO
 Palavra em portugues: rede de computadores
 Ingles: Network
 Apareceu em: Unidade 1

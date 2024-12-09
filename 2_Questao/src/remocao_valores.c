@@ -8,7 +8,7 @@ int __remove_palavra_ingles_unidade(ArvoreBinaria **raiz, const char *palavra_in
 {
   int confirm = 1;
 
-  if (raiz)
+  if (*raiz)
   {
     if (strcmp((*raiz)->info.palavra_ingles, palavra_ingles) == 0)
     {
@@ -34,6 +34,7 @@ int _remove_palavra_ingles_unidade(ArvoreVermelhoPreto *raiz, const char *palavr
     confirm = _remove_palavra_ingles_unidade((raiz)->esq, palavra_ingles, unidade, top);
     confirm = _remove_palavra_ingles_unidade((raiz)->dir, palavra_ingles, unidade, top);
     confirm = __remove_palavra_ingles_unidade(&(raiz)->info.arv_binaria_palavra_ingles, palavra_ingles, unidade);
+
     if (!(raiz)->info.arv_binaria_palavra_ingles)
       confirm = remover_arvore_vermelho_preto(top, raiz->info.palavra_portugues);
   }
@@ -51,7 +52,7 @@ int remove_palavra_ingles_unidade(ArvoreVermelhoPreto **raiz, const char *palavr
 int __remove_palavra_portugues_unidade(ArvoreBinaria **raiz, const char *palavra_portugues, const char *unidade)
 {
   int confirm = 1;
-  if (raiz)
+  if (*raiz)
   {
     confirm = __remove_palavra_portugues_unidade(&(*raiz)->esquerda, palavra_portugues, unidade);
     confirm = __remove_palavra_portugues_unidade(&(*raiz)->direita, palavra_portugues, unidade) || confirm;

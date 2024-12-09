@@ -35,28 +35,28 @@ test: test_arvore_binaria test_arvore_vermelho_preto test_arvore_vermelho_preto_
 test_debug: output test_arvore_binaria test_arvore_vermelho_preto test_arvore_vermelho_preto_insercao test_arvore_vermelho_preto_remocao test_tratamento_de_arquivo test_utils test_exibicao_valores test_remocao_valores
 	
 test_arvore_binaria: 
-	gcc -g -I . -o output/test_arvore_binaria ${C_FLAGS} tests/test_arvore_binaria.c $(shell find ./src -name '*.c') Unity/unity.c 
+	gcc -g -I . -o output/test_arvore_binaria ${C_FLAGS} tests/test_arvore_binaria.c $(shell find ./src -name '*.c') tests/Unity/unity.c 
 
 test_arvore_vermelho_preto: 
-	gcc -g -I . -o output/test_arvore_vermelho_preto ${C_FLAGS} tests/test_arvore_vermelho_preto.c $(shell find ./src -name '*.c')  Unity/unity.c
+	gcc -g -I . -o output/test_arvore_vermelho_preto ${C_FLAGS} tests/test_arvore_vermelho_preto.c $(shell find ./src -name '*.c')  tests/Unity/unity.c
 
 test_arvore_vermelho_preto_insercao:
-	gcc -g -I . -o output/test_arvore_vermelho_preto_insercao ${C_FLAGS} tests/test_arvore_vermelho_preto_insercao.c $(shell find ./src -name '*.c') Unity/unity.c
+	gcc -g -I . -o output/test_arvore_vermelho_preto_insercao ${C_FLAGS} tests/test_arvore_vermelho_preto_insercao.c $(shell find ./src -name '*.c') tests/Unity/unity.c
 
 test_arvore_vermelho_preto_remocao:
-	gcc -g -I . -o output/test_arvore_vermelho_preto_remocao ${C_FLAGS} tests/test_arvore_vermelho_preto_remocao.c $(shell find ./src -name '*.c') Unity/unity.c
+	gcc -g -I . -o output/test_arvore_vermelho_preto_remocao ${C_FLAGS} tests/test_arvore_vermelho_preto_remocao.c $(shell find ./src -name '*.c') tests/Unity/unity.c
 
 test_tratamento_de_arquivo:
-	gcc -g -I . -o output/test_tratamento_de_arquivo ${C_FLAGS} tests/test_tratamento_de_arquivo.c $(shell find ./src -name '*.c') Unity/unity.c
+	gcc -g -I . -o output/test_tratamento_de_arquivo ${C_FLAGS} tests/test_tratamento_de_arquivo.c $(shell find ./src -name '*.c') tests/Unity/unity.c
 
 test_exibicao_valores:
-	gcc -g -I . -o output/test_exibicao_valores ${C_FLAGS} tests/test_exibicao_valores.c $(shell find ./src -name '*.c') Unity/unity.c
+	gcc -g -I . -o output/test_exibicao_valores ${C_FLAGS} tests/test_exibicao_valores.c $(shell find ./src -name '*.c') tests/Unity/unity.c
 
 test_utils:
-	gcc -g -I . -o output/test_utils ${C_FLAGS} tests/test_utils.c $(shell find ./src -name '*.c') Unity/unity.c
+	gcc -g -I . -o output/test_utils ${C_FLAGS} tests/test_utils.c $(shell find ./src -name '*.c') tests/Unity/unity.c
 
 test_remocao_valores:
-	gcc -g -I . -o output/test_remocao_valores ${C_FLAGS} tests/test_remocao_valores.c $(shell find ./src -name '*.c') Unity/unity.c
+	gcc -g -I . -o output/test_remocao_valores ${C_FLAGS} tests/test_remocao_valores.c $(shell find ./src -name '*.c') tests/Unity/unity.c
 
 clean:
 	rm -r output
