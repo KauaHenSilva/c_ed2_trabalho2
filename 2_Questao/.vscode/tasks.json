@@ -2,7 +2,7 @@
   "tasks": [
     {
       "type": "shell",
-      "label": "C: Build and Debug All .c Files",
+      "label": "main",
       "command": "sh",
       "args": [
         "-c",

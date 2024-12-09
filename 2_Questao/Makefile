@@ -17,7 +17,7 @@ all: output test main
 output:
 	mkdir -p output
 
-main: test
+main:
 	gcc -g -I. -o output/main ${C_FLAGS} main.c $(shell find ./src -name '*.c')
 	# ./output/main
 
