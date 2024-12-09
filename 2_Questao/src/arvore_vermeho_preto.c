@@ -114,6 +114,26 @@ static int inserir_NO_vermelha_preta(ArvoreVermelhoPreto **raiz, ArvoreVermelhoP
   return ver;
 }
 
+int procurar_arvore_vermelho_preto(ArvoreVermelhoPreto *raiz, const char *plv_portugues, ArvoreVermelhoPreto **result)
+{
+  int ver = 0;
+
+  if (raiz)
+  {
+    if (strcmp(plv_portugues, raiz->info.palavra_portugues) < 0)
+      ver = procurar_arvore_vermelho_preto(raiz->esq, plv_portugues, result);
+    else if (strcmp(plv_portugues, raiz->info.palavra_portugues) > 0)
+      ver = procurar_arvore_vermelho_preto(raiz->dir, plv_portugues, result);
+    else
+    {
+      *result = raiz;
+      ver = 1;
+    }
+  }
+
+  return ver;
+}
+
 int inserir_arvore_vermelho_preto(ArvoreVermelhoPreto **raiz, ArvoreVermelhoPreto *new)
 {
   int ver = inserir_NO_vermelha_preta(raiz, new);
