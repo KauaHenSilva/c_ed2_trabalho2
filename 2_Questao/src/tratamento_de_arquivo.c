@@ -6,11 +6,13 @@
 
 TipoEntrada ler_indentificar_linha(const char *linha)
 {
-  TipoEntrada tipo;
+  TipoEntrada tipo = -1;
+
   if (linha[0] == '%')
     tipo = NOME_UNIDADE;
-  else
+  else if (strchr(linha, ':') && strchr(linha, ';'))
     tipo = PALAVRA_INGLES_PORTUGUES;
+
   return tipo;
 }
 
@@ -60,19 +62,24 @@ int ler_blocos(ArvoreVermelhoPreto **raiz)
   char nome_unidade_atual[255];
   FILE *arquivo = fopen(PATH_ARQUIVO, "r");
 
-
   if (!arquivo)
     confirm = 0;
   else
   {
+    int posicao = 0;
     while (fgets(buffer, 255, arquivo) != NULL)
-      if (ler_indentificar_linha(buffer) == NOME_UNIDADE)
+    {
+      posicao++;
+      TipoEntrada tipo = ler_indentificar_linha(buffer);
+      if (tipo == NOME_UNIDADE)
         sscanf(buffer, "%% %[^\n]", nome_unidade_atual);
-      else
+      else if (tipo == PALAVRA_INGLES_PORTUGUES)
         prencher_arvore_por_linha(raiz, buffer, nome_unidade_atual);
-
-    fclose(arquivo);
+      else
+        printf("Erro ao identificar linha %d\n", posicao);
+    }
   }
 
+  fclose(arquivo);
   return confirm;
 }

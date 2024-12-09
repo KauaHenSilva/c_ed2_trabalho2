@@ -39,7 +39,7 @@ void test_ler_indentificar_linha_nome_unidade()
 
 void test_ler_indentificar_linha_palavra_ingles_portugues()
 {
-  char linha[] = "home: casa";
+  char linha[] = "home: casa;";
   TipoEntrada tipo = ler_indentificar_linha(linha);
   TEST_ASSERT_EQUAL_INT(PALAVRA_INGLES_PORTUGUES, tipo);
 }
