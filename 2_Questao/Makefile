@@ -3,60 +3,49 @@ C_FLAGS = -Wextra -Werror -Wconversion -Wpointer-arith -Wpedantic \
           -Werror=deprecated-declarations -Wformat -Wnull-dereference \
           -Wshadow -Wimplicit-fallthrough \
           -Wunreachable-code -Wduplicated-cond -Wduplicated-branches \
-					-Wrestrict -Wnull-dereference -Wdouble-promotion \
-					-Wformat-y2k
+          -Wrestrict -Wnull-dereference -Wdouble-promotion \
+          -Wformat-y2k
 
+GCC_FLAGS = -g -I. $(C_FLAGS)
 
-OUTPUT_DIR = output
-TEST_DIR = tests
-TEST_FILES = $(shell find $(TEST_DIR) -name '*.c')
-TEST_OUTPUTS = $(patsubst $(TEST_DIR)/%.c, $(OUTPUT_DIR)/%, $(TEST_FILES))
+PATH_OUTPUT_DIR = output
+PATH_TEST_DIR = tests
+PATH_SRC_DIR = src
 
-all: output test main 
+PATH_UNITY_DIR = $(PATH_TEST_DIR)/Unity
+PATH_TEST_FILES = $(shell find $(PATH_TEST_DIR) -name '*.c' -not -path '*/Unity/*')
+PATH_SRC_FILES = $(shell find $(PATH_SRC_DIR) -name '*.c')
+PATH_TEST_OUTPUTS = $(patsubst $(PATH_TEST_DIR)/%.c, $(PATH_OUTPUT_DIR)/%, $(PATH_TEST_FILES))
+
+COMAND_SEPARATOR = echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+
+all: output build_files exec_all_test main
 
 output:
-	mkdir -p output
+	@mkdir -p $(PATH_OUTPUT_DIR)
+
+# Buildar um arquivo de teste
+$(PATH_OUTPUT_DIR)/%: $(PATH_TEST_DIR)/%.c
+	@gcc $(GCC_FLAGS) ${PATH_SRC_FILES} $< -o $@ ${PATH_UNITY_DIR}/unity.c >> /dev/null
+
+build_files: $(PATH_TEST_FILES)
+	@gcc $(GCC_FLAGS) ${PATH_SRC_FILES} main.c -o $(PATH_OUTPUT_DIR)/main >> /dev/null
+	@for test_file in $^; do \
+		output_file=$(PATH_OUTPUT_DIR)/$$(basename $$test_file .c); \
+		gcc $(GCC_FLAGS) ${PATH_SRC_FILES} $$test_file -o $$output_file ${PATH_UNITY_DIR}/unity.c >> /dev/null; \
+	done
 
 main:
-	gcc -g -I. -o output/main ${C_FLAGS} main.c $(shell find ./src -name '*.c')
-	# ./output/main
+	@$(COMAND_SEPARATOR)
+	@./$(PATH_OUTPUT_DIR)/main
+	@$(COMAND_SEPARATOR)
 
-test: test_arvore_binaria test_arvore_vermelho_preto test_arvore_vermelho_preto_insercao test_arvore_vermelho_preto_remocao test_tratamento_de_arquivo test_utils test_exibicao_valores test_remocao_valores
-	clear
-	./output/test_arvore_binaria
-	./output/test_arvore_vermelho_preto
-	./output/test_arvore_vermelho_preto_insercao
-	./output/test_arvore_vermelho_preto_remocao
-	./output/test_tratamento_de_arquivo
-	./output/test_utils
-	./output/test_exibicao_valores
-	./output/test_remocao_valores
 
-test_debug: output test_arvore_binaria test_arvore_vermelho_preto test_arvore_vermelho_preto_insercao test_arvore_vermelho_preto_remocao test_tratamento_de_arquivo test_utils test_exibicao_valores test_remocao_valores
-	
-test_arvore_binaria: 
-	gcc -g -I . -o output/test_arvore_binaria ${C_FLAGS} tests/test_arvore_binaria.c $(shell find ./src -name '*.c') tests/Unity/unity.c 
-
-test_arvore_vermelho_preto: 
-	gcc -g -I . -o output/test_arvore_vermelho_preto ${C_FLAGS} tests/test_arvore_vermelho_preto.c $(shell find ./src -name '*.c')  tests/Unity/unity.c
-
-test_arvore_vermelho_preto_insercao:
-	gcc -g -I . -o output/test_arvore_vermelho_preto_insercao ${C_FLAGS} tests/test_arvore_vermelho_preto_insercao.c $(shell find ./src -name '*.c') tests/Unity/unity.c
-
-test_arvore_vermelho_preto_remocao:
-	gcc -g -I . -o output/test_arvore_vermelho_preto_remocao ${C_FLAGS} tests/test_arvore_vermelho_preto_remocao.c $(shell find ./src -name '*.c') tests/Unity/unity.c
-
-test_tratamento_de_arquivo:
-	gcc -g -I . -o output/test_tratamento_de_arquivo ${C_FLAGS} tests/test_tratamento_de_arquivo.c $(shell find ./src -name '*.c') tests/Unity/unity.c
-
-test_exibicao_valores:
-	gcc -g -I . -o output/test_exibicao_valores ${C_FLAGS} tests/test_exibicao_valores.c $(shell find ./src -name '*.c') tests/Unity/unity.c
-
-test_utils:
-	gcc -g -I . -o output/test_utils ${C_FLAGS} tests/test_utils.c $(shell find ./src -name '*.c') tests/Unity/unity.c
-
-test_remocao_valores:
-	gcc -g -I . -o output/test_remocao_valores ${C_FLAGS} tests/test_remocao_valores.c $(shell find ./src -name '*.c') tests/Unity/unity.c
+exec_all_test: build_files
+	@for test_file in $(PATH_TEST_OUTPUTS); do \
+		${COMAND_SEPARATOR}; \
+		./$$test_file; \
+	done
 
 clean:
-	rm -r output
+	@rm -rf $(PATH_OUTPUT_DIR)

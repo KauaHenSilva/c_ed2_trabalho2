@@ -1,7 +1,6 @@
 #include "include/arvore_2_3.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "arvore_2_3.h"
 
 int criar_arvore_2_3(Arvore_2_3 **arvore, Informacao info, Arvore_2_3 *esquerda, Arvore_2_3 *meio)
 {

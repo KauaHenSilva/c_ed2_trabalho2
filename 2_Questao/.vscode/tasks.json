@@ -23,7 +23,7 @@
       "command": "sh",
       "args": [
         "-c",
-        "cd ${workspaceFolder} && make test_debug"
+        "cd ${workspaceFolder} && make build_files"
       ],
       "options": {
         "cwd": "${fileDirname}"
