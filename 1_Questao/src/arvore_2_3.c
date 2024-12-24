@@ -104,7 +104,7 @@ void quebra_no(Arvore_2_3 **raiz, Arvore_2_3 **new_node, InfoMain info, InfoMain
   if (strcmp(info.palavra_portugues, (*raiz)->info2.palavra_portugues) > 0)
   {
     *info_up = (*raiz)->info2;
-    if (filho)
+    if (*filho)
       cria_no(new_node, info, (*raiz)->direita, *filho);
     else
       cria_no(new_node, info, (*raiz)->direita, NULL);
@@ -112,7 +112,7 @@ void quebra_no(Arvore_2_3 **raiz, Arvore_2_3 **new_node, InfoMain info, InfoMain
   else if (strcmp(info.palavra_portugues, (*raiz)->info1.palavra_portugues) > 0)
   {
     *info_up = info;
-    if (filho)
+    if (*filho)
       cria_no(new_node, (*raiz)->info2, *filho, (*raiz)->direita);
     else
       cria_no(new_node, (*raiz)->info2, NULL, (*raiz)->direita);
@@ -123,7 +123,7 @@ void quebra_no(Arvore_2_3 **raiz, Arvore_2_3 **new_node, InfoMain info, InfoMain
     cria_no(new_node, (*raiz)->info2, (*raiz)->centro, (*raiz)->direita);
     (*raiz)->info1 = info;
 
-    if (filho)
+    if (*filho)
       (*raiz)->centro = *filho;
   }
 

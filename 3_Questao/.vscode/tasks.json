@@ -1,0 +1,23 @@
+{
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "build_files",
+      "command": "sh",
+      "args": [
+        "-c",
+        "cd ${workspaceFolder} && make build_files"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build",
+      "detail": "Task to compile all C files in debug mode and run the output."
+    }
+    
+  ],
+  "version": "2.0.0"
+}

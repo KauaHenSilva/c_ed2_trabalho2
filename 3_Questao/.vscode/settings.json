@@ -1,5 +1,7 @@
 {
   "files.associations": {
+    "*.ndjson": "jsonl",
+    "*.dbclient-js": "javascript",
     ".env.*": "dotenv",
     ".prettierrc": "json",
     "*.css": "css",
@@ -9,6 +11,7 @@
     "type_traits": "cpp",
     "cmath": "cpp",
     "limits": "cpp",
-    "new": "cpp"
+    "new": "cpp",
+    "arvore_2_3.h": "c"
   }
 }
