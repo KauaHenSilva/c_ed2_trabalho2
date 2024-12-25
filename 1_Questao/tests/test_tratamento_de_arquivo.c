@@ -19,6 +19,7 @@ void test_ler_indentificar_linha_caso_1();
 void test_ler_indentificar_linha_caso_2();
 void test_prencher_arvore_por_linha();
 void test_ler_blocos();
+void test_ler_blocos_2();
 
 int main()
 {

@@ -16,13 +16,40 @@ void func_test_inserindo_valores_automatico(int *valores, int qtd)
     sprintf(palavra_portugues, "%d", valores[i]);
     sprintf(unidade, "%d", valores[i]);
 
-    InfoMain promove;
-    Arvore_2_3 *pai = NULL;
-    Arvore_2_3 *new_node = NULL;
-
     def_info_arvore_2_3(&newInfo, palavra_portugues, palavra_portugues, nome_unidade);
-    inserir_arvore_2_3(&raiz, newInfo, &promove, &pai, &new_node);
+    inserir_arvore_2_3(&raiz, newInfo);
   }
+}
+
+void compare_info(InfoMain info, char *palavra_ingles, char *palavra_portugues, char *nome_unidade)
+{
+  TEST_ASSERT_EQUAL_STRING(palavra_ingles, info.arv_binaria_palavra_ingles->info.palavra_ingles);
+  TEST_ASSERT_EQUAL_STRING(palavra_portugues, info.palavra_portugues);
+  TEST_ASSERT_EQUAL_STRING(nome_unidade, info.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
+}
+
+void compare_filiais_NULL(Arvore_2_3 *raiz_atual, Arvore_2_3 *esquerda, Arvore_2_3 *centro, Arvore_2_3 *direita)
+{
+  if (!esquerda)
+    TEST_ASSERT_NULL(raiz_atual->esquerda);
+  else
+    TEST_ASSERT_NOT_NULL(raiz_atual->esquerda);
+
+  if (!centro)
+    TEST_ASSERT_NULL(raiz_atual->centro);
+  else
+    TEST_ASSERT_NOT_NULL(raiz_atual->centro);
+
+  if (!raiz_atual->n_info == 2)
+    if (!direita)
+      TEST_ASSERT_NULL(raiz_atual->direita);
+    else
+      TEST_ASSERT_NOT_NULL(raiz_atual->direita);
+}
+
+void compare_qtd_info(Arvore_2_3 *raiz_atual, int qtd)
+{
+  TEST_ASSERT_EQUAL_INT(qtd, raiz_atual->n_info);
 }
 
 void setUp(void)
@@ -65,19 +92,11 @@ void test_insercao_arvore_2_3_inserindo()
   InfoMain newInfo;
   def_info_arvore_2_3(&newInfo, "Bus", "Onibus", "Unidade 1");
 
-  Arvore_2_3 *new_node = NULL;
-  Arvore_2_3 *pai = NULL;
-  InfoMain promove;
+  inserir_arvore_2_3(&raiz, newInfo);
 
-  inserir_arvore_2_3(&raiz, newInfo, &promove, &pai, &new_node);
-
-  TEST_ASSERT_NOT_NULL(raiz);
-  TEST_ASSERT_EQUAL_STRING("Bus", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("Onibus", raiz->info1.palavra_portugues);
-  TEST_ASSERT_EQUAL_INT(1, raiz->n_info);
-  TEST_ASSERT_NULL(raiz->esquerda);
-  TEST_ASSERT_NULL(raiz->centro);
-  TEST_ASSERT_NULL(raiz->direita);
+  compare_info(raiz->info1, "Bus", "Onibus", "Unidade 1");
+  compare_filiais_NULL(raiz, NULL, NULL, NULL);
+  compare_qtd_info(raiz, 1);
 }
 
 void test_insercao_arvore_2_3_inserindo_valor_unico()
@@ -85,22 +104,12 @@ void test_insercao_arvore_2_3_inserindo_valor_unico()
   InfoMain newInfo;
   def_info_arvore_2_3(&newInfo, "Bus", "Onibus", "Unidade 1");
 
-  Arvore_2_3 *new_node = NULL;
-  Arvore_2_3 *pai = NULL;
-  InfoMain promove;
+  inserir_arvore_2_3(&raiz, newInfo);
+  int resposta = inserir_arvore_2_3(&raiz, newInfo);
 
-  inserir_arvore_2_3(&raiz, newInfo, &promove, &pai, &new_node);
-  int resposta = inserir_arvore_2_3(&raiz, newInfo, &promove, &pai, &new_node);
-
-  TEST_ASSERT_EQUAL_INT(0, resposta);
-  TEST_ASSERT_NOT_NULL(raiz);
-  TEST_ASSERT_EQUAL_STRING("Bus", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("Onibus", raiz->info1.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("Unidade 1", raiz->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_INT(1, raiz->n_info);
-  TEST_ASSERT_NULL(raiz->esquerda);
-  TEST_ASSERT_NULL(raiz->centro);
-  TEST_ASSERT_NULL(raiz->direita);
+  compare_info(raiz->info1, "Bus", "Onibus", "Unidade 1");
+  compare_filiais_NULL(raiz, NULL, NULL, NULL);
+  compare_qtd_info(raiz, 1);
 }
 
 void test_insercao_arvore_2_3_inserindo_caso_1()
@@ -108,17 +117,10 @@ void test_insercao_arvore_2_3_inserindo_caso_1()
   int valores_adicinar[] = {1, 2};
   func_test_inserindo_valores_automatico(valores_adicinar, 2);
 
-  TEST_ASSERT_EQUAL_INT(2, raiz->n_info);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->info1.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info2.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info2.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info2.palavra_portugues);
-
-  TEST_ASSERT_NULL(raiz->esquerda);
-  TEST_ASSERT_NULL(raiz->centro);
-  TEST_ASSERT_NULL(raiz->direita);
+  compare_info(raiz->info1, "1", "1", "1");
+  compare_info(raiz->info2, "2", "2", "2");
+  compare_filiais_NULL(raiz, NULL, NULL, NULL);
+  compare_qtd_info(raiz, 2);
 }
 
 void test_insercao_arvore_2_3_inserindo_caso_2()
@@ -126,17 +128,10 @@ void test_insercao_arvore_2_3_inserindo_caso_2()
   int valores_adicinar[] = {2, 1};
   func_test_inserindo_valores_automatico(valores_adicinar, 2);
 
-  TEST_ASSERT_EQUAL_INT(2, raiz->n_info);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->info1.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info2.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info2.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info2.palavra_portugues);
-
-  TEST_ASSERT_NULL(raiz->esquerda);
-  TEST_ASSERT_NULL(raiz->centro);
-  TEST_ASSERT_NULL(raiz->direita);
+  compare_info(raiz->info1, "1", "1", "1");
+  compare_info(raiz->info2, "2", "2", "2");
+  compare_filiais_NULL(raiz, NULL, NULL, NULL);
+  compare_qtd_info(raiz, 2);
 }
 
 void test_insercao_arvore_2_3_inserindo_caso_3()
@@ -144,29 +139,17 @@ void test_insercao_arvore_2_3_inserindo_caso_3()
   int valores_adicinar[] = {1, 2, 3};
   func_test_inserindo_valores_automatico(valores_adicinar, 3);
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->n_info);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info1.palavra_portugues);
-  TEST_ASSERT_NOT_NULL(raiz->esquerda);
-  TEST_ASSERT_NOT_NULL(raiz->centro);
-  TEST_ASSERT_NULL(raiz->direita);
+  compare_info(raiz->info1, "2", "2", "2");
+  compare_info(raiz->esquerda->info1, "1", "1", "1");
+  compare_info(raiz->centro->info1, "3", "3", "3");
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->esquerda->n_info);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.palavra_portugues);
-  TEST_ASSERT_NULL(raiz->esquerda->esquerda);
-  TEST_ASSERT_NULL(raiz->esquerda->centro);
-  TEST_ASSERT_NULL(raiz->esquerda->direita);
+  compare_filiais_NULL(raiz, raiz, raiz, NULL);
+  compare_filiais_NULL(raiz->esquerda, NULL, NULL, NULL);
+  compare_filiais_NULL(raiz->centro, NULL, NULL, NULL);
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->centro->n_info);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->centro->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->centro->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->centro->info1.palavra_portugues);
-  TEST_ASSERT_NULL(raiz->centro->esquerda);
-  TEST_ASSERT_NULL(raiz->centro->centro);
-  TEST_ASSERT_NULL(raiz->centro->direita);
+  compare_qtd_info(raiz, 1);
+  compare_qtd_info(raiz->esquerda, 1);
+  compare_qtd_info(raiz->centro, 1);
 }
 
 void test_insercao_arvore_2_3_inserindo_caso_4()
@@ -174,23 +157,18 @@ void test_insercao_arvore_2_3_inserindo_caso_4()
   int valores_adicinar[] = {2, 3, 4, 1};
   func_test_inserindo_valores_automatico(valores_adicinar, 4);
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->n_info);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->info1.palavra_portugues);
+  compare_info(raiz->info1, "3", "3", "3");
+  compare_info(raiz->esquerda->info1, "1", "1", "1");
+  compare_info(raiz->esquerda->info2, "2", "2", "2");
+  compare_info(raiz->centro->info1, "4", "4", "4");
 
-  TEST_ASSERT_EQUAL_INT(2, raiz->esquerda->n_info);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->esquerda->info2.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->esquerda->info2.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->esquerda->info2.palavra_portugues);
+  compare_qtd_info(raiz, 1);
+  compare_qtd_info(raiz->esquerda, 2);
+  compare_qtd_info(raiz->centro, 1);
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->centro->n_info);
-  TEST_ASSERT_EQUAL_STRING("4", raiz->centro->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("4", raiz->centro->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("4", raiz->centro->info1.palavra_portugues);
+  compare_filiais_NULL(raiz, raiz, raiz, NULL);
+  compare_filiais_NULL(raiz->esquerda, NULL, NULL, NULL);
+  compare_filiais_NULL(raiz->centro, NULL, NULL, NULL);
 }
 
 void test_insercao_arvore_2_3_inserindo_caso_5()
@@ -198,23 +176,18 @@ void test_insercao_arvore_2_3_inserindo_caso_5()
   int valores_adicinar[] = {1, 2, 3, 4};
   func_test_inserindo_valores_automatico(valores_adicinar, 4);
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->n_info);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info1.palavra_portugues);
+  compare_info(raiz->info1, "2", "2", "2");
+  compare_info(raiz->esquerda->info1, "1", "1", "1");
+  compare_info(raiz->centro->info1, "3", "3", "3");
+  compare_info(raiz->centro->info2, "4", "4", "4");
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->esquerda->n_info);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.palavra_portugues);
+  compare_qtd_info(raiz, 1);
+  compare_qtd_info(raiz->esquerda, 1);
+  compare_qtd_info(raiz->centro, 2);
 
-  TEST_ASSERT_EQUAL_INT(2, raiz->centro->n_info);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->centro->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->centro->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->centro->info1.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("4", raiz->centro->info2.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("4", raiz->centro->info2.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("4", raiz->centro->info2.palavra_portugues);
+  compare_filiais_NULL(raiz, raiz, raiz, NULL);
+  compare_filiais_NULL(raiz->esquerda, NULL, NULL, NULL);
+  compare_filiais_NULL(raiz->centro, NULL, NULL, NULL);
 }
 
 void test_insercao_arvore_2_3_inserindo_caso_6()
@@ -222,28 +195,21 @@ void test_insercao_arvore_2_3_inserindo_caso_6()
   int valores_adicinar[] = {1, 2, 3, 4, 5};
   func_test_inserindo_valores_automatico(valores_adicinar, 5);
 
-  TEST_ASSERT_EQUAL_INT(2, raiz->n_info);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->info1.palavra_portugues);
-  TEST_ASSERT_EQUAL_STRING("4", raiz->info2.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("4", raiz->info2.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("4", raiz->info2.palavra_portugues);
+  compare_info(raiz->info1, "2", "2", "2");
+  compare_info(raiz->info2, "4", "4", "4");
+  compare_info(raiz->esquerda->info1, "1", "1", "1");
+  compare_info(raiz->centro->info1, "3", "3", "3");
+  compare_info(raiz->direita->info1, "5", "5", "5");
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->esquerda->n_info);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->info1.palavra_portugues);
+  compare_qtd_info(raiz, 2);
+  compare_qtd_info(raiz->esquerda, 1);
+  compare_qtd_info(raiz->centro, 1);
+  compare_qtd_info(raiz->direita, 1);
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->centro->n_info);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->centro->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->centro->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->centro->info1.palavra_portugues);
-
-  TEST_ASSERT_EQUAL_INT(1, raiz->direita->n_info);
-  TEST_ASSERT_EQUAL_STRING("5", raiz->direita->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
-  TEST_ASSERT_EQUAL_STRING("5", raiz->direita->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
-  TEST_ASSERT_EQUAL_STRING("5", raiz->direita->info1.palavra_portugues);
+  compare_filiais_NULL(raiz, raiz, raiz, raiz);
+  compare_filiais_NULL(raiz->esquerda, NULL, NULL, NULL);
+  compare_filiais_NULL(raiz->centro, NULL, NULL, NULL);
+  compare_filiais_NULL(raiz->direita, NULL, NULL, NULL);
 }
 
 void test_insercao_arvore_2_3_inserindo_caso_7()
@@ -251,24 +217,27 @@ void test_insercao_arvore_2_3_inserindo_caso_7()
   int valores_adicinar[] = {1, 2, 3, 4, 5, 6, 7};
   func_test_inserindo_valores_automatico(valores_adicinar, 7);
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->n_info);
-  TEST_ASSERT_EQUAL_STRING("4", raiz->info1.palavra_portugues);
+  compare_info(raiz->info1, "4", "4", "4");
+  compare_info(raiz->esquerda->info1, "2", "2", "2");
+  compare_info(raiz->centro->info1, "6", "6", "6");
+  compare_info(raiz->esquerda->esquerda->info1, "1", "1", "1");
+  compare_info(raiz->esquerda->centro->info1, "3", "3", "3");
+  compare_info(raiz->centro->esquerda->info1, "5", "5", "5");
+  compare_info(raiz->centro->centro->info1, "7", "7", "7");
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->esquerda->n_info);
-  TEST_ASSERT_EQUAL_STRING("2", raiz->esquerda->info1.palavra_portugues);
+  compare_qtd_info(raiz, 1);
+  compare_qtd_info(raiz->esquerda, 1);
+  compare_qtd_info(raiz->centro, 1);
+  compare_qtd_info(raiz->esquerda->esquerda, 1);
+  compare_qtd_info(raiz->esquerda->centro, 1);
+  compare_qtd_info(raiz->centro->esquerda, 1);
+  compare_qtd_info(raiz->centro->centro, 1);
 
-  TEST_ASSERT_EQUAL_INT(1, raiz->centro->n_info);
-  TEST_ASSERT_EQUAL_STRING("6", raiz->centro->info1.palavra_portugues);
-
-  TEST_ASSERT_EQUAL_INT(1, raiz->esquerda->esquerda->n_info);
-  TEST_ASSERT_EQUAL_STRING("1", raiz->esquerda->esquerda->info1.palavra_portugues);
-
-  TEST_ASSERT_EQUAL_INT(1, raiz->esquerda->centro->n_info);
-  TEST_ASSERT_EQUAL_STRING("3", raiz->esquerda->centro->info1.palavra_portugues);
-
-  TEST_ASSERT_EQUAL_INT(1, raiz->centro->esquerda->n_info);
-  TEST_ASSERT_EQUAL_STRING("5", raiz->centro->esquerda->info1.palavra_portugues);
-
-  TEST_ASSERT_EQUAL_INT(1, raiz->centro->centro->n_info);
-  TEST_ASSERT_EQUAL_STRING("7", raiz->centro->centro->info1.palavra_portugues);
+  compare_filiais_NULL(raiz, raiz, raiz, NULL);
+  compare_filiais_NULL(raiz->esquerda, raiz, raiz, NULL);
+  compare_filiais_NULL(raiz->centro, raiz, raiz, NULL);
+  compare_filiais_NULL(raiz->esquerda->esquerda, NULL, NULL, NULL);
+  compare_filiais_NULL(raiz->esquerda->centro, NULL, NULL, NULL);
+  compare_filiais_NULL(raiz->centro->esquerda, NULL, NULL, NULL);
+  compare_filiais_NULL(raiz->centro->centro, NULL, NULL, NULL);
 }

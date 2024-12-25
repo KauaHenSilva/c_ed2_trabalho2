@@ -23,9 +23,7 @@ void compare_info(Informacao info, int inicio, int final, STATUS status)
 
 void compare_arvore(Arvore_2_3 *raiz, Informacao info1, Informacao info2, Arvore_2_3 *esq, Arvore_2_3 *meio, Arvore_2_3 *dir, int qtd_info)
 {
-  TEST_ASSERT_EQUAL_INT(info1.inicio, raiz->info1.inicio);
-  TEST_ASSERT_EQUAL_INT(info1.final, raiz->info1.final);
-  TEST_ASSERT_EQUAL_CHAR(info1.status, raiz->info1.status);
+  compare_info(raiz->info1, info1.inicio, info1.final, info1.status);
 
   TEST_ASSERT_EQUAL_PTR(esq, raiz->esquerda);
   TEST_ASSERT_EQUAL_PTR(meio, raiz->meio);
@@ -33,10 +31,8 @@ void compare_arvore(Arvore_2_3 *raiz, Informacao info1, Informacao info2, Arvore
 
   if (qtd_info == 2)
   {
+    compare_info(raiz->info2, info2.inicio, info2.final, info2.status);
     TEST_ASSERT_EQUAL_PTR(dir, raiz->direita);
-    TEST_ASSERT_EQUAL_INT(info2.inicio, raiz->info2.inicio);
-    TEST_ASSERT_EQUAL_INT(info2.final, raiz->info2.final);
-    TEST_ASSERT_EQUAL_CHAR(info2.status, raiz->info2.status);
   }
 }
 

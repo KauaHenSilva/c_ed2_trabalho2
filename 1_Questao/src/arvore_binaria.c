@@ -28,7 +28,6 @@ void free_info_arvore_binaria(InfoArvoreBinaria info)
 
 void copia_arvore_binaria(ArvoreBinaria *recebe, ArvoreBinaria *envia)
 {
-  free_info_arvore_binaria(recebe->info);
   aloca_string(&recebe->info.palavra_ingles, tamanho_string(envia->info.palavra_ingles));
   aloca_lista_encadeada_unidade(&recebe->info.unidades);
   strcpy(recebe->info.palavra_ingles, envia->info.palavra_ingles);

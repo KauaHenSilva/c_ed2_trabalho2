@@ -16,12 +16,8 @@ void func_test_inserindo_valores_automatico(int *valores, int qtd)
     sprintf(palavra_portugues, "%d", valores[i]);
     sprintf(unidade, "%d", valores[i]);
 
-    InfoMain promove;
-    Arvore_2_3 *pai = NULL;
-    Arvore_2_3 *new_node = NULL;
-
     def_info_arvore_2_3(&newInfo, palavra_portugues, palavra_portugues, nome_unidade);
-    inserir_arvore_2_3(&raiz, newInfo, &promove, &pai, &new_node);
+    inserir_arvore_2_3(&raiz, newInfo);
   }
 }
 

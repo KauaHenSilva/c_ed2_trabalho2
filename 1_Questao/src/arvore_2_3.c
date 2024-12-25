@@ -164,7 +164,7 @@ int inserir_valor_arvore_binaria(Arvore_2_3 **raiz, InfoMain info, int value_equ
   return confirm;
 }
 
-int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvore_2_3 **pai, Arvore_2_3 **new_node)
+static int _inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvore_2_3 **pai, Arvore_2_3 **new_node)
 {
   InfoMain promove_rec;
   int confirm = 1, value_equal;
@@ -181,7 +181,8 @@ int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvo
         confirm = adicionando_valor_em_arvore_2_3(*raiz, &info, NULL);
       else
       {
-        quebra_no(raiz, new_node, info, promove, NULL);
+        Arvore_2_3 *filho = NULL;
+        quebra_no(raiz, new_node, info, promove, &filho);
         if (!(*pai))
         {
           cria_no(raiz, *promove, *raiz, *new_node);
@@ -192,11 +193,11 @@ int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvo
     else
     {
       if (strcmp(info.palavra_portugues, (*raiz)->info1.palavra_portugues) < 0)
-        confirm = inserir_arvore_2_3(&(*raiz)->esquerda, info, promove, raiz, new_node);
+        confirm = _inserir_arvore_2_3(&(*raiz)->esquerda, info, promove, raiz, new_node);
       else if ((*raiz)->n_info == 1 || strcmp(info.palavra_portugues, (*raiz)->info2.palavra_portugues) < 0)
-        confirm = inserir_arvore_2_3(&(*raiz)->centro, info, promove, raiz, new_node);
+        confirm = _inserir_arvore_2_3(&(*raiz)->centro, info, promove, raiz, new_node);
       else
-        confirm = inserir_arvore_2_3(&(*raiz)->direita, info, promove, raiz, new_node);
+        confirm = _inserir_arvore_2_3(&(*raiz)->direita, info, promove, raiz, new_node);
 
       if (*new_node)
       {
@@ -221,6 +222,16 @@ int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info, InfoMain *promove, Arvo
   }
 
   return confirm;
+}
+
+int inserir_arvore_2_3(Arvore_2_3 **raiz, InfoMain info)
+{
+  Arvore_2_3 *pai;
+  pai = NULL;
+  Arvore_2_3 *new_node;
+  new_node = NULL;
+  InfoMain promove;
+  return _inserir_arvore_2_3(raiz, info, &promove, &pai, &new_node);
 }
 
 static void show_info(const InfoMain *info)

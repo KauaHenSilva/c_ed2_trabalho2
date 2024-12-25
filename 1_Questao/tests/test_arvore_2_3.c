@@ -16,12 +16,9 @@ void func_test_inserindo_valores_automatico(int *valores, int qtd)
     sprintf(palavra_portugues, "%d", valores[i]);
     sprintf(unidade, "%d", valores[i]);
 
-    InfoMain promove;
-    Arvore_2_3 *pai = NULL;
-    Arvore_2_3 *new_node = NULL;
 
     def_info_arvore_2_3(&newInfo, palavra_portugues, palavra_portugues, nome_unidade);
-    inserir_arvore_2_3(&raiz, newInfo, &promove, &pai, &new_node);
+    inserir_arvore_2_3(&raiz, newInfo);
   }
 }
 
@@ -159,7 +156,8 @@ void test_quebra_no_caso_1()
 
   Arvore_2_3 *new_node = NULL;
   InfoMain info_up;
-  quebra_no(&raiz, &new_node, info3, &info_up, NULL);
+  Arvore_2_3 *filho = NULL;
+  quebra_no(&raiz, &new_node, info3, &info_up, &filho);
 
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
@@ -191,7 +189,8 @@ void test_quebra_no_caso_2()
 
   Arvore_2_3 *new_node = NULL;
   InfoMain info_up;
-  quebra_no(&raiz, &new_node, info3, &info_up, NULL);
+  Arvore_2_3 *filho = NULL;
+  quebra_no(&raiz, &new_node, info3, &info_up, &filho);
 
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
@@ -221,7 +220,8 @@ void test_quebra_no_caso_3()
 
   Arvore_2_3 *new_node = NULL;
   InfoMain info_up;
-  quebra_no(&raiz, &new_node, info3, &info_up, NULL);
+  Arvore_2_3 *filho = NULL;
+  quebra_no(&raiz, &new_node, info3, &info_up, &filho);
 
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);

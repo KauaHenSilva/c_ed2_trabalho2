@@ -35,6 +35,7 @@ void exibir_arvore_2_3_por_unidade(const Arvore_2_3 *raiz, const char *unidade)
     exibir_arvore_2_3_por_unidade(raiz->esquerda, unidade);
 
     exibir_arvore_binaria_por_unidade(raiz->info1.arv_binaria_palavra_ingles, unidade, raiz->info1.palavra_portugues);
+
     exibir_arvore_2_3_por_unidade(raiz->centro, unidade);
     if (raiz->n_info == 2)
     {
@@ -44,12 +45,12 @@ void exibir_arvore_2_3_por_unidade(const Arvore_2_3 *raiz, const char *unidade)
   }
 }
 
-void exibir_arvore_binaria_por_palavra_portugues(const ArvoreBinaria *raiz)
+static void exibir_arvore_binaria_por_palavra_portugues(const ArvoreBinaria *raiz)
 {
   if (raiz)
   {
+    exibir_arvore_binaria_por_palavra_portugues(raiz->esquerda);    
     printf("Possivel traducao em ingles: %s\n", raiz->info.palavra_ingles);
-    exibir_arvore_binaria_por_palavra_portugues(raiz->esquerda);
     exibir_arvore_binaria_por_palavra_portugues(raiz->direita);
   }
 }
@@ -58,15 +59,18 @@ void exibir_arvore_2_3_por_palavra_portugues(const Arvore_2_3 *raiz, const char 
 {
   if (raiz)
   {
+    exibir_arvore_2_3_por_palavra_portugues(raiz->esquerda, palavra);
+
     if (strcmp(raiz->info1.palavra_portugues, palavra) == 0)
       exibir_arvore_binaria_por_palavra_portugues(raiz->info1.arv_binaria_palavra_ingles);
 
-    if (raiz->n_info == 2 && strcmp(raiz->info2.palavra_portugues, palavra) == 0)
-      exibir_arvore_binaria_por_palavra_portugues(raiz->info2.arv_binaria_palavra_ingles);
-
-    exibir_arvore_2_3_por_unidade(raiz->esquerda, palavra);
-    exibir_arvore_2_3_por_unidade(raiz->centro, palavra);
+    exibir_arvore_2_3_por_palavra_portugues(raiz->centro, palavra);
     if (raiz->n_info == 2)
-      exibir_arvore_2_3_por_unidade(raiz->direita, palavra);
+    {
+      if (strcmp(raiz->info2.palavra_portugues, palavra) == 0)
+        exibir_arvore_binaria_por_palavra_portugues(raiz->info2.arv_binaria_palavra_ingles);
+      exibir_arvore_2_3_por_palavra_portugues(raiz->direita, palavra);
+    }
+    
   }
 }

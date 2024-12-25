@@ -33,10 +33,7 @@ int prencher_arvore_por_linha(Arvore_2_3 **raiz, const char *linha, char *nome_u
       InfoMain new;
       def_info_arvore_2_3(&new, palavra_em_ingles, palavra_atual, nome_unidade);
 
-      InfoMain promove;
-      Arvore_2_3 *pai, *new_node;
-      pai = new_node = NULL;
-      if (!inserir_arvore_2_3(raiz, new, &promove, &pai, &new_node))
+      if (!inserir_arvore_2_3(raiz, new))
         printf("Erro ao inserir %s\n", palavra_atual);
 
       if (palavras_em_portugues[posicao_palavra_atual] == ',')
