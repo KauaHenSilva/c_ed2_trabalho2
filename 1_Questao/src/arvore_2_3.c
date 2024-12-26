@@ -539,7 +539,7 @@ int arvore23_remover1(Arvore_2_3 **raiz, char *info, Arvore_2_3 *pai, Arvore_2_3
     {
       if (strcmp(info, (*raiz)->info1.palavra_portugues) < 0)
         removeu = arvore23_remover1(&(*raiz)->esquerda, info, *raiz, origem, maior);
-      else if ((*raiz)->n_info == 1 || info < (*raiz)->info2.palavra_portugues)
+      else if ((*raiz)->n_info == 1 || (strcmp(info, (*raiz)->info2.palavra_portugues) < 0))
         removeu = arvore23_remover1(&(*raiz)->centro, info, *raiz, origem, maior);
       else
         removeu = arvore23_remover1(&(*raiz)->direita, info, *raiz, origem, maior);

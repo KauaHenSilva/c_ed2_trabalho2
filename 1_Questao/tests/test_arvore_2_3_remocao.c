@@ -61,6 +61,9 @@ void test_remocao_2_3_caso_2(); // inc: 1, 2 -> rem: 1
 void test_remocao_2_3_caso_3(); // inc: 1, 2 -> rem: 2
 void test_remocao_2_3_caso_4(); // inc: 1, 2, 3 -> rem: 1
 void test_remocao_2_3_caso_5(); // inc: 1, 3, 2, 5, 4 -> rem: 1
+void test_remocao_2_3_caso_6(); // inc: 1, 3, 2, 5, 4 -> rem: 3
+void test_remocao_2_3_caso_7(); // inc: 1, 3, 2, 5, 4 -> rem: 2
+void test_remocao_2_3_caso_8(); // inc: 1, 3, 2, 5, 4 -> rem: 5
 
 int main()
 {
@@ -70,6 +73,9 @@ int main()
   RUN_TEST(test_remocao_2_3_caso_3);
   RUN_TEST(test_remocao_2_3_caso_4);
   RUN_TEST(test_remocao_2_3_caso_5);
+  RUN_TEST(test_remocao_2_3_caso_6);
+  RUN_TEST(test_remocao_2_3_caso_7);
+  RUN_TEST(test_remocao_2_3_caso_8);
   return UNITY_END();
 }
 
@@ -137,5 +143,56 @@ void test_remocao_2_3_caso_5()
 
   comp_info(raiz->centro->info1, "4", "4", "4");
   comp_info(raiz->centro->info2, "5", "5", "5");
+  TEST_ASSERT_EQUAL_INT(2, raiz->centro->n_info);
+}
+
+void test_remocao_2_3_caso_6()
+{
+  int valores_adicionar[] = {1, 3, 2, 5, 4};
+  func_test_inserindo_valores_automatico(valores_adicionar, 5);
+  int resposta = arvore_2_3_remover(&raiz, "3");
+
+  comp_info(raiz->info1, "2", "2", "2");
+  TEST_ASSERT_EQUAL_INT(1, raiz->n_info);
+
+  comp_info(raiz->esquerda->info1, "1", "1", "1");
+  TEST_ASSERT_EQUAL_INT(1, raiz->esquerda->n_info);
+
+  comp_info(raiz->centro->info1, "4", "4", "4");
+  comp_info(raiz->centro->info2, "5", "5", "5");
+  TEST_ASSERT_EQUAL_INT(2, raiz->centro->n_info);
+}
+
+void test_remocao_2_3_caso_7()
+{
+  int valores_adicionar[] = {1, 3, 2, 5, 4};
+  func_test_inserindo_valores_automatico(valores_adicionar, 5);
+  int resposta = arvore_2_3_remover(&raiz, "2");
+
+  comp_info(raiz->info1, "3", "3", "3");
+  TEST_ASSERT_EQUAL_INT(1, raiz->n_info);
+
+  comp_info(raiz->esquerda->info1, "1", "1", "1");
+  TEST_ASSERT_EQUAL_INT(1, raiz->esquerda->n_info);
+
+  comp_info(raiz->centro->info1, "4", "4", "4");
+  comp_info(raiz->centro->info2, "5", "5", "5");
+  TEST_ASSERT_EQUAL_INT(2, raiz->centro->n_info);
+}
+
+void test_remocao_2_3_caso_8()
+{
+  int valores_adicionar[] = {1, 3, 2, 5, 4};
+  func_test_inserindo_valores_automatico(valores_adicionar, 5);
+  int resposta = arvore_2_3_remover(&raiz, "5");
+
+  comp_info(raiz->info1, "2", "2", "2");
+  TEST_ASSERT_EQUAL_INT(1, raiz->n_info);
+
+  comp_info(raiz->esquerda->info1, "1", "1", "1");
+  TEST_ASSERT_EQUAL_INT(1, raiz->esquerda->n_info);
+
+  comp_info(raiz->centro->info1, "3", "3", "3");
+  comp_info(raiz->centro->info2, "4", "4", "4");
   TEST_ASSERT_EQUAL_INT(2, raiz->centro->n_info);
 }
