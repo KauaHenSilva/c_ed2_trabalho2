@@ -169,7 +169,7 @@
       "externalConsole": false,
       "MIMode": "gdb",
       "miDebuggerPath": "/usr/bin/gdb",
-      "preLaunchTask": "test_debug",
+      "preLaunchTask": "test_arvore_2_3_remocao",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -221,7 +221,7 @@
       "externalConsole": false,
       "MIMode": "gdb",
       "miDebuggerPath": "/usr/bin/gdb",
-      "preLaunchTask": "test_debug",
+      "preLaunchTask": "test_remocao_valores",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",

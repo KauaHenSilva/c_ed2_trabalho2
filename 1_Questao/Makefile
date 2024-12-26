@@ -49,4 +49,4 @@ exec_all_test: build_files
 	done
 
 clean:
-	@rm -rf $(PATH_OUTPUT_DIR)
+	@rm -rf $(PATH_OUTPUT_DIR)/*

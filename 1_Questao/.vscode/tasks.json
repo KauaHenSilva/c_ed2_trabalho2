@@ -33,6 +33,40 @@
       ],
       "group": "build",
       "detail": "Task to compile all C files in debug mode and run the output."
+    },
+    {
+      "type": "shell",
+      "label": "test_arvore_2_3_remocao",
+      "command": "sh",
+      "args": [
+        "-c",
+        "cd ${workspaceFolder} && make output/test_arvore_2_3_remocao"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build",
+      "detail": "Task to compile all C files in debug mode and run the output."
+    },
+    {
+      "type": "shell",
+      "label": "test_remocao_valores",
+      "command": "sh",
+      "args": [
+        "-c",
+        "cd ${workspaceFolder} && make output/test_remocao_valores"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build",
+      "detail": "Task to compile all C files in debug mode and run the output."
     }
   ],
   "version": "2.0.0"

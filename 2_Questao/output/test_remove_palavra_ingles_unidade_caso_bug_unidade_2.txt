@@ -1,40 +1,40 @@
 Cor: VERMELHO
 Palavra em portugues: barramento
-Ingles: Bus
+Possivel traducao em ingles: Bus
 Apareceu em: Unidade 1
 Cor: PRETO
 Palavra em portugues: bicicleta
-Ingles: Bicycle
+Possivel traducao em ingles: Bicycle
 Apareceu em: Unidade 2
-Ingles: Bike
+Possivel traducao em ingles: Bike
 Apareceu em: Unidade 1
 Cor: PRETO
 Palavra em portugues: inseto
-Ingles: Bug
+Possivel traducao em ingles: Bug
 Apareceu em: Unidade 1
 Cor: PRETO
 Palavra em portugues: onibus
-Ingles: Bus
+Possivel traducao em ingles: Bus
 Apareceu em: Unidade 1
 Cor: PRETO
 Palavra em portugues: problema
-Ingles: Bug
+Possivel traducao em ingles: Bug
 Apareceu em: Unidade 1
 Cor: VERMELHO
 Palavra em portugues: rede de computadores
-Ingles: Network
+Possivel traducao em ingles: Network
 Apareceu em: Unidade 1
 Cor: PRETO
 Palavra em portugues: rede de relacionamento
-Ingles: Network
+Possivel traducao em ingles: Network
 Apareceu em: Unidade 2
 Cor: PRETO
 Palavra em portugues: sistema
-Ingles: System
+Possivel traducao em ingles: System
 Apareceu em: Unidade 1
 Cor: PRETO
 Palavra em portugues: ventilador
-Ingles: Coller
+Possivel traducao em ingles: Coller
 Apareceu em: Unidade 1
-Ingles: Fan
+Possivel traducao em ingles: Fan
 Apareceu em: Unidade 2
