@@ -428,6 +428,7 @@ int arvore23_remover_nao_folha1(Arvore_2_3 **origem, Arvore_2_3* raiz, InfoMain 
     {
         *info = info_filho;
         filho->n_info = 1;
+        removeu = 1;
     }
     else
     {
@@ -517,7 +518,7 @@ int arvore23_remover1(Arvore_2_3 **raiz, char *info, Arvore_2_3 *pai, Arvore_2_3
               }
               else
               {
-                if (pai_aux->info1.palavra_portugues > (*raiz)->info1.palavra_portugues)
+                if (strcmp(pai_aux->info1.palavra_portugues, (*raiz)->info1.palavra_portugues) > 0)
                   info_pai = pai_aux->info1;
                 else
                   info_pai = pai_aux->info2;
