@@ -113,7 +113,7 @@ void test_adicionando_valor_em_arvore_2_3_caso_1()
   def_info_arvore_2_3(&info2, "2", "2", "2");
 
   cria_no(&raiz, info1, NULL, NULL);
-  int resp = adicionando_valor_em_arvore_2_3(raiz, &info2, NULL);
+  int resp = adicionando_valor_em_arvore_2_3(raiz, info2, NULL);
 
   TEST_ASSERT_EQUAL_INT(1, resp);
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.palavra_portugues);
@@ -132,7 +132,7 @@ void test_adicionando_valor_em_arvore_2_3_caso_2()
   def_info_arvore_2_3(&info2, "1", "1", "1");
 
   cria_no(&raiz, info1, NULL, NULL);
-  int resp = adicionando_valor_em_arvore_2_3(raiz, &info2, NULL);
+  int resp = adicionando_valor_em_arvore_2_3(raiz, info2, NULL);
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.unidades->nome_unidade);
@@ -152,12 +152,11 @@ void test_quebra_no_caso_1()
   def_info_arvore_2_3(&info3, "3", "3", "3");
 
   cria_no(&raiz, info1, NULL, NULL);
-  adicionando_valor_em_arvore_2_3(raiz, &info2, NULL);
+  adicionando_valor_em_arvore_2_3(raiz, info2, NULL);
 
   Arvore_2_3 *new_node = NULL;
   InfoMain info_up;
-  Arvore_2_3 *filho = NULL;
-  quebra_no(&raiz, &new_node, info3, &info_up, &filho);
+  quebra_no(&raiz, &new_node, info3, &info_up, NULL);
 
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
@@ -185,12 +184,11 @@ void test_quebra_no_caso_2()
   def_info_arvore_2_3(&info3, "2", "2", "2");
 
   cria_no(&raiz, info1, NULL, NULL);
-  adicionando_valor_em_arvore_2_3(raiz, &info2, NULL);
+  adicionando_valor_em_arvore_2_3(raiz, info2, NULL);
 
   Arvore_2_3 *new_node = NULL;
   InfoMain info_up;
-  Arvore_2_3 *filho = NULL;
-  quebra_no(&raiz, &new_node, info3, &info_up, &filho);
+  quebra_no(&raiz, &new_node, info3, &info_up, NULL);
 
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);
@@ -216,12 +214,11 @@ void test_quebra_no_caso_3()
   def_info_arvore_2_3(&info3, "1", "1", "1");
 
   cria_no(&raiz, info1, NULL, NULL);
-  adicionando_valor_em_arvore_2_3(raiz, &info2, NULL);
+  adicionando_valor_em_arvore_2_3(raiz, info2, NULL);
 
   Arvore_2_3 *new_node = NULL;
   InfoMain info_up;
-  Arvore_2_3 *filho = NULL;
-  quebra_no(&raiz, &new_node, info3, &info_up, &filho);
+  quebra_no(&raiz, &new_node, info3, &info_up, NULL);
 
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.palavra_portugues);
   TEST_ASSERT_EQUAL_STRING("1", raiz->info1.arv_binaria_palavra_ingles->info.palavra_ingles);

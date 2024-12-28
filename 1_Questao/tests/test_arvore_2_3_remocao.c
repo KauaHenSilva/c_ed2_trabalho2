@@ -1,5 +1,8 @@
 #include "Unity/unity.h"
 #include "include/arvore_2_3.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 Arvore_2_3 *raiz;
 
@@ -83,6 +86,8 @@ void test_remocao_2_3_caso_17(); // inc: 3, 6, 4, 2, 5, 7, 8 -> rem: 6
 void test_remocao_2_3_caso_18(); // inc: 3, 6, 4, 2, 5, 7, 8 -> rem: 2
 void test_remocao_2_3_caso_19(); // inc: 3, 6, 4, 2, 5, 7, 8 -> rem: 5
 
+// Testes de remoção Pt.3 (Grandes remoções)
+void test_remocao_2_3_caso_20(); // inc: varios -> rem: varios
 
 int main()
 {
@@ -106,6 +111,7 @@ int main()
   RUN_TEST(test_remocao_2_3_caso_17);
   RUN_TEST(test_remocao_2_3_caso_18);
   RUN_TEST(test_remocao_2_3_caso_19);
+  RUN_TEST(test_remocao_2_3_caso_20);
   return UNITY_END();
 }
 
@@ -510,4 +516,19 @@ void test_remocao_2_3_caso_19()
   comp_info(raiz->direita->info1, "8", "8", "8");
   comp_filho(raiz->direita, 0, 0, -1);
   TEST_ASSERT_EQUAL_INT(1, raiz->direita->n_info);
+}
+
+void test_remocao_2_3_caso_20()
+{
+  int valores_adicionar[] = {3000, 900, 1800, 500, 100, 250, 600, 1250, 1000, 1700, 1750, 2400, 2100, 2500, 7000, 4200, 5800, 3500, 4300, 6500, 8000, 10000, 7500, 9000, 9500};
+  func_test_inserindo_valores_automatico(valores_adicionar, 25);
+
+  for (int i = 0; i < 25; i++)
+  {
+    char valor[20];
+    sprintf(valor, "%d", valores_adicionar[i]);
+    int resposta = arvore_2_3_remover(&raiz, valor);
+  }
+
+  TEST_ASSERT_NULL(raiz);
 }

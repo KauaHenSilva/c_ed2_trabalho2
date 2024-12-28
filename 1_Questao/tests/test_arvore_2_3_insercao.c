@@ -1,5 +1,8 @@
 #include "Unity/unity.h"
 #include "include/arvore_2_3.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 Arvore_2_3 *raiz;
 
@@ -71,6 +74,11 @@ void test_insercao_arvore_2_3_inserindo_caso_4(); // inc: 2, 3, 4, 1
 void test_insercao_arvore_2_3_inserindo_caso_5(); // inc: 1, 2, 3, 4
 void test_insercao_arvore_2_3_inserindo_caso_6(); // inc: 1, 2, 3, 4, 5
 void test_insercao_arvore_2_3_inserindo_caso_7(); // inc: 1, 2, 3, 4, 5, 6, 7
+void test_insercao_arvore_2_3_inserindo_caso_8(); // inc: 3, 6, 1, 2, 4, 5, 7, 8
+
+// destrichando esse caso: 
+void test_insercao_arvore_2_3_inserindo_caso_9(); // {3000, 900, 1800, 500, 100, 250, 600, 1250, 1000, 1700, 1750, 2400, 2100, 2500, 7000, 4200, 5800, 3500, 4300, 6500, 8000, 10000, 7500, 9000, 9500, 15000};
+
 
 int main()
 {
@@ -84,6 +92,8 @@ int main()
   RUN_TEST(test_insercao_arvore_2_3_inserindo_caso_5);
   RUN_TEST(test_insercao_arvore_2_3_inserindo_caso_6);
   RUN_TEST(test_insercao_arvore_2_3_inserindo_caso_7);
+  RUN_TEST(test_insercao_arvore_2_3_inserindo_caso_8);
+  RUN_TEST(test_insercao_arvore_2_3_inserindo_caso_9);
   return UNITY_END();
 }
 
@@ -240,4 +250,69 @@ void test_insercao_arvore_2_3_inserindo_caso_7()
   compare_filiais_NULL(raiz->esquerda->centro, NULL, NULL, NULL);
   compare_filiais_NULL(raiz->centro->esquerda, NULL, NULL, NULL);
   compare_filiais_NULL(raiz->centro->centro, NULL, NULL, NULL);
+}
+
+void test_insercao_arvore_2_3_inserindo_caso_8()
+{
+  int valores_adicinar[] = {3, 6, 1, 2, 4, 5, 7, 8};
+  func_test_inserindo_valores_automatico(valores_adicinar, 8);
+
+  compare_info(raiz->info1, "5", "5", "5");
+  compare_info(raiz->esquerda->info1, "3", "3", "3");
+  compare_info(raiz->centro->info1, "7", "7", "7");
+  compare_info(raiz->esquerda->esquerda->info1, "1", "1", "1");
+  compare_info(raiz->esquerda->esquerda->info2, "2", "2", "2");
+  compare_info(raiz->esquerda->centro->info1, "4", "4", "4");
+  compare_info(raiz->centro->esquerda->info1, "6", "6", "6");
+  compare_info(raiz->centro->centro->info1, "8", "8", "8");
+
+  compare_qtd_info(raiz, 1);
+  compare_qtd_info(raiz->esquerda, 1);
+  compare_qtd_info(raiz->centro, 1);
+  compare_qtd_info(raiz->esquerda->esquerda, 2);
+  compare_qtd_info(raiz->esquerda->centro, 1);
+  compare_qtd_info(raiz->centro->esquerda, 1);
+  compare_qtd_info(raiz->centro->centro, 1);
+
+  compare_filiais_NULL(raiz, raiz, raiz, NULL);
+  compare_filiais_NULL(raiz->esquerda, raiz, raiz, NULL);
+  compare_filiais_NULL(raiz->centro, raiz, raiz, NULL);
+  compare_filiais_NULL(raiz->esquerda->esquerda, NULL, NULL, NULL);
+  compare_filiais_NULL(raiz->esquerda->centro, NULL, NULL, NULL);
+  compare_filiais_NULL(raiz->centro->esquerda, NULL, NULL, NULL);
+  compare_filiais_NULL(raiz->centro->centro, NULL, NULL, NULL);
+}
+
+void test_insercao_arvore_2_3_inserindo_caso_9()
+{
+  int valores_adicionar[] = {3000, 900, 1800, 500, 100, 250, 600, 1250, 1000, 1700, 1750, 2400, 2100, 2500, 7000, 4200, 5800, 3500, 4300, 6500, 8000, 10000,
+                             7500, 9000, 9500, 15000};
+  func_test_inserindo_valores_automatico(valores_adicionar, 26);
+
+
+  compare_info(raiz->info1, "3000", "3000", "3000");
+  compare_info(raiz->esquerda->info1, "1700", "1700", "1700");
+  compare_info(raiz->esquerda->info2, "3000", "3000", "3000");
+  compare_info(raiz->centro->info1, "500", "500", "500");
+  compare_info(raiz->centro->info2, "7000", "7000", "7000");
+  compare_info(raiz->esquerda->esquerda->info1, "1000", "1000", "1000");
+  compare_info(raiz->esquerda->esquerda->info2, "1250", "1250", "1250");
+  compare_info(raiz->esquerda->centro->info1, "1800", "1800", "1800");
+  compare_info(raiz->esquerda->centro->info2, "2400", "2400", "2400");
+  compare_info(raiz->esquerda->direita->info1, "4200", "4200", "4200");
+  compare_info(raiz->centro->esquerda->info1, "4200", "4200", "4200");
+  compare_info(raiz->centro->centro->info1, "600", "600", "600");
+  compare_info(raiz->centro->direita->info1, "8000", "8000", "8000");
+  compare_info(raiz->centro->direita->info2, "9000", "9000", "9000");
+  compare_info(raiz->esquerda->esquerda->esquerda->info1, "100", "100", "100");
+  compare_info(raiz->esquerda->esquerda->centro->info1, "10000", "10000", "10000");
+  compare_info(raiz->esquerda->esquerda->direita->info1, "15000", "15000", "15000");
+  compare_info(raiz->esquerda->centro->esquerda->info1, "1750", "1750", "1750");
+  compare_info(raiz->esquerda->centro->centro->info1, "2100", "2100", "2100");
+  compare_info(raiz->esquerda->centro->direita->info1, "250", "250", "250");
+  compare_info(raiz->esquerda->centro->direita->info2, "2500", "2500", "2500");
+  compare_info(raiz->esquerda->direita->esquerda->info1, "3500", "3500", "3500");
+  compare_info(raiz->esquerda->direita->centro->info1, "4300", "4300", "4300");
+
+  // Pregruiça de fazer os testes de filiais e qtd de info. Não me julguem.
 }
