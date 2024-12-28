@@ -29,7 +29,7 @@ void informar_primeiro_nos(Arvore_2_3 **arvore)
   {
     inicio = final + 1;
     Informacao info;
-    
+
     pegar_inteiro_em_intervalo(&final, inicio, TAMANHO_MEMORIA, "Digite o endereço final do nó: ");
     trocar_status_da_memoria(&status);
 
@@ -40,7 +40,9 @@ void informar_primeiro_nos(Arvore_2_3 **arvore)
 
 void menu()
 {
-  printf("1 - Ocupar nó\n");
+  printf("0 - Sair\n");
+  printf("1 - Exibir árvore\n");
+  printf("2 - Ocupar nó\n");
 }
 
 int main()
@@ -52,8 +54,10 @@ int main()
   while (opcao != 0)
   {
     menu();
-    pegar_inteiro_em_intervalo(&opcao, 1, 1, "Digite a opção desejada: ");
+    pegar_inteiro_em_intervalo(&opcao, 0, 2, "Digite a opção desejada: ");
     if (opcao == 1)
+      show_arvore_2_3(arvore);
+    else if (opcao == 2)
     {
       int tamanho;
       pegar_inteiro_em_intervalo(&tamanho, 0, TAMANHO_MEMORIA, "Digite o tamanho do nó a ser ocupado: ");

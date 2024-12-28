@@ -152,32 +152,24 @@ void ocupar_no(Arvore_2_3 *arvore, int tamanho)
   }
 }
 
-void quebra_no(Arvore_2_3 **raiz, Informacao info, Arvore_2_3 **novo_no, Informacao *info_para_cima, Arvore_2_3 **filho)
+void quebra_no(Arvore_2_3 **raiz, Informacao info, Arvore_2_3 **novo_no, Informacao *info_para_cima, Arvore_2_3 *filho)
 {
-  if ((*raiz)->info1.inicio > info.inicio)
+  if (info.inicio > (*raiz)->info1.inicio)
   {
     *info_para_cima = (*raiz)->info2;
-    if (*filho)
-      criar_arvore_2_3(novo_no, info, (*raiz)->direita, *filho);
-    else
-      criar_arvore_2_3(novo_no, info, (*raiz)->direita, NULL);
+    criar_arvore_2_3(novo_no, info, (*raiz)->direita, filho);
   }
-  else if ((*raiz)->info2.inicio < info.inicio)
+  else if (info.inicio > (*raiz)->info2.inicio)
   {
     *info_para_cima = info;
-    if (*filho)
-      criar_arvore_2_3(novo_no, (*raiz)->info2, *filho, (*raiz)->direita);
-    else
-      criar_arvore_2_3(novo_no, (*raiz)->info2, NULL, (*raiz)->direita);
+    criar_arvore_2_3(novo_no, (*raiz)->info2, filho, (*raiz)->direita);
   }
   else
   {
     *info_para_cima = (*raiz)->info1;
     criar_arvore_2_3(novo_no, (*raiz)->info2, (*raiz)->meio, (*raiz)->direita);
     (*raiz)->info1 = info;
-
-    if (*filho)
-      (*raiz)->meio = *filho;
+    (*raiz)->meio = filho;
   }
   (*raiz)->qtd_info = 1;
 }
@@ -197,12 +189,11 @@ static int inserir_arvore_2_3(Arvore_2_3 **raiz, Informacao info, Informacao *pr
         confirm = adicionar_informacao(*raiz, info, NULL);
       else
       {
-        Arvore_2_3 *filho = NULL;
-        quebra_no(raiz, info, new_node, promove, &filho);
+        quebra_no(raiz, info, new_node, promove, NULL);
         if (!(*pai))
         {
           criar_arvore_2_3(raiz, *promove, *raiz, *new_node);
-          new_node = NULL;
+          *new_node = NULL;
         }
       }
     }
@@ -210,7 +201,7 @@ static int inserir_arvore_2_3(Arvore_2_3 **raiz, Informacao info, Informacao *pr
     {
       if (info.inicio < (*raiz)->info1.inicio)
         confirm = inserir_arvore_2_3(&(*raiz)->esquerda, info, promove, raiz, new_node);
-      else if (info.inicio > (*raiz)->info1.inicio)
+      else if ((*raiz)->qtd_info == 1 || info.inicio < (*raiz)->info2.inicio)
         confirm = inserir_arvore_2_3(&(*raiz)->meio, info, promove, raiz, new_node);
       else
         confirm = inserir_arvore_2_3(&(*raiz)->direita, info, promove, raiz, new_node);
@@ -220,17 +211,17 @@ static int inserir_arvore_2_3(Arvore_2_3 **raiz, Informacao info, Informacao *pr
         if ((*raiz)->qtd_info == 1)
         {
           adicionar_informacao(*raiz, *promove, *new_node);
-          new_node = NULL;
+          *new_node = NULL;
         }
-        else
+        else  
         {
-          quebra_no(raiz, *promove, new_node, &promove_rec, new_node);
+          quebra_no(raiz, info, new_node, &promove_rec, *new_node);
           *promove = promove_rec;
 
           if (!(*pai))
           {
             criar_arvore_2_3(raiz, promove_rec, *raiz, *new_node);
-            new_node = NULL;
+            *new_node = NULL;
           }
         }
       }

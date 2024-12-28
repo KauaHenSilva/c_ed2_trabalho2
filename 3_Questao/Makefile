@@ -19,7 +19,7 @@ PATH_TEST_OUTPUTS = $(patsubst $(PATH_TEST_DIR)/%.c, $(PATH_OUTPUT_DIR)/%, $(PAT
 
 COMAND_SEPARATOR = echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 
-all: output build_files exec_all_test main clean
+all: output build_files exec_all_test main 
 
 output:
 	@mkdir -p $(PATH_OUTPUT_DIR)
