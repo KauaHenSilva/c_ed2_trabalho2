@@ -79,12 +79,12 @@ void no_com_tamanho_livre(Arvore_2_3 **no_adequado, int *info_correspodente, Arv
 {
   if (arvore)
   {
-    if ((arvore->info1.status == LIVRE) && ((arvore->info1.final - arvore->info1.inicio) > tamanho))
+    if ((arvore->info1.status == LIVRE) && ((arvore->info1.final - arvore->info1.inicio) >= tamanho))
     {
       *no_adequado = arvore;
       *info_correspodente = 1;
     }
-    else if ((arvore->qtd_info == 2) && (arvore->info2.status == LIVRE) && (arvore->info2.final - arvore->info2.inicio) > tamanho)
+    else if ((arvore->qtd_info == 2) && (arvore->info2.status == LIVRE) && (arvore->info2.final - arvore->info2.inicio) >= tamanho)
     {
       *no_adequado = arvore;
       *info_correspodente = 2;
@@ -95,55 +95,30 @@ void no_com_tamanho_livre(Arvore_2_3 **no_adequado, int *info_correspodente, Arv
       no_com_tamanho_livre(no_adequado, info_correspodente, arvore->meio, tamanho);
       if (arvore->qtd_info == 2)
         no_com_tamanho_livre(no_adequado, info_correspodente, arvore->direita, tamanho);
-
-      if (!*no_adequado)
-      {
-        if ((arvore->info1.status == LIVRE) && ((arvore->info1.final - arvore->info1.inicio) == tamanho))
-        {
-          *no_adequado = arvore;
-          *info_correspodente = 1;
-        }
-        else if ((arvore->qtd_info == 2) && (arvore->info2.status == LIVRE) && ((arvore->info2.final - arvore->info2.inicio) == tamanho))
-        {
-          *no_adequado = arvore;
-          *info_correspodente = 2;
-        }
-      }
     }
   }
 }
 
-void ocupar_no(Arvore_2_3 *arvore, int tamanho)
+void ocupar_no(Arvore_2_3 **arvore, int tamanho)
 {
   Arvore_2_3 *no_valido = NULL;
   int info_corespondente = 0;
 
-  no_com_tamanho_livre(&no_valido, &info_corespondente, arvore, tamanho);
+  no_com_tamanho_livre(&no_valido, &info_corespondente, *arvore, tamanho);
   if (no_valido)
   {
+    int diferenca;
     if (info_corespondente == 1)
     {
-      if (no_valido->info1.final - no_valido->info1.inicio == tamanho)
-      {
-        set_info(&no_valido->info1, no_valido->info1.inicio, no_valido->info1.final, OCUPADA);
-        // balancear
-      }
-      else
-      {
-        printf("Situação não tratada\n");
-      }
+      diferenca = no_valido->info1.final - no_valido->info1.inicio - tamanho;
+      no_valido->info1.status = OCUPADA;
+      no_valido->info1.final = no_valido->info1.final - tamanho;
     }
-    else
+    else if (info_corespondente == 2)
     {
-      if (no_valido->info2.final - no_valido->info2.inicio == tamanho)
-      {
-        set_info(&no_valido->info2, no_valido->info2.inicio, no_valido->info2.final, OCUPADA);
-        // balancear
-      }
-      else
-      {
-        printf("Situação não tratada\n");
-      }
+      diferenca = no_valido->info2.final - no_valido->info2.inicio - tamanho;
+      no_valido->info2.status = OCUPADA;
+      no_valido->info2.final = no_valido->info2.final - tamanho;
     }
   }
   else

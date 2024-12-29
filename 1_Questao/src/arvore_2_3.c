@@ -666,18 +666,14 @@ Arvore_2_3 *no23_juntar(Arvore_2_3 *filho1, InfoMain info, Arvore_2_3 *maior, Ar
     return filho1;
 }
 
-static int balanceamento(Arvore_2_3 **raiz, Arvore_2_3 *filho1, Arvore_2_3 **filho2, InfoMain info, Arvore_2_3 **maior)
+static void balanceamento(Arvore_2_3 **raiz, Arvore_2_3 *filho1, Arvore_2_3 **filho2, InfoMain info, Arvore_2_3 **maior)
 {
-    int balanceou = 0;
     if(*filho2 == NULL || (*filho2)->n_info == 0)
     {
         if(*filho2 != NULL)
             no23_desalocar(filho2);
-
         *maior = no23_juntar(filho1, info, *maior, raiz);
-        balanceou = 1;
     }
-    return balanceou;
 }
 
 int arvore23_rebalancear(Arvore_2_3 **raiz, char *info, Arvore_2_3 **maior)
@@ -707,9 +703,10 @@ int arvore23_rebalancear(Arvore_2_3 **raiz, char *info, Arvore_2_3 **maior)
             if(balanceou != -1)
             {
                 if((*raiz)->n_info == 1)
-                    balanceou = balanceamento(raiz, (*raiz)->esquerda, &((*raiz)->centro), (*raiz)->info1, maior);
+                    balanceamento(raiz, (*raiz)->esquerda, &((*raiz)->centro), (*raiz)->info1, maior);
                 else if((*raiz)->n_info == 2)
-                    balanceou = balanceamento(raiz, (*raiz)->centro, &((*raiz)->direita), (*raiz)->info2, maior);
+                    balanceamento(raiz, (*raiz)->centro, &((*raiz)->direita), (*raiz)->info2, maior);
+                balanceou = 1;
             }
             
         }

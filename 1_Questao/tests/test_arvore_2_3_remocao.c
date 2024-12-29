@@ -518,17 +518,38 @@ void test_remocao_2_3_caso_19()
   TEST_ASSERT_EQUAL_INT(1, raiz->direita->n_info);
 }
 
+void arvore23_exibir_pre(Arvore_2_3 *raiz_atual)
+{
+    if(raiz_atual != NULL)
+    {
+        printf("[1º] %s -> ", raiz_atual->info1.palavra_portugues);
+        if(raiz_atual->n_info == 2)
+            printf("[2º] %s -> ", raiz_atual->info2.palavra_portugues);
+
+        arvore23_exibir_pre(raiz_atual->esquerda);
+        arvore23_exibir_pre(raiz_atual->centro);
+        if(raiz_atual->n_info == 2)
+            arvore23_exibir_pre(raiz_atual->direita);
+    }
+}
+
 void test_remocao_2_3_caso_20()
 {
   int valores_adicionar[] = {3000, 900, 1800, 500, 100, 250, 600, 1250, 1000, 1700, 1750, 2400, 2100, 2500, 7000, 4200, 5800, 3500, 4300, 6500, 8000, 10000, 7500, 9000, 9500};
   func_test_inserindo_valores_automatico(valores_adicionar, 25);
 
+  FILE *fp = freopen("output/test_remocao_caso_20.txt", "w", stdout);
   for (int i = 0; i < 25; i++)
   {
     char valor[20];
     sprintf(valor, "%d", valores_adicionar[i]);
     int resposta = arvore_2_3_remover(&raiz, valor);
+    printf("Removendo %s\n", valor);
+    arvore23_exibir_pre(raiz);
+    printf("\n\n");
+    TEST_ASSERT_EQUAL_INT(1, resposta);
   }
+  fclose(fp);
 
   TEST_ASSERT_NULL(raiz);
 }

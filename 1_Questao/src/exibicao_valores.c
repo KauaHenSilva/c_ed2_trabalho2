@@ -59,18 +59,46 @@ void exibir_arvore_2_3_por_palavra_portugues(const Arvore_2_3 *raiz, const char 
 {
   if (raiz)
   {
-    exibir_arvore_2_3_por_palavra_portugues(raiz->esquerda, palavra);
-
     if (strcmp(raiz->info1.palavra_portugues, palavra) == 0)
       exibir_arvore_binaria_por_palavra_portugues(raiz->info1.arv_binaria_palavra_ingles);
-
-    exibir_arvore_2_3_por_palavra_portugues(raiz->centro, palavra);
-    if (raiz->n_info == 2)
-    {
-      if (strcmp(raiz->info2.palavra_portugues, palavra) == 0)
-        exibir_arvore_binaria_por_palavra_portugues(raiz->info2.arv_binaria_palavra_ingles);
+    else if (raiz->n_info == 2 && strcmp(raiz->info2.palavra_portugues, palavra) == 0)
+      exibir_arvore_binaria_por_palavra_portugues(raiz->info2.arv_binaria_palavra_ingles);
+    else if (strcmp(raiz->info1.palavra_portugues, palavra) > 0)
+      exibir_arvore_2_3_por_palavra_portugues(raiz->esquerda, palavra);
+    else if (raiz->n_info == 1 || strcmp(raiz->info2.palavra_portugues, palavra) > 0)
+      exibir_arvore_2_3_por_palavra_portugues(raiz->centro, palavra);
+    else
       exibir_arvore_2_3_por_palavra_portugues(raiz->direita, palavra);
+  }
+}
+void caminho_exibir_arvore_2_3_por_palavra_portugues(const Arvore_2_3 *raiz, const char *palavra, const char *caminho)
+{
+  if (raiz)
+  {
+    char novo_caminho_esq[100];
+    char novo_caminho_centro[100];
+    char novo_caminho_dir[100];
+    sprintf(novo_caminho_esq, "%s -> esquerda", caminho);
+    sprintf(novo_caminho_centro, "%s -> centro", caminho);
+    sprintf(novo_caminho_dir, "%s -> direita", caminho);
+
+    if (strcmp(raiz->info1.palavra_portugues, palavra) == 0)
+    {
+      char *info = "info1";
+      printf("Caminho: %s, info: %s\n", caminho, info);
+      exibir_arvore_binaria_por_palavra_portugues(raiz->info1.arv_binaria_palavra_ingles);
     }
-    
+    else if (raiz->n_info == 2 && strcmp(raiz->info2.palavra_portugues, palavra) == 0)
+    {
+      char *info = "info2";
+      printf("Caminho: %s, info: %s\n", caminho, info);
+      exibir_arvore_binaria_por_palavra_portugues(raiz->info2.arv_binaria_palavra_ingles);
+    }
+    else if (strcmp(raiz->info1.palavra_portugues, palavra) > 0)
+      caminho_exibir_arvore_2_3_por_palavra_portugues(raiz->esquerda, palavra, novo_caminho_esq);
+    else if (raiz->n_info == 1 || strcmp(raiz->info2.palavra_portugues, palavra) > 0)
+      caminho_exibir_arvore_2_3_por_palavra_portugues(raiz->centro, palavra, novo_caminho_centro);
+    else
+      caminho_exibir_arvore_2_3_por_palavra_portugues(raiz->direita, palavra, novo_caminho_dir);
   }
 }

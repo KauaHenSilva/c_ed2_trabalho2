@@ -61,7 +61,7 @@ int main()
     {
       int tamanho;
       pegar_inteiro_em_intervalo(&tamanho, 0, TAMANHO_MEMORIA, "Digite o tamanho do nó a ser ocupado: ");
-      ocupar_no(arvore, tamanho);
+      ocupar_no(&arvore, tamanho);
     }
   }
 

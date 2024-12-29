@@ -19,5 +19,5 @@ void free_arvore_2_3(Arvore_2_3 *arvore);
 void show_arvore_2_3(Arvore_2_3 *raiz);
 int eh_folha(Arvore_2_3 *raiz);
 
-void ocupar_no(Arvore_2_3 *arvore, int tamanho);
+void ocupar_no(Arvore_2_3 **arvore, int tamanho);
 void no_com_tamanho_livre(Arvore_2_3 **no_adequado, int *info_correspodente, Arvore_2_3 *arvore, int tamanho);
