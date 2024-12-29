@@ -1,150 +1,150 @@
-Inicinado busca por 0
-Caminho: Raiz -> esquerda -> esquerda -> esquerda, info: info1
+Iniciando busca por 0
+Caminho: Raiz -> Esquerda -> Esquerda -> Esquerda -> info: info1
 Possivel traducao em ingles: 0
 
 
-Inicinado busca por 1
-Caminho: Raiz -> esquerda -> esquerda, info: info1
+Iniciando busca por 1
+Caminho: Raiz -> Esquerda -> Esquerda -> info: info1
 Possivel traducao em ingles: 1
 
 
-Inicinado busca por 2
-Caminho: Raiz -> centro -> centro -> esquerda, info: info1
+Iniciando busca por 2
+Caminho: Raiz -> Centro -> Centro -> Esquerda -> info: info1
 Possivel traducao em ingles: 2
 
 
-Inicinado busca por 3
-Caminho: Raiz -> direita, info: info2
+Iniciando busca por 3
+Caminho: Raiz -> Direita -> info: info2
 Possivel traducao em ingles: 3
 
 
-Inicinado busca por 4
-Caminho: Raiz -> direita -> direita -> esquerda, info: info1
+Iniciando busca por 4
+Caminho: Raiz -> Direita -> Direita -> Esquerda -> info: info1
 Possivel traducao em ingles: 4
 
 
-Inicinado busca por 5
-Caminho: Raiz -> direita -> direita, info: info1
+Iniciando busca por 5
+Caminho: Raiz -> Direita -> Direita -> info: info1
 Possivel traducao em ingles: 5
 
 
-Inicinado busca por 6
-Caminho: Raiz -> direita -> direita -> centro, info: info1
+Iniciando busca por 6
+Caminho: Raiz -> Direita -> Direita -> Centro -> info: info1
 Possivel traducao em ingles: 6
 
 
-Inicinado busca por 7
-Caminho: Raiz -> direita -> direita, info: info2
+Iniciando busca por 7
+Caminho: Raiz -> Direita -> Direita -> info: info2
 Possivel traducao em ingles: 7
 
 
-Inicinado busca por 8
-Caminho: Raiz -> direita -> direita -> direita, info: info1
+Iniciando busca por 8
+Caminho: Raiz -> Direita -> Direita -> Direita -> info: info1
 Possivel traducao em ingles: 8
 
 
-Inicinado busca por 9
-Caminho: Raiz -> direita -> direita -> direita, info: info2
+Iniciando busca por 9
+Caminho: Raiz -> Direita -> Direita -> Direita -> info: info2
 Possivel traducao em ingles: 9
 
 
-Inicinado busca por 10
-Caminho: Raiz -> esquerda -> esquerda -> centro, info: info1
+Iniciando busca por 10
+Caminho: Raiz -> Esquerda -> Esquerda -> Centro -> info: info1
 Possivel traducao em ingles: 10
 
 
-Inicinado busca por 11
-Caminho: Raiz -> esquerda, info: info1
+Iniciando busca por 11
+Caminho: Raiz -> Esquerda -> info: info1
 Possivel traducao em ingles: 11
 
 
-Inicinado busca por 12
-Caminho: Raiz -> esquerda -> centro -> esquerda, info: info1
+Iniciando busca por 12
+Caminho: Raiz -> Esquerda -> Centro -> Esquerda -> info: info1
 Possivel traducao em ingles: 12
 
 
-Inicinado busca por 13
-Caminho: Raiz -> esquerda -> centro, info: info1
+Iniciando busca por 13
+Caminho: Raiz -> Esquerda -> Centro -> info: info1
 Possivel traducao em ingles: 13
 
 
-Inicinado busca por 14
-Caminho: Raiz -> esquerda -> centro -> centro, info: info1
+Iniciando busca por 14
+Caminho: Raiz -> Esquerda -> Centro -> Centro -> info: info1
 Possivel traducao em ingles: 14
 
 
-Inicinado busca por 15
-Caminho: Raiz, info: info1
+Iniciando busca por 15
+Caminho: Raiz -> info: info1
 Possivel traducao em ingles: 15
 
 
-Inicinado busca por 16
-Caminho: Raiz -> centro -> esquerda -> esquerda, info: info1
+Iniciando busca por 16
+Caminho: Raiz -> Centro -> Esquerda -> Esquerda -> info: info1
 Possivel traducao em ingles: 16
 
 
-Inicinado busca por 17
-Caminho: Raiz -> centro -> esquerda, info: info1
+Iniciando busca por 17
+Caminho: Raiz -> Centro -> Esquerda -> info: info1
 Possivel traducao em ingles: 17
 
 
-Inicinado busca por 18
-Caminho: Raiz -> centro -> esquerda -> centro, info: info1
+Iniciando busca por 18
+Caminho: Raiz -> Centro -> Esquerda -> Centro -> info: info1
 Possivel traducao em ingles: 18
 
 
-Inicinado busca por 19
-Caminho: Raiz -> centro, info: info1
+Iniciando busca por 19
+Caminho: Raiz -> Centro -> info: info1
 Possivel traducao em ingles: 19
 
 
-Inicinado busca por 20
-Caminho: Raiz -> centro -> centro, info: info1
+Iniciando busca por 20
+Caminho: Raiz -> Centro -> Centro -> info: info1
 Possivel traducao em ingles: 20
 
 
-Inicinado busca por 21
-Caminho: Raiz -> centro -> centro -> centro, info: info1
+Iniciando busca por 21
+Caminho: Raiz -> Centro -> Centro -> Centro -> info: info1
 Possivel traducao em ingles: 21
 
 
-Inicinado busca por 22
-Caminho: Raiz, info: info2
+Iniciando busca por 22
+Caminho: Raiz -> info: info2
 Possivel traducao em ingles: 22
 
 
-Inicinado busca por 23
-Caminho: Raiz -> direita -> esquerda -> esquerda, info: info1
+Iniciando busca por 23
+Caminho: Raiz -> Direita -> Esquerda -> Esquerda -> info: info1
 Possivel traducao em ingles: 23
 
 
-Inicinado busca por 24
-Caminho: Raiz -> direita -> esquerda, info: info1
+Iniciando busca por 24
+Caminho: Raiz -> Direita -> Esquerda -> info: info1
 Possivel traducao em ingles: 24
 
 
-Inicinado busca por 25
-Caminho: Raiz -> direita -> esquerda -> centro, info: info1
+Iniciando busca por 25
+Caminho: Raiz -> Direita -> Esquerda -> Centro -> info: info1
 Possivel traducao em ingles: 25
 
 
-Inicinado busca por 26
-Caminho: Raiz -> direita, info: info1
+Iniciando busca por 26
+Caminho: Raiz -> Direita -> info: info1
 Possivel traducao em ingles: 26
 
 
-Inicinado busca por 27
-Caminho: Raiz -> direita -> centro -> esquerda, info: info1
+Iniciando busca por 27
+Caminho: Raiz -> Direita -> Centro -> Esquerda -> info: info1
 Possivel traducao em ingles: 27
 
 
-Inicinado busca por 28
-Caminho: Raiz -> direita -> centro, info: info1
+Iniciando busca por 28
+Caminho: Raiz -> Direita -> Centro -> info: info1
 Possivel traducao em ingles: 28
 
 
-Inicinado busca por 29
-Caminho: Raiz -> direita -> centro -> centro, info: info1
+Iniciando busca por 29
+Caminho: Raiz -> Direita -> Centro -> Centro -> info: info1
 Possivel traducao em ingles: 29
 
 

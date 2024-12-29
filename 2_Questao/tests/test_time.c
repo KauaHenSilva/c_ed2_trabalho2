@@ -1,10 +1,10 @@
 #include "Unity/unity.h"
-#include "include/arvore_2_3.h"
+#include "include/arvore_vermelho_preto.h"
 #include "include/exibicao_valores.h"
 #include <stdlib.h>
 #include <time.h>
 
-Arvore_2_3 *raiz;
+ArvoreVermelhoPreto *raiz;
 #define QUANTIDADE 30
 
 void setUp()
@@ -14,7 +14,7 @@ void setUp()
 
 void tearDown()
 {
-  free_arvore_2_3(raiz);
+  free_arvore_vermelho_preto(&raiz);
 }
 
 void inserir_dados()
@@ -22,10 +22,11 @@ void inserir_dados()
   char info_str[10];
   for (int x = 0; x < QUANTIDADE; x++)
   {
-    InfoMain info;
     sprintf(info_str, "%d", x);
-    def_info_arvore_2_3(&info, info_str, info_str, info_str);
-    inserir_arvore_2_3(&raiz, info);
+    ArvoreVermelhoPreto *new;
+    aloca_arvore_vermelho_preto(&new);
+    def_arvore_vermelho_preto(new, info_str, info_str, info_str);
+    inserir_arvore_vermelho_preto(&raiz, new);
   }
 }
 
@@ -34,10 +35,6 @@ void test_tempo_busca_30_palavras_portugues()
   inserir_dados();
   char info_str[10];
 
-  InfoMain info;
-  sprintf(info_str, "%d", 1000);
-  def_info_arvore_2_3(&info, info_str, info_str, info_str);
-  
   clock_t resultados[30];
 
   for (int qtd_test = 0; qtd_test < 30; qtd_test++)
@@ -47,11 +44,10 @@ void test_tempo_busca_30_palavras_portugues()
     {
       sprintf(info_str, "%d", x);
       inicio = clock();
-      buscar_arvore_2_3_por_palavra_portugues(raiz, info_str);
+      buscar_arvore_vermelho_preto_por_palavra_portugues(raiz, info_str);
       resultado += clock() - inicio;
     } 
 
-    double time_spent = (double)(resultado) / CLOCKS_PER_SEC;
     resultados[qtd_test] = resultado;
   }
 
@@ -75,8 +71,8 @@ void test_caminho_busca_30_palavras_portugues()
   {
     sprintf(info_str, "%d", x);
     printf("Iniciando busca por %s\n", info_str);
-    printf("Caminho: Raiz -> ");
-    caminho_exibir_arvore_2_3_por_palavra_portugues(raiz, info_str);
+    printf("Raiz -> ");
+    caminho_arvore_vermelho_preto_por_palavra_portugues(raiz, info_str);
     printf("\n\n");
   } 
   fclose(fp);
