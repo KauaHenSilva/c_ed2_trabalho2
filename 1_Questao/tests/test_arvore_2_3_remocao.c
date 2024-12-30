@@ -88,6 +88,8 @@ void test_remocao_2_3_caso_19(); // inc: 3, 6, 4, 2, 5, 7, 8 -> rem: 5
 
 // Testes de remoção Pt.3 (Grandes remoções)
 void test_remocao_2_3_caso_20(); // inc: varios -> rem: varios
+void test_remocao_2_3_caso_21(); // inc: varios -> rem: varios
+void test_remocao_2_3_caso_22(); // inc: varios -> rem: varios
 
 int main()
 {
@@ -112,6 +114,8 @@ int main()
   RUN_TEST(test_remocao_2_3_caso_18);
   RUN_TEST(test_remocao_2_3_caso_19);
   RUN_TEST(test_remocao_2_3_caso_20);
+  RUN_TEST(test_remocao_2_3_caso_21);
+  RUN_TEST(test_remocao_2_3_caso_22);
   return UNITY_END();
 }
 
@@ -538,7 +542,7 @@ void test_remocao_2_3_caso_20()
   int valores_adicionar[] = {3000, 900, 1800, 500, 100, 250, 600, 1250, 1000, 1700, 1750, 2400, 2100, 2500, 7000, 4200, 5800, 3500, 4300, 6500, 8000, 10000, 7500, 9000, 9500};
   func_test_inserindo_valores_automatico(valores_adicionar, 25);
 
-  FILE *fp = freopen("output/test_remocao_caso_20.txt", "w", stdout);
+  FILE *fp = freopen("output/test_remocao_caso_20_crecente.txt", "w", stdout);
   for (int i = 0; i < 25; i++)
   {
     char valor[20];
@@ -551,4 +555,61 @@ void test_remocao_2_3_caso_20()
   fclose(fp);
   freopen("/dev/tty", "w", stdout);
 
+  func_test_inserindo_valores_automatico(valores_adicionar, 25);
+
+  FILE *fp1 = freopen("output/test_remocao_caso_20_decrescente.txt", "w", stdout);
+  for (int i = 24; i >= 0; i--)
+  {
+    char valor[20];
+    sprintf(valor, "%d", valores_adicionar[i]);
+    printf("Removendo %s\n", valor);
+    int resposta = arvore_2_3_remover(&raiz, valor);
+    arvore23_exibir_pre(raiz);
+    printf("\n\n");
+  }
+  fclose(fp1);
+  freopen("/dev/tty", "w", stdout);
+}
+
+
+void test_remocao_2_3_caso_21()
+{
+  int valores_adicionar[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+  func_test_inserindo_valores_automatico(valores_adicionar, 26);
+
+  FILE *fp = freopen("output/test_remocao_caso_21.txt", "w", stdout);
+  for (int i = 25; i >= 0; i--)
+  {
+    char valor[20];
+    sprintf(valor, "%d", valores_adicionar[i]);
+    int resposta = arvore_2_3_remover(&raiz, valor);
+    printf("Removendo %s\n", valor);
+    arvore23_exibir_pre(raiz);
+    printf("\n\n");
+  }
+  fclose(fp);
+  freopen("/dev/tty", "w", stdout);
+}
+
+void test_remocao_2_3_caso_22()
+{
+  char *valores_adicionar[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+
+  for (int i = 0; i < 26; i++)
+  {
+    InfoMain info;
+    def_info_arvore_2_3(&info, valores_adicionar[i], valores_adicionar[i], valores_adicionar[i]);
+    inserir_arvore_2_3(&raiz, info);
+  }
+
+  FILE *fp = freopen("output/test_remocao_caso_22.txt", "w", stdout);
+  for (int i = 25; i >= 0; i--)
+  {
+    int resposta = arvore_2_3_remover(&raiz, valores_adicionar[i]);
+    printf("Removendo %s\n", valores_adicionar[i]);
+    arvore23_exibir_pre(raiz);
+    printf("\n\n");
+  }
+  fclose(fp);
+  freopen("/dev/tty", "w", stdout);
 }
