@@ -308,6 +308,15 @@ static Arvore_2_3 *arvore23_buscar_menor_filho(Arvore_2_3 *raiz, Arvore_2_3 **pa
     return filho;
 }
 
+static int calcular_altura(Arvore_2_3 *no)
+{
+    int altura = -1;
+    if(no != NULL)
+        altura = 1 + calcular_altura(no->esquerda);
+    return altura;
+}
+
+
 static int movimento_onda(InfoMain saindo, InfoMain *entrada, Arvore_2_3 *pai, Arvore_2_3 **origem, Arvore_2_3 **raiz, Arvore_2_3 **maior, int (*funcao_remover)(Arvore_2_3 **, char *, Arvore_2_3 *, Arvore_2_3 **, Arvore_2_3 **))
 {
     int removeu = funcao_remover(raiz, saindo.palavra_portugues, pai, origem, maior);
@@ -510,7 +519,19 @@ int arvore23_remover1(Arvore_2_3 **raiz, char *info, Arvore_2_3 *pai, Arvore_2_3
               Arvore_2_3 *menor_pai;
               menor_pai = arvore23_buscar_menor_pai_2_infos(*origem, (*raiz)->info1.palavra_portugues);
 
-              if (pai_aux == NULL || (pai_aux != pai && menor_pai != NULL))
+              if(pai_aux != NULL)
+              {
+                  if(strcmp(pai_aux->info1.palavra_portugues, (*raiz)->info1.palavra_portugues) > 0)
+                      info_pai = pai_aux->info1;
+                  else
+                      info_pai = pai_aux->info2;
+              }
+
+              int altura_menor_pai = calcular_altura(menor_pai);
+              int altura_pai_aux = calcular_altura(pai_aux);
+
+              if (pai_aux == NULL || (pai_aux != pai && menor_pai != NULL &&
+                 altura_menor_pai <= altura_pai_aux && strcmp(info_pai.palavra_portugues, menor_pai->info2.palavra_portugues) > 0))
               {
                 *maior = pai;
                 (*raiz)->n_info = 0;
@@ -518,11 +539,6 @@ int arvore23_remover1(Arvore_2_3 **raiz, char *info, Arvore_2_3 *pai, Arvore_2_3
               }
               else
               {
-                if (strcmp(pai_aux->info1.palavra_portugues, (*raiz)->info1.palavra_portugues) > 0)
-                  info_pai = pai_aux->info1;
-                else
-                  info_pai = pai_aux->info2;
-
                 Arvore_2_3 *avo;
                 avo = arvore23_buscar_pai(*origem, info_pai.palavra_portugues);
                 removeu = movimento_onda(info_pai, &((*raiz)->info1), avo, origem, &pai_aux, maior, arvore23_remover1);

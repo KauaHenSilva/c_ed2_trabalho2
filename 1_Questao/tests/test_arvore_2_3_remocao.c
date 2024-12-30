@@ -90,6 +90,7 @@ void test_remocao_2_3_caso_19(); // inc: 3, 6, 4, 2, 5, 7, 8 -> rem: 5
 void test_remocao_2_3_caso_20(); // inc: varios -> rem: varios
 void test_remocao_2_3_caso_21(); // inc: varios -> rem: varios
 void test_remocao_2_3_caso_22(); // inc: varios -> rem: varios
+void test_remocao_2_3_caso_23(); // inc: varios -> rem: varios
 
 int main()
 {
@@ -116,6 +117,7 @@ int main()
   RUN_TEST(test_remocao_2_3_caso_20);
   RUN_TEST(test_remocao_2_3_caso_21);
   RUN_TEST(test_remocao_2_3_caso_22);
+  RUN_TEST(test_remocao_2_3_caso_23);
   return UNITY_END();
 }
 
@@ -604,6 +606,30 @@ void test_remocao_2_3_caso_22()
 
   FILE *fp = freopen("output/test_remocao_caso_22.txt", "w", stdout);
   for (int i = 25; i >= 0; i--)
+  {
+    int resposta = arvore_2_3_remover(&raiz, valores_adicionar[i]);
+    printf("Removendo %s\n", valores_adicionar[i]);
+    arvore23_exibir_pre(raiz);
+    printf("\n\n");
+  }
+  fclose(fp);
+  freopen("/dev/tty", "w", stdout);
+}
+
+
+void test_remocao_2_3_caso_23()
+{
+  char *valores_adicionar[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+
+  for (int i = 0; i < 26; i++)
+  {
+    InfoMain info;
+    def_info_arvore_2_3(&info, valores_adicionar[i], valores_adicionar[i], valores_adicionar[i]);
+    inserir_arvore_2_3(&raiz, info);
+  }
+
+  FILE *fp = freopen("output/test_remocao_caso_23.txt", "w", stdout);
+  for (int i = 0; i < 26; i++)
   {
     int resposta = arvore_2_3_remover(&raiz, valores_adicionar[i]);
     printf("Removendo %s\n", valores_adicionar[i]);
