@@ -1,0 +1,120 @@
+Iniciando busca por 0
+Raiz -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
+
+
+Iniciando busca por 1
+Raiz -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
+
+
+Iniciando busca por 2
+Raiz -> Esquerda -> Direita -> Direita -> Esquerda -> cor: Preto
+
+
+Iniciando busca por 3
+Raiz -> Direita -> cor: Preto
+
+
+Iniciando busca por 4
+Raiz -> Direita -> Direita -> Esquerda -> Esquerda -> cor: Preto
+
+
+Iniciando busca por 5
+Raiz -> Direita -> Direita -> Esquerda -> cor: Vermelho
+
+
+Iniciando busca por 6
+Raiz -> Direita -> Direita -> Esquerda -> Direita -> cor: Preto
+
+
+Iniciando busca por 7
+Raiz -> Direita -> Direita -> cor: Preto
+
+
+Iniciando busca por 8
+Raiz -> Direita -> Direita -> Direita -> Esquerda -> cor: Vermelho
+
+
+Iniciando busca por 9
+Raiz -> Direita -> Direita -> Direita -> cor: Preto
+
+
+Iniciando busca por 10
+Raiz -> Esquerda -> Esquerda -> Esquerda -> Direita -> cor: Preto
+
+
+Iniciando busca por 11
+Raiz -> Esquerda -> Esquerda -> cor: Preto
+
+
+Iniciando busca por 12
+Raiz -> Esquerda -> Esquerda -> Direita -> Esquerda -> cor: Preto
+
+
+Iniciando busca por 13
+Raiz -> Esquerda -> Esquerda -> Direita -> cor: Preto
+
+
+Iniciando busca por 14
+Raiz -> Esquerda -> Esquerda -> Direita -> Direita -> cor: Preto
+
+
+Iniciando busca por 15
+Raiz -> Esquerda -> cor: Vermelho
+
+
+Iniciando busca por 16
+Raiz -> Esquerda -> Direita -> Esquerda -> Esquerda -> cor: Preto
+
+
+Iniciando busca por 17
+Raiz -> Esquerda -> Direita -> Esquerda -> cor: Preto
+
+
+Iniciando busca por 18
+Raiz -> Esquerda -> Direita -> Esquerda -> Direita -> cor: Preto
+
+
+Iniciando busca por 19
+Raiz -> Esquerda -> Direita -> cor: Preto
+
+
+Iniciando busca por 20
+Raiz -> Esquerda -> Direita -> Direita -> cor: Preto
+
+
+Iniciando busca por 21
+Raiz -> Esquerda -> Direita -> Direita -> Direita -> cor: Preto
+
+
+Iniciando busca por 22
+Raiz -> cor: Preto
+
+
+Iniciando busca por 23
+Raiz -> Direita -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
+
+
+Iniciando busca por 24
+Raiz -> Direita -> Esquerda -> Esquerda -> cor: Preto
+
+
+Iniciando busca por 25
+Raiz -> Direita -> Esquerda -> Esquerda -> Direita -> cor: Preto
+
+
+Iniciando busca por 26
+Raiz -> Direita -> Esquerda -> cor: Vermelho
+
+
+Iniciando busca por 27
+Raiz -> Direita -> Esquerda -> Direita -> Esquerda -> cor: Preto
+
+
+Iniciando busca por 28
+Raiz -> Direita -> Esquerda -> Direita -> cor: Preto
+
+
+Iniciando busca por 29
+Raiz -> Direita -> Esquerda -> Direita -> Direita -> cor: Preto
+
+

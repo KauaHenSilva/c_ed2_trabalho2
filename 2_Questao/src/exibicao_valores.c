@@ -52,11 +52,45 @@ void exibir_arvore_vermelho_preto_por_palavra_portugues(const ArvoreVermelhoPret
 {
   if (raiz)
   {
-    exibir_arvore_vermelho_preto_por_palavra_portugues(raiz->esq, palavra);
-
     if (strcmp(raiz->info.palavra_portugues, palavra) == 0)
       exibir_arvore_binaria_por_palavra_portugues(raiz->info.arv_binaria_palavra_ingles);
+    else if (strcmp(raiz->info.palavra_portugues, palavra) > 0)
+      exibir_arvore_vermelho_preto_por_palavra_portugues(raiz->esq, palavra);
+    else
+      exibir_arvore_vermelho_preto_por_palavra_portugues(raiz->dir, palavra);
+  }
+}
 
-    exibir_arvore_vermelho_preto_por_palavra_portugues(raiz->dir, palavra);
+void buscar_arvore_vermelho_preto_por_palavra_portugues(const ArvoreVermelhoPreto *raiz, const char *palavra)
+{
+  if (raiz)
+  {
+    if (strcmp(raiz->info.palavra_portugues, palavra) == 0)
+    {
+      // Isso é só para calcular o tempo de busca da palavra.
+    }
+    else if (strcmp(raiz->info.palavra_portugues, palavra) > 0)
+      buscar_arvore_vermelho_preto_por_palavra_portugues(raiz->esq, palavra);
+    else
+      buscar_arvore_vermelho_preto_por_palavra_portugues(raiz->dir, palavra);
+  }
+}
+
+void caminho_arvore_vermelho_preto_por_palavra_portugues(const ArvoreVermelhoPreto *raiz, const char *palavra)
+{
+  if (raiz)
+  {
+    if (strcmp(raiz->info.palavra_portugues, palavra) == 0)
+        printf("cor: %s\n", raiz->cor == VERMELHO ? "Vermelho" : "Preto");
+    else if (strcmp(raiz->info.palavra_portugues, palavra) > 0)
+    {
+      printf("Esquerda -> ");
+      caminho_arvore_vermelho_preto_por_palavra_portugues(raiz->esq, palavra);
+    }
+    else
+    {
+      printf("Direita -> ");
+      caminho_arvore_vermelho_preto_por_palavra_portugues(raiz->dir, palavra);
+    }
   }
 }
