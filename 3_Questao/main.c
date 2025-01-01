@@ -2,6 +2,7 @@
 #include "include/arvore_2_3.h"
 #include "include/memoria.h"
 #include "include/utils.h"
+#include <stdlib.h>
 
 #define TAMANHO_MEMORIA 1000
 
@@ -55,13 +56,14 @@ int main()
   {
     menu();
     pegar_inteiro_em_intervalo(&opcao, 0, 2, "Digite a opção desejada: ");
+    printf("\n");
     if (opcao == 1)
       show_arvore_2_3(arvore);
     else if (opcao == 2)
     {
       int tamanho;
       pegar_inteiro_em_intervalo(&tamanho, 0, TAMANHO_MEMORIA, "Digite o tamanho do nó a ser ocupado: ");
-      ocupar_no(&arvore, tamanho);
+      // ocupar_no(&arvore, tamanho);
     }
   }
 

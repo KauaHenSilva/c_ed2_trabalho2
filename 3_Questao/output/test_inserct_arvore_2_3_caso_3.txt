@@ -1,0 +1,6 @@
+Info1: 0 - 10 - O
+Info1: 11 - 20 - L
+Info1: 21 - 40 - O
+Info2: 41 - 50 - L
+Info1: 51 - 60 - O
+Info2: 61 - 70 - L
