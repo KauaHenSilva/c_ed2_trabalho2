@@ -1,0 +1,78 @@
+Removendo abacaxi
+[1º] iguana -> [2º] quati -> [1º] elefante -> [1º] cachorro -> [1º] banana -> [1º] dado -> [1º] gato -> [1º] foca -> [1º] hipopotamo -> [1º] macaco -> [1º] kiwi -> [1º] jacare -> [1º] leao -> [1º] ovelha -> [1º] navio -> [1º] pato -> [1º] urso -> [1º] sapo -> [1º] rato -> [1º] tigre -> [1º] wolverine -> [2º] yak -> [1º] vaca -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo banana
+[1º] jacare -> [2º] rato -> [1º] foca -> [1º] dado -> [1º] cachorro -> [1º] elefante -> [1º] hipopotamo -> [1º] gato -> [1º] iguana -> [1º] navio -> [1º] leao -> [1º] kiwi -> [1º] macaco -> [1º] pato -> [1º] ovelha -> [1º] quati -> [1º] vaca -> [1º] tigre -> [1º] sapo -> [1º] urso -> [1º] xaxim -> [1º] wolverine -> [1º] yak -> [2º] zebra -> 
+
+Removendo cachorro
+[1º] kiwi -> [2º] sapo -> [1º] gato -> [1º] elefante -> [1º] dado -> [1º] foca -> [1º] iguana -> [1º] hipopotamo -> [1º] jacare -> [1º] ovelha -> [1º] macaco -> [1º] leao -> [1º] navio -> [1º] quati -> [1º] pato -> [1º] rato -> [1º] wolverine -> [1º] urso -> [1º] tigre -> [1º] vaca -> [1º] yak -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo dado
+[1º] leao -> [1º] hipopotamo -> [1º] foca -> [1º] elefante -> [1º] gato -> [1º] jacare -> [1º] iguana -> [1º] kiwi -> [1º] pato -> [2º] tigre -> [1º] navio -> [1º] macaco -> [1º] ovelha -> [1º] rato -> [1º] quati -> [1º] sapo -> [1º] vaca -> [2º] xaxim -> [1º] urso -> [1º] wolverine -> [1º] yak -> [2º] zebra -> 
+
+Removendo elefante
+[1º] macaco -> [1º] iguana -> [1º] gato -> [1º] foca -> [1º] hipopotamo -> [1º] kiwi -> [1º] jacare -> [1º] leao -> [1º] quati -> [2º] urso -> [1º] ovelha -> [1º] navio -> [1º] pato -> [1º] sapo -> [1º] rato -> [1º] tigre -> [1º] wolverine -> [2º] yak -> [1º] vaca -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo foca
+[1º] navio -> [1º] jacare -> [1º] hipopotamo -> [1º] gato -> [1º] iguana -> [1º] leao -> [1º] kiwi -> [1º] macaco -> [1º] rato -> [2º] vaca -> [1º] pato -> [1º] ovelha -> [1º] quati -> [1º] tigre -> [1º] sapo -> [1º] urso -> [1º] xaxim -> [1º] wolverine -> [1º] yak -> [2º] zebra -> 
+
+Removendo gato
+[1º] ovelha -> [1º] kiwi -> [1º] iguana -> [1º] hipopotamo -> [1º] jacare -> [1º] macaco -> [1º] leao -> [1º] navio -> [1º] sapo -> [2º] wolverine -> [1º] quati -> [1º] pato -> [1º] rato -> [1º] urso -> [1º] tigre -> [1º] vaca -> [1º] yak -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo hipopotamo
+[1º] pato -> [1º] leao -> [1º] jacare -> [1º] iguana -> [1º] kiwi -> [1º] navio -> [1º] macaco -> [1º] ovelha -> [1º] tigre -> [1º] rato -> [1º] quati -> [1º] sapo -> [1º] vaca -> [2º] xaxim -> [1º] urso -> [1º] wolverine -> [1º] yak -> [2º] zebra -> 
+
+Removendo iguana
+[1º] quati -> [1º] macaco -> [1º] kiwi -> [1º] jacare -> [1º] leao -> [1º] ovelha -> [1º] navio -> [1º] pato -> [1º] urso -> [1º] sapo -> [1º] rato -> [1º] tigre -> [1º] wolverine -> [2º] yak -> [1º] vaca -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo jacare
+[1º] rato -> [1º] navio -> [1º] leao -> [1º] kiwi -> [1º] macaco -> [1º] pato -> [1º] ovelha -> [1º] quati -> [1º] vaca -> [1º] tigre -> [1º] sapo -> [1º] urso -> [1º] xaxim -> [1º] wolverine -> [1º] yak -> [2º] zebra -> 
+
+Removendo kiwi
+[1º] sapo -> [1º] ovelha -> [1º] macaco -> [1º] leao -> [1º] navio -> [1º] quati -> [1º] pato -> [1º] rato -> [1º] wolverine -> [1º] urso -> [1º] tigre -> [1º] vaca -> [1º] yak -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo leao
+[1º] pato -> [2º] tigre -> [1º] navio -> [1º] macaco -> [1º] ovelha -> [1º] rato -> [1º] quati -> [1º] sapo -> [1º] vaca -> [2º] xaxim -> [1º] urso -> [1º] wolverine -> [1º] yak -> [2º] zebra -> 
+
+Removendo macaco
+[1º] quati -> [2º] urso -> [1º] ovelha -> [1º] navio -> [1º] pato -> [1º] sapo -> [1º] rato -> [1º] tigre -> [1º] wolverine -> [2º] yak -> [1º] vaca -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo navio
+[1º] rato -> [2º] vaca -> [1º] pato -> [1º] ovelha -> [1º] quati -> [1º] tigre -> [1º] sapo -> [1º] urso -> [1º] xaxim -> [1º] wolverine -> [1º] yak -> [2º] zebra -> 
+
+Removendo ovelha
+[1º] sapo -> [2º] wolverine -> [1º] quati -> [1º] pato -> [1º] rato -> [1º] urso -> [1º] tigre -> [1º] vaca -> [1º] yak -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo pato
+[1º] tigre -> [1º] rato -> [1º] quati -> [1º] sapo -> [1º] vaca -> [2º] xaxim -> [1º] urso -> [1º] wolverine -> [1º] yak -> [2º] zebra -> 
+
+Removendo quati
+[1º] urso -> [1º] sapo -> [1º] rato -> [1º] tigre -> [1º] wolverine -> [2º] yak -> [1º] vaca -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo rato
+[1º] vaca -> [1º] tigre -> [1º] sapo -> [1º] urso -> [1º] xaxim -> [1º] wolverine -> [1º] yak -> [2º] zebra -> 
+
+Removendo sapo
+[1º] wolverine -> [1º] urso -> [1º] tigre -> [1º] vaca -> [1º] yak -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo tigre
+[1º] vaca -> [2º] xaxim -> [1º] urso -> [1º] wolverine -> [1º] yak -> [2º] zebra -> 
+
+Removendo urso
+[1º] wolverine -> [2º] yak -> [1º] vaca -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo vaca
+[1º] xaxim -> [1º] wolverine -> [1º] yak -> [2º] zebra -> 
+
+Removendo wolverine
+[1º] yak -> [1º] xaxim -> [1º] zebra -> 
+
+Removendo xaxim
+[1º] yak -> [2º] zebra -> 
+
+Removendo yak
+[1º] zebra -> 
+
+Removendo zebra
+
+

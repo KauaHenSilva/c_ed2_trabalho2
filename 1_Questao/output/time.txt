@@ -86,3 +86,6 @@
 [Media 30] Tempo de busca de 30 palavras em português: 0.000018
 [Media 30] Tempo de busca de 30 palavras em português: 0.000012
 [Media 30] Tempo de busca de 30 palavras em português: 0.000018
+[Media 30] Tempo de busca de 30 palavras em português: 0.000016
+[Media 30] Tempo de busca de 30 palavras em português: 0.000025
+[Media 30] Tempo de busca de 30 palavras em português: 0.000015

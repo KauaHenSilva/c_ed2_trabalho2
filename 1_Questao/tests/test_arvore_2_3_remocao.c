@@ -91,6 +91,8 @@ void test_remocao_2_3_caso_20(); // inc: varios -> rem: varios
 void test_remocao_2_3_caso_21(); // inc: varios -> rem: varios
 void test_remocao_2_3_caso_22(); // inc: varios -> rem: varios
 void test_remocao_2_3_caso_23(); // inc: varios -> rem: varios
+void test_remocao_2_3_caso_24(); // inc: varios -> rem: varios
+
 
 int main()
 {
@@ -118,6 +120,7 @@ int main()
   RUN_TEST(test_remocao_2_3_caso_21);
   RUN_TEST(test_remocao_2_3_caso_22);
   RUN_TEST(test_remocao_2_3_caso_23);
+  RUN_TEST(test_remocao_2_3_caso_24);
   return UNITY_END();
 }
 
@@ -638,4 +641,30 @@ void test_remocao_2_3_caso_23()
   }
   fclose(fp);
   freopen("/dev/tty", "w", stdout);
+}
+
+void test_remocao_2_3_caso_24()
+{
+  char *valores_adicionar[] = { "abacaxi", "banana", "cachorro", "dado", "elefante", "foca", "gato", "hipopotamo", "iguana", "jacare",
+        "kiwi", "leao", "macaco", "navio", "ovelha", "pato", "quati", "rato", "sapo", "tigre",
+        "urso", "vaca", "wolverine", "xaxim", "yak", "zebra"};
+
+  for (int i = 0; i < 26; i++)
+  {
+    InfoMain info;
+    def_info_arvore_2_3(&info, valores_adicionar[i], valores_adicionar[i], valores_adicionar[i]);
+    inserir_arvore_2_3(&raiz, info);
+  }
+
+  FILE *fp = freopen("output/test_remocao_caso_24.txt", "w", stdout);
+  for (int i = 0; i < 26; i++)
+  {
+    int resposta = arvore_2_3_remover(&raiz, valores_adicionar[i]);
+    printf("Removendo %s\n", valores_adicionar[i]);
+    arvore23_exibir_pre(raiz);
+    printf("\n\n");
+  }
+  fclose(fp);
+  freopen("/dev/tty", "w", stdout);
+
 }
