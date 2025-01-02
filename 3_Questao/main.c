@@ -11,7 +11,7 @@ void informar_primeiro_nos(Arvore_2_3 **arvore)
   // Setando o primeiro nó da árvore
   Informacao info_primeiro;
   int final;
-  char status;
+  STATUS status;
 
   pegar_inteiro_em_intervalo(&final, 0, TAMANHO_MEMORIA, "Digite o endereço final do nó: ");
   pegar_status_da_memoria(&status);
@@ -41,6 +41,8 @@ void informar_primeiro_nos(Arvore_2_3 **arvore)
 
 void menu()
 {
+  printf("\n");
+  printf("Menu\n");
   printf("0 - Sair\n");
   printf("1 - Exibir árvore\n");
   printf("2 - Ocupar nó\n");
