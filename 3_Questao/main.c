@@ -46,6 +46,8 @@ void menu()
   printf("0 - Sair\n");
   printf("1 - Exibir árvore\n");
   printf("2 - Ocupar nó\n");
+  printf("3 - Desocupar nó\n");
+  printf("\n");
 }
 
 int main()
@@ -65,7 +67,13 @@ int main()
     {
       int tamanho;
       pegar_inteiro_em_intervalo(&tamanho, 0, TAMANHO_MEMORIA, "Digite o tamanho do nó a ser ocupado: ");
-      // ocupar_no(&arvore, tamanho);
+      alocar_desalocar_no(&arvore, tamanho, OCUPADA);
+    }
+    else if (opcao == 3)
+    {
+      int tamanho;
+      pegar_inteiro_em_intervalo(&tamanho, 0, TAMANHO_MEMORIA, "Digite o tamanho do nó a ser desocupado: ");
+      alocar_desalocar_no(&arvore, tamanho, LIVRE);
     }
   }
 
