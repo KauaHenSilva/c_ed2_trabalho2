@@ -49,6 +49,9 @@ void test_aloca_desaloca_no_caso_1();
 void test_aloca_desaloca_no_caso_2();
 void test_aloca_desaloca_no_caso_3();
 void test_aloca_desaloca_no_caso_4();
+void test_aloca_desaloca_no_caso_5();
+void test_aloca_desaloca_no_caso_6();
+void test_aloca_desaloca_no_caso_7();
 
 int main(void)
 {
@@ -67,6 +70,9 @@ int main(void)
   RUN_TEST(test_aloca_desaloca_no_caso_2);  
   RUN_TEST(test_aloca_desaloca_no_caso_3);
   RUN_TEST(test_aloca_desaloca_no_caso_4);
+  RUN_TEST(test_aloca_desaloca_no_caso_5);
+  RUN_TEST(test_aloca_desaloca_no_caso_6);
+  RUN_TEST(test_aloca_desaloca_no_caso_7);
   return UNITY_END();
 }
 
@@ -436,3 +442,52 @@ void test_aloca_desaloca_no_caso_4()
   freopen("/dev/tty", "w", stdout);
 }
 
+
+void test_aloca_desaloca_no_caso_5()
+{
+  prencher_arvore((int[]){10, 20, 30, 40, 50, 60, 70, 80, 90, 100}, 10, OCUPADA);
+
+  int qtd_alocar = 10;
+
+  FILE *file = freopen("output/test_aloca_desaloca_no_caso_5.txt", "w", stdout);
+  printf("Antes: \n");
+  show_arvore_2_3(arvore);
+  alocar_desalocar_no(&arvore, qtd_alocar, LIVRE);
+  printf("\nDepois: \n");
+  show_arvore_2_3(arvore);
+  fclose(file);
+  freopen("/dev/tty", "w", stdout);
+
+}
+
+void test_aloca_desaloca_no_caso_6()
+{
+  prencher_arvore((int[]){19, 40, 60, 80, 100}, 5, OCUPADA);
+
+  int qtd_alocar = 21;
+
+  FILE *file = freopen("output/test_aloca_desaloca_no_caso_6.txt", "w", stdout);
+  printf("Antes: \n");
+  show_arvore_2_3(arvore);
+  alocar_desalocar_no(&arvore, qtd_alocar, LIVRE);
+  printf("\nDepois: \n");
+  show_arvore_2_3(arvore);
+  fclose(file);
+  freopen("/dev/tty", "w", stdout);
+}
+
+void test_aloca_desaloca_no_caso_7()
+{
+  prencher_arvore((int[]){19, 40, 60, 80, 100}, 5, OCUPADA);
+
+  int qtd_alocar = 20;
+
+  FILE *file = freopen("output/test_aloca_desaloca_no_caso_7.txt", "w", stdout);
+  printf("Antes: \n");
+  show_arvore_2_3(arvore);
+  alocar_desalocar_no(&arvore, qtd_alocar, OCUPADA);
+  printf("\nDepois: \n");
+  show_arvore_2_3(arvore);
+  fclose(file);
+  freopen("/dev/tty", "w", stdout);
+}

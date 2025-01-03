@@ -156,7 +156,7 @@ Arvore_2_3 *buscar_menor_bloco(Arvore_2_3 **raiz, Arvore_2_3 *no, Informacao *in
       menor = no;
     else
       menor = arvore_2_3_buscar_menor_pai(*raiz, info->inicio);
-    
+
     if (menor != NULL)
       if (menor->qtd_info == 2 && menor->info2.inicio < info->inicio)
         *valor_menor = &(menor->info2);
@@ -179,9 +179,16 @@ Arvore_2_3 *buscar_maior_bloco(Arvore_2_3 **raiz, Arvore_2_3 *no, Informacao *in
 
   if (eh_folha(no))
   {
-    maior = Arvore_2_3_buscar_maior_pai(*raiz, info->inicio);
+    if (no->qtd_info == 2 && no->info2.inicio == info->inicio)
+      maior = no;
+    else
+      maior = Arvore_2_3_buscar_maior_pai(*raiz, info->inicio);
+
     if (maior != NULL)
-      *valor_maior = no23_maior_info(maior);
+      if (maior->info1.inicio > info->inicio)
+        *valor_maior = &maior->info1;
+      else
+        *valor_maior = &maior->info2;
   }
   else
   {
@@ -691,7 +698,7 @@ void modificar_no(Arvore_2_3 **raiz, Arvore_2_3 *no, Informacao *info, int quant
       if (menor == NULL)
       {
         concatenar_no(raiz, &(info->final), valor_maior->final, valor_maior->inicio);
-        info->status = !(info->status);
+        trocar_status_da_memoria(&info->status);
       }
       else if (maior == NULL)
         concatenar_no(raiz, &(valor_menor->final), info->final, info->inicio);

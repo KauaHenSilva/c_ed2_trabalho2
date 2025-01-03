@@ -1,0 +1,21 @@
+Antes: 
+Info1: 0 - 10 - O
+Info1: 11 - 20 - L
+Info1: 21 - 30 - O
+Info1: 31 - 40 - L
+Info1: 41 - 50 - O
+Info1: 51 - 60 - L
+Info1: 61 - 70 - O
+Info2: 71 - 80 - L
+Info1: 81 - 90 - O
+Info2: 91 - 100 - L
+
+Depois: 
+Info1: 0 - 30 - O
+Info1: 31 - 40 - L
+Info1: 41 - 50 - O
+Info1: 51 - 60 - L
+Info1: 61 - 70 - O
+Info1: 71 - 80 - L
+Info1: 81 - 90 - O
+Info2: 91 - 100 - L
