@@ -72,14 +72,14 @@ void exibir_arvore_2_3_por_palavra_portugues(const Arvore_2_3 *raiz, const char 
   }
 }
 
-void buscar_arvore_2_3_por_palavra_portugues(Arvore_2_3 *raiz, const char *palavra, Arvore_2_3 **busca)
+void buscar_arvore_2_3_por_palavra_portugues(Arvore_2_3 *raiz, const char *palavra, InfoMain *busca)
 {
   if (raiz)
   {
     if (strcmp(raiz->info1.palavra_portugues, palavra) == 0)
-      *busca = raiz;
+      *busca = raiz->info1;
     else if (raiz->n_info == 2 && strcmp(raiz->info2.palavra_portugues, palavra) == 0)
-      *busca = raiz;
+      *busca = raiz->info2;
     else if (strcmp(raiz->info1.palavra_portugues, palavra) > 0)
       buscar_arvore_2_3_por_palavra_portugues(raiz->esquerda, palavra, busca);
     else if (raiz->n_info == 1 || strcmp(raiz->info2.palavra_portugues, palavra) > 0)

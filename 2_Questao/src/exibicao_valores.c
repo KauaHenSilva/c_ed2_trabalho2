@@ -61,12 +61,12 @@ void exibir_arvore_vermelho_preto_por_palavra_portugues(const ArvoreVermelhoPret
   }
 }
 
-void buscar_arvore_vermelho_preto_por_palavra_portugues(ArvoreVermelhoPreto *raiz, const char *palavra, ArvoreVermelhoPreto **buscar)
+void buscar_arvore_vermelho_preto_por_palavra_portugues(ArvoreVermelhoPreto *raiz, const char *palavra, InfoMain *buscar)
 {
   if (raiz)
   {
     if (strcmp(raiz->info.palavra_portugues, palavra) == 0)
-      *buscar = raiz;
+      *buscar = raiz->info;
     else if (strcmp(raiz->info.palavra_portugues, palavra) > 0)
       buscar_arvore_vermelho_preto_por_palavra_portugues(raiz->esq, palavra, buscar);
     else

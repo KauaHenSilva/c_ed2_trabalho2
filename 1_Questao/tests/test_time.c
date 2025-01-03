@@ -7,7 +7,7 @@
 
 Arvore_2_3 *raiz;
 #define QUANTIDADE_PALAVRAS_BUSCAR 30
-#define QUANTIDADE_PALAVRAS_TOTAL 1000
+#define QUANTIDADE_PALAVRAS_TOTAL 10000000
 
 void setUp()
 {
@@ -36,37 +36,28 @@ void test_tempo_busca_30_palavras_portugues()
   char info_str[10];
 
   clock_t start, end;
-  clock_t media;
-  clock_t media_total = 0;
+  double media = 0, tempo;
 
   FILE *fp = freopen("output/tempo.txt", "w", stdout);
 
   for (int x = 0; x < QUANTIDADE_PALAVRAS_BUSCAR; x++)
   {
     sprintf(info_str, "%d", QUANTIDADE_PALAVRAS_TOTAL / QUANTIDADE_PALAVRAS_BUSCAR * x);
-    media = 0;
-    for (int i = 0; i < 10; i++)
-    {
-      Arvore_2_3 *busca;
-      start = clock();
-      buscar_arvore_2_3_por_palavra_portugues(raiz, info_str, &busca);
-      end = clock();
 
-      if (strcmp(busca->info1.palavra_portugues, info_str) != 0)
-        if (busca->n_info == 2 && strcmp(busca->info2.palavra_portugues, info_str) != 0)
-            printf("Erro ao buscar %s\n", info_str);
+    InfoMain busca;
+    start = clock();
+    buscar_arvore_2_3_por_palavra_portugues(raiz, info_str, &busca);
+    end = clock();
 
-      media += end - start;
-      printf("Tempo de busca por %s: %.9f\n", info_str, (double)(end - start) / CLOCKS_PER_SEC);
-    }
-    
-    media /= 10;
-    printf("Tempo medio de busca por %s: %.9f\n", info_str, (double)media / CLOCKS_PER_SEC);
-    media_total += media;
+    TEST_ASSERT_EQUAL_STRING(info_str, busca.palavra_portugues);
+
+    tempo = (double)(end - start) / CLOCKS_PER_SEC;
+    media += tempo;
+
+    printf("Busca por %s: %f\n", info_str, tempo);
   }
 
-  clock_t media_de_busca = media_total / QUANTIDADE_PALAVRAS_BUSCAR;
-  printf("Tempo medio total: %.9f\n", (double)media_de_busca / CLOCKS_PER_SEC);
+  printf("Tempo medio total: %.8f\n", media / QUANTIDADE_PALAVRAS_BUSCAR);
   fclose(fp);
 }
 

@@ -1,120 +1,120 @@
 Iniciando busca por 0
-Raiz -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> info: info1
+Raiz -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> info: info1
 
 
-Iniciando busca por 33
-Raiz -> Esquerda -> Centro -> Centro -> Centro -> Centro -> info: info1
+Iniciando busca por 333333
+Raiz -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> info: info1
 
 
-Iniciando busca por 66
-Raiz -> Direita -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> info: info1
+Iniciando busca por 666666
+Raiz -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> info: info1
 
 
-Iniciando busca por 99
-Raiz -> Direita -> Direita -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> info: info1
+Iniciando busca por 999999
+Raiz -> Direita -> Centro -> Centro -> Direita -> Direita -> Direita -> Centro -> Centro -> Centro -> Direita -> Centro -> Direita -> Centro -> Centro -> Centro -> Direita -> Direita -> Centro -> Esquerda -> Centro -> Esquerda -> info: info1
 
 
-Iniciando busca por 132
-Raiz -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> info: info1
+Iniciando busca por 1333332
+Raiz -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> info: info1
 
 
-Iniciando busca por 165
-Raiz -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> info: info1
+Iniciando busca por 1666665
+Raiz -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> info: info1
 
 
-Iniciando busca por 198
-Raiz -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> info: info1
+Iniciando busca por 1999998
+Raiz -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Direita -> Direita -> Centro -> Centro -> info: info1
 
 
-Iniciando busca por 231
-Raiz -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> info: info1
+Iniciando busca por 2333331
+Raiz -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> info: info1
 
 
-Iniciando busca por 264
-Raiz -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> Esquerda -> info: info1
+Iniciando busca por 2666664
+Raiz -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> Esquerda -> Direita -> Centro -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> info: info1
 
 
-Iniciando busca por 297
-Raiz -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> info: info1
+Iniciando busca por 2999997
+Raiz -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> info: info1
 
 
-Iniciando busca por 330
-Raiz -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> info: info1
+Iniciando busca por 3333330
+Raiz -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> info: info1
 
 
-Iniciando busca por 363
-Raiz -> Esquerda -> Centro -> Centro -> Direita -> Centro -> Centro -> Centro -> Esquerda -> info: info1
+Iniciando busca por 3666663
+Raiz -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> info: info1
 
 
-Iniciando busca por 396
-Raiz -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> info: info1
+Iniciando busca por 3999996
+Raiz -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Direita -> Centro -> Centro -> Direita -> Direita -> Direita -> Centro -> Esquerda -> info: info1
 
 
-Iniciando busca por 429
-Raiz -> Centro -> Esquerda -> info: info1
+Iniciando busca por 4333329
+Raiz -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Direita -> Direita -> Centro -> Centro -> Esquerda -> info: info1
 
 
-Iniciando busca por 462
-Raiz -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> info: info1
+Iniciando busca por 4666662
+Raiz -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> info: info1
 
 
-Iniciando busca por 495
-Raiz -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Centro -> Centro -> info: info1
+Iniciando busca por 4999995
+Raiz -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Centro -> info: info1
 
 
-Iniciando busca por 528
-Raiz -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Direita -> info: info2
+Iniciando busca por 5333328
+Raiz -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> info: info2
 
 
-Iniciando busca por 561
-Raiz -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> info: info1
+Iniciando busca por 5666661
+Raiz -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Direita -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> info: info1
 
 
-Iniciando busca por 594
-Raiz -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> info: info1
+Iniciando busca por 5999994
+Raiz -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Direita -> Centro -> Direita -> Direita -> Direita -> Esquerda -> Centro -> info: info1
 
 
-Iniciando busca por 627
-Raiz -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> info: info1
+Iniciando busca por 6333327
+Raiz -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Direita -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> info: info1
 
 
-Iniciando busca por 660
-Raiz -> Direita -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> info: info1
+Iniciando busca por 6666660
+Raiz -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> info: info1
 
 
-Iniciando busca por 693
-Raiz -> Direita -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> info: info1
+Iniciando busca por 6999993
+Raiz -> Direita -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> info: info1
 
 
-Iniciando busca por 726
-Raiz -> Direita -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> info: info1
+Iniciando busca por 7333326
+Raiz -> Direita -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> info: info1
 
 
-Iniciando busca por 759
-Raiz -> Direita -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> info: info1
+Iniciando busca por 7666659
+Raiz -> Direita -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> info: info1
 
 
-Iniciando busca por 792
-Raiz -> Direita -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> info: info1
+Iniciando busca por 7999992
+Raiz -> Direita -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> info: info1
 
 
-Iniciando busca por 825
-Raiz -> Direita -> Centro -> Centro -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> info: info1
+Iniciando busca por 8333325
+Raiz -> Direita -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> info: info1
 
 
-Iniciando busca por 858
-Raiz -> Direita -> Centro -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Centro -> info: info1
+Iniciando busca por 8666658
+Raiz -> Direita -> Centro -> Esquerda -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Esquerda -> Direita -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Centro -> Centro -> info: info1
 
 
-Iniciando busca por 891
-Raiz -> Direita -> Direita -> Esquerda -> Esquerda -> Centro -> Esquerda -> info: info1
+Iniciando busca por 8999991
+Raiz -> Direita -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Direita -> Centro -> Centro -> Centro -> Centro -> Centro -> Direita -> Centro -> Direita -> Centro -> Direita -> Direita -> info: info2
 
 
-Iniciando busca por 924
-Raiz -> Direita -> Direita -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> info: info1
+Iniciando busca por 9333324
+Raiz -> Direita -> Centro -> Centro -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> Centro -> Centro -> Esquerda -> Esquerda -> Esquerda -> Centro -> info: info1
 
 
-Iniciando busca por 957
-Raiz -> Direita -> Direita -> Centro -> Esquerda -> Centro -> Esquerda -> Centro -> Centro -> info: info1
+Iniciando busca por 9666657
+Raiz -> Direita -> Centro -> Centro -> Direita -> Centro -> Esquerda -> Centro -> Centro -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Esquerda -> Esquerda -> Centro -> Direita -> Centro -> Centro -> Direita -> Esquerda -> info: info1
 
 
