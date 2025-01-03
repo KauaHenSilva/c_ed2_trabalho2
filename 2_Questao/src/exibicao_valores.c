@@ -71,7 +71,7 @@ void buscar_arvore_vermelho_preto_por_palavra_portugues(ArvoreVermelhoPreto *rai
       buscar_arvore_vermelho_preto_por_palavra_portugues(raiz->esq, palavra, buscar);
     else
       buscar_arvore_vermelho_preto_por_palavra_portugues(raiz->dir, palavra, buscar);
-  }
+  } 
 }
 
 void caminho_arvore_vermelho_preto_por_palavra_portugues(const ArvoreVermelhoPreto *raiz, const char *palavra)

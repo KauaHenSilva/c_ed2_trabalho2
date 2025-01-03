@@ -7,7 +7,7 @@
 
 Arvore_2_3 *raiz;
 #define QUANTIDADE_PALAVRAS_BUSCAR 30
-#define QUANTIDADE_PALAVRAS_TOTAL 10000000
+#define QUANTIDADE_PALAVRAS_TOTAL 1000
 
 void setUp()
 {
@@ -57,12 +57,16 @@ void test_tempo_busca_30_palavras_portugues()
             printf("Erro ao buscar %s\n", info_str);
 
       media += end - start;
-      media_total += media;
+      printf("Tempo de busca por %s: %.9f\n", info_str, (double)(end - start) / CLOCKS_PER_SEC);
     }
-    printf("Tempo medio de busca por %s: %.9f\n", info_str, (double)media / 10 / CLOCKS_PER_SEC);
+    
+    media /= 10;
+    printf("Tempo medio de busca por %s: %.9f\n", info_str, (double)media / CLOCKS_PER_SEC);
+    media_total += media;
   }
-  printf("Tempo medio total: %.9f\n", (double)media_total / 10 / QUANTIDADE_PALAVRAS_BUSCAR / CLOCKS_PER_SEC);
 
+  clock_t media_de_busca = media_total / QUANTIDADE_PALAVRAS_BUSCAR;
+  printf("Tempo medio total: %.9f\n", (double)media_de_busca / CLOCKS_PER_SEC);
   fclose(fp);
 }
 
