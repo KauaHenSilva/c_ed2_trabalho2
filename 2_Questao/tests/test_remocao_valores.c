@@ -267,7 +267,7 @@ void test_remove_palavra_portugues_unidade_caso_problema_unidade_2()
   FILE *fp = freopen("output/test_remove_palavra_portugues_unidade_caso_problema_unidade_2.txt", "w", stdout);
   remove_palavra_portugues_unidade(&raiz, "problema", "Unidade 1");
   show_arvore_vermelho_preto(raiz);
-fclose(fp);
+  fclose(fp);
   freopen("/dev/tty", "w", stdout);
 
   fp = fopen("output/test_remove_palavra_portugues_unidade_caso_problema_unidade_2.txt", "r");

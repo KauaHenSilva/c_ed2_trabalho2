@@ -61,18 +61,16 @@ void exibir_arvore_vermelho_preto_por_palavra_portugues(const ArvoreVermelhoPret
   }
 }
 
-void buscar_arvore_vermelho_preto_por_palavra_portugues(const ArvoreVermelhoPreto *raiz, const char *palavra)
+void buscar_arvore_vermelho_preto_por_palavra_portugues(ArvoreVermelhoPreto *raiz, const char *palavra, ArvoreVermelhoPreto **buscar)
 {
   if (raiz)
   {
     if (strcmp(raiz->info.palavra_portugues, palavra) == 0)
-    {
-      // Isso é só para calcular o tempo de busca da palavra.
-    }
+      *buscar = raiz;
     else if (strcmp(raiz->info.palavra_portugues, palavra) > 0)
-      buscar_arvore_vermelho_preto_por_palavra_portugues(raiz->esq, palavra);
+      buscar_arvore_vermelho_preto_por_palavra_portugues(raiz->esq, palavra, buscar);
     else
-      buscar_arvore_vermelho_preto_por_palavra_portugues(raiz->dir, palavra);
+      buscar_arvore_vermelho_preto_por_palavra_portugues(raiz->dir, palavra, buscar);
   }
 }
 

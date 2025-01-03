@@ -3,24 +3,26 @@
 #include "include/exibicao_valores.h"
 #include <stdlib.h>
 #include <time.h>
+#include <string.h> 
 
 ArvoreVermelhoPreto *raiz;
-#define QUANTIDADE 30
+#define QUANTIDADE_PALAVRAS_BUSCAR 30
+#define QUANTIDADE_PALAVRAS_TOTAL 10000000
 
 void setUp()
 {
-  raiz = NULL;
+  // raiz = NULL;
 }
 
 void tearDown()
 {
-  free_arvore_vermelho_preto(&raiz);
+  // free_arvore_vermelho_preto(&raiz);
 }
 
 void inserir_dados()
 {
   char info_str[10];
-  for (int x = 0; x < QUANTIDADE; x++)
+  for (int x = 0; x < QUANTIDADE_PALAVRAS_TOTAL; x++)
   {
     sprintf(info_str, "%d", x);
     ArvoreVermelhoPreto *new;
@@ -30,46 +32,49 @@ void inserir_dados()
   }
 }
 
+
 void test_tempo_busca_30_palavras_portugues()
 {
-  inserir_dados();
   char info_str[10];
 
-  clock_t resultados[30];
+  clock_t start, end;
+  clock_t media;
+  clock_t media_total = 0;
 
-  for (int qtd_test = 0; qtd_test < 30; qtd_test++)
+  FILE *fp = freopen("output/tempo.txt", "w", stdout);
+
+  for (int x = 0; x < QUANTIDADE_PALAVRAS_BUSCAR; x++)
   {
-    clock_t inicio, resultado = 0;
-    for (int x = 0; x < QUANTIDADE; x++)
+    sprintf(info_str, "%d", QUANTIDADE_PALAVRAS_TOTAL / QUANTIDADE_PALAVRAS_BUSCAR * x);
+    media = 0;
+    for (int i = 0; i < 10; i++)
     {
-      sprintf(info_str, "%d", x);
-      inicio = clock();
-      buscar_arvore_vermelho_preto_por_palavra_portugues(raiz, info_str);
-      resultado += clock() - inicio;
-    } 
+      ArvoreVermelhoPreto *buscar;
+      start = clock();
+      buscar_arvore_vermelho_preto_por_palavra_portugues(raiz, info_str, &buscar);
+      end = clock();
 
-    resultados[qtd_test] = resultado;
+      if (strcmp(buscar->info.palavra_portugues, info_str) != 0)
+        printf("Erro ao buscar palavra %s\n", info_str);
+
+      media += end - start;
+      media_total += media;
+    }
+    printf("Tempo medio de busca por %s: %f\n", info_str, (double)media / 10 / CLOCKS_PER_SEC);
   }
+  printf("Tempo medio total: %f\n", (double)media_total / 10 / QUANTIDADE_PALAVRAS_BUSCAR / CLOCKS_PER_SEC);
 
-  clock_t media = 0;
-  for (int x = 0; x < 30; x++)
-    media += resultados[x];
-  media /= 30;
-
-  FILE *fp = freopen("output/time.txt", "a", stdout);
-  printf("[Media 30] Tempo de busca de %d palavras em português: %f\n", QUANTIDADE, (double)(media) / CLOCKS_PER_SEC);
   fclose(fp);
 }
 
 void test_caminho_busca_30_palavras_portugues()
 {
-  inserir_dados();
   char info_str[10];
   
   FILE *fp = freopen("output/caminho.txt", "w", stdout);
-  for (int x = 0; x < QUANTIDADE; x++)
+  for (int x = 0; x < QUANTIDADE_PALAVRAS_BUSCAR; x++)
   {
-    sprintf(info_str, "%d", x);
+    sprintf(info_str, "%d", QUANTIDADE_PALAVRAS_TOTAL / QUANTIDADE_PALAVRAS_BUSCAR * x);
     printf("Iniciando busca por %s\n", info_str);
     printf("Raiz -> ");
     caminho_arvore_vermelho_preto_por_palavra_portugues(raiz, info_str);
@@ -81,7 +86,9 @@ void test_caminho_busca_30_palavras_portugues()
 int main()
 {
   UNITY_BEGIN();
+  inserir_dados();
   RUN_TEST(test_tempo_busca_30_palavras_portugues);
   RUN_TEST(test_caminho_busca_30_palavras_portugues);
+  free_arvore_vermelho_preto(&raiz);
   return UNITY_END();
 }

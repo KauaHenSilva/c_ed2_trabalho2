@@ -72,24 +72,20 @@ void exibir_arvore_2_3_por_palavra_portugues(const Arvore_2_3 *raiz, const char 
   }
 }
 
-void buscar_arvore_2_3_por_palavra_portugues(const Arvore_2_3 *raiz, const char *palavra)
+void buscar_arvore_2_3_por_palavra_portugues(Arvore_2_3 *raiz, const char *palavra, Arvore_2_3 **busca)
 {
   if (raiz)
   {
     if (strcmp(raiz->info1.palavra_portugues, palavra) == 0)
-    {
-      // Isso é um teste não precisa fazer nada
-    }
+      *busca = raiz;
     else if (raiz->n_info == 2 && strcmp(raiz->info2.palavra_portugues, palavra) == 0)
-    {
-      // Isso é um teste não precisa fazer nada
-    }
+      *busca = raiz;
     else if (strcmp(raiz->info1.palavra_portugues, palavra) > 0)
-      buscar_arvore_2_3_por_palavra_portugues(raiz->esquerda, palavra);
+      buscar_arvore_2_3_por_palavra_portugues(raiz->esquerda, palavra, busca);
     else if (raiz->n_info == 1 || strcmp(raiz->info2.palavra_portugues, palavra) > 0)
-      buscar_arvore_2_3_por_palavra_portugues(raiz->centro, palavra);
+      buscar_arvore_2_3_por_palavra_portugues(raiz->centro, palavra, busca);
     else
-      buscar_arvore_2_3_por_palavra_portugues(raiz->direita, palavra);
+      buscar_arvore_2_3_por_palavra_portugues(raiz->direita, palavra, busca);
   }
 }
 
@@ -99,15 +95,9 @@ void caminho_exibir_arvore_2_3_por_palavra_portugues(const Arvore_2_3 *raiz, con
   {
 
     if (strcmp(raiz->info1.palavra_portugues, palavra) == 0)
-    {
       printf("info: info1\n");
-      exibir_arvore_binaria_por_palavra_portugues(raiz->info1.arv_binaria_palavra_ingles);
-    }
     else if (raiz->n_info == 2 && strcmp(raiz->info2.palavra_portugues, palavra) == 0)
-    {
       printf("info: info2\n");
-      exibir_arvore_binaria_por_palavra_portugues(raiz->info2.arv_binaria_palavra_ingles);
-    }
     else if (strcmp(raiz->info1.palavra_portugues, palavra) > 0)
     {
       printf("Esquerda -> ");
