@@ -2,12 +2,6 @@
 
 #include "include/arvore_binaria.h"
 
-typedef enum en_COR
-{
-  VERMELHO = 0,
-  PRETO = 1
-} Cor;
-
 typedef struct st_InfoMain
 {
   ArvoreBinaria *arv_binaria_palavra_ingles;

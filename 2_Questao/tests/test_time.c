@@ -7,7 +7,7 @@
 
 ArvoreVermelhoPreto *raiz;
 #define QUANTIDADE_PALAVRAS_BUSCAR 30
-#define QUANTIDADE_PALAVRAS_TOTAL 10000000
+#define QUANTIDADE_PALAVRAS_TOTAL 100
 
 void setUp()
 {

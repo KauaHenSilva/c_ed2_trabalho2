@@ -41,6 +41,10 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_3(); // 2 -> 1 -> 3
 void test_insercao_arvore_vermelha_preta_inserindo_caso_4(); // 3 -> 1 -> 2
 void test_insercao_arvore_vermelha_preta_inserindo_caso_5(); // 1 -> 2 -> 3 -> 4 -> 5
 void test_insercao_arvore_vermelha_preta_inserindo_caso_5(); // 1 -> 2 -> 3 -> 4 -> 5
+void test_insercao_arvore_vermelha_preta_inserindo_caso_6(); // 1 -> 2 -> 3 -> 4 -> 5 -> 6
+void test_insercao_arvore_vermelha_preta_inserindo_caso_7(); // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
+void test_insercao_arvore_vermelha_preta_inserindo_caso_8(); // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
+void test_insercao_arvore_vermelha_preta_inserindo_caso_9(); // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 void test_insercao_arvore_vermelha_preta_atualizando_caso_1();
 
 int main()
@@ -53,6 +57,10 @@ int main()
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_3);
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_4);
   RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_5);
+  RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_6);
+  RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_7);
+  RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_8);
+  RUN_TEST(test_insercao_arvore_vermelha_preta_inserindo_caso_9);
   RUN_TEST(test_insercao_arvore_vermelha_preta_atualizando_caso_1);
   return UNITY_END();
 }
@@ -152,6 +160,69 @@ void test_insercao_arvore_vermelha_preta_inserindo_caso_5()
   verificar_valor_automatico(raiz->esq->dir, "3", PRETO);
   verificar_valor_automatico(raiz->dir, "5", PRETO);
 }
+
+void test_insercao_arvore_vermelha_preta_inserindo_caso_6()
+{
+  char *valores_inserir_pt1[] = {"1", "2", "3", "4", "5", "6"};
+  int qtd_erros = prencher_automatico(valores_inserir_pt1, 6);
+
+  TEST_ASSERT_EQUAL_INT(0, qtd_erros);
+  verificar_valor_automatico(raiz, "4", PRETO);
+  verificar_valor_automatico(raiz->esq, "2", VERMELHO);
+  verificar_valor_automatico(raiz->dir, "6", PRETO);
+  verificar_valor_automatico(raiz->esq->esq, "1", PRETO);
+  verificar_valor_automatico(raiz->esq->dir, "3", PRETO);
+  verificar_valor_automatico(raiz->dir->esq, "5", VERMELHO);
+}
+
+void test_insercao_arvore_vermelha_preta_inserindo_caso_7()
+{
+  char *valores_inserir_pt1[] = {"1", "2", "3", "4", "5", "6", "7"};
+  int qtd_erros = prencher_automatico(valores_inserir_pt1, 7);
+
+  TEST_ASSERT_EQUAL_INT(0, qtd_erros);
+  verificar_valor_automatico(raiz, "4", PRETO);
+  verificar_valor_automatico(raiz->esq, "2", PRETO);
+  verificar_valor_automatico(raiz->dir, "6", PRETO);
+  verificar_valor_automatico(raiz->esq->esq, "1", PRETO);
+  verificar_valor_automatico(raiz->esq->dir, "3", PRETO);
+  verificar_valor_automatico(raiz->dir->esq, "5", PRETO);
+  verificar_valor_automatico(raiz->dir->dir, "7", PRETO);
+}
+
+void test_insercao_arvore_vermelha_preta_inserindo_caso_8()
+{
+  char *valores_inserir_pt1[] = {"1", "2", "3", "4", "5", "6", "7", "8"};
+  int qtd_erros = prencher_automatico(valores_inserir_pt1, 8);
+
+  TEST_ASSERT_EQUAL_INT(0, qtd_erros);
+  verificar_valor_automatico(raiz, "4", PRETO);
+  verificar_valor_automatico(raiz->esq, "2", PRETO);
+  verificar_valor_automatico(raiz->dir, "6", PRETO);
+  verificar_valor_automatico(raiz->esq->esq, "1", PRETO);
+  verificar_valor_automatico(raiz->esq->dir, "3", PRETO);
+  verificar_valor_automatico(raiz->dir->esq, "5", PRETO);
+  verificar_valor_automatico(raiz->dir->dir, "8", PRETO);
+  verificar_valor_automatico(raiz->dir->dir->esq, "7", VERMELHO);
+}
+
+void test_insercao_arvore_vermelha_preta_inserindo_caso_9()
+{
+  char *valores_inserir_pt1[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+  int qtd_erros = prencher_automatico(valores_inserir_pt1, 9);
+
+  TEST_ASSERT_EQUAL_INT(0, qtd_erros);
+  verificar_valor_automatico(raiz, "4", PRETO);
+  verificar_valor_automatico(raiz->esq, "2", PRETO);
+  verificar_valor_automatico(raiz->dir, "8", PRETO);
+  verificar_valor_automatico(raiz->esq->esq, "1", PRETO);
+  verificar_valor_automatico(raiz->esq->dir, "3", PRETO);
+  verificar_valor_automatico(raiz->dir->esq, "6", VERMELHO);
+  verificar_valor_automatico(raiz->dir->esq->esq, "5", PRETO);
+  verificar_valor_automatico(raiz->dir->esq->dir, "7", PRETO);
+  verificar_valor_automatico(raiz->dir->dir, "9", PRETO);
+}
+
 
 void test_insercao_arvore_vermelha_preta_atualizando_caso_1()
 {

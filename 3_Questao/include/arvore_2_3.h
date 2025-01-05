@@ -35,5 +35,4 @@ int arvore_2_3_remover1(Arvore_2_3 **raiz, int info, Arvore_2_3 *pai, Arvore_2_3
 int arvore_2_3_remover(Arvore_2_3 **raiz, int info);
 
 void modificar_no(Arvore_2_3 **raiz, Arvore_2_3 *no, Informacao *info, int quant);
-// void no_com_tamanho_livre(Arvore_2_3 **no_adequado, int *info_correspodente, Arvore_2_3 *arvore, int tamanho);
 int alocar_desalocar_no(Arvore_2_3 **arvore, int quant_nos, STATUS status);

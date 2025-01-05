@@ -1,120 +1,120 @@
 Iniciando busca por 0
-Raiz -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
+Raiz -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 333333
-Raiz -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> cor: Preto
+Iniciando busca por 3
+Raiz -> Esquerda -> Esquerda -> Direita -> cor: Preto
 
 
-Iniciando busca por 666666
-Raiz -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
+Iniciando busca por 6
+Raiz -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Direita -> cor: Preto
 
 
-Iniciando busca por 999999
-Raiz -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> cor: Preto
+Iniciando busca por 9
+Raiz -> Direita -> Direita -> Esquerda -> Direita -> Direita -> cor: Preto
 
 
-Iniciando busca por 1333332
-Raiz -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
+Iniciando busca por 12
+Raiz -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 1666665
-Raiz -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
+Iniciando busca por 15
+Raiz -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 1999998
-Raiz -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Direita -> cor: Preto
+Iniciando busca por 18
+Raiz -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> cor: Preto
 
 
-Iniciando busca por 2333331
-Raiz -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> cor: Preto
+Iniciando busca por 21
+Raiz -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> cor: Preto
 
 
-Iniciando busca por 2666664
-Raiz -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> cor: Preto
+Iniciando busca por 24
+Raiz -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 2999997
-Raiz -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> cor: Preto
+Iniciando busca por 27
+Raiz -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 3333330
-Raiz -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> cor: Preto
+Iniciando busca por 30
+Raiz -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 3666663
-Raiz -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> cor: Preto
+Iniciando busca por 33
+Raiz -> Esquerda -> Esquerda -> Direita -> Direita -> cor: Preto
 
 
-Iniciando busca por 3999996
-Raiz -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> cor: Preto
+Iniciando busca por 36
+Raiz -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Direita -> cor: Preto
 
 
-Iniciando busca por 4333329
-Raiz -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> cor: Preto
+Iniciando busca por 39
+Raiz -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 4666662
-Raiz -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> cor: Preto
+Iniciando busca por 42
+Raiz -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> cor: Preto
 
 
-Iniciando busca por 4999995
-Raiz -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> cor: Preto
+Iniciando busca por 45
+Raiz -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 5333328
-Raiz -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> cor: Preto
+Iniciando busca por 48
+Raiz -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 5666661
-Raiz -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> cor: Preto
+Iniciando busca por 51
+Raiz -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> cor: Preto
 
 
-Iniciando busca por 5999994
-Raiz -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Direita -> cor: Preto
+Iniciando busca por 54
+Raiz -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 6333327
-Raiz -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> cor: Preto
+Iniciando busca por 57
+Raiz -> Esquerda -> Direita -> Direita -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 6666660
-Raiz -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> cor: Preto
+Iniciando busca por 60
+Raiz -> Esquerda -> Direita -> Direita -> cor: Preto
 
 
-Iniciando busca por 6999993
-Raiz -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> cor: Preto
+Iniciando busca por 63
+Raiz -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Direita -> cor: Preto
 
 
-Iniciando busca por 7333326
-Raiz -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> cor: Preto
+Iniciando busca por 66
+Raiz -> Esquerda -> Direita -> Direita -> Direita -> Direita -> cor: Preto
 
 
-Iniciando busca por 7666659
-Raiz -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> cor: Preto
+Iniciando busca por 69
+Raiz -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 7999992
-Raiz -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> cor: Preto
+Iniciando busca por 72
+Raiz -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 8333325
-Raiz -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> cor: Preto
+Iniciando busca por 75
+Raiz -> Direita -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 8666658
-Raiz -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Esquerda -> Direita -> Direita -> cor: Preto
+Iniciando busca por 78
+Raiz -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> cor: Vermelho
 
 
-Iniciando busca por 8999991
-Raiz -> Direita -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> Direita -> cor: Preto
+Iniciando busca por 81
+Raiz -> Direita -> Esquerda -> Direita -> Direita -> cor: Preto
 
 
-Iniciando busca por 9333324
-Raiz -> Direita -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> Direita -> cor: Preto
+Iniciando busca por 84
+Raiz -> Direita -> Direita -> Esquerda -> Esquerda -> Esquerda -> cor: Preto
 
 
-Iniciando busca por 9666657
-Raiz -> Direita -> Direita -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Direita -> Direita -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Esquerda -> Esquerda -> Direita -> Direita -> Direita -> Direita -> Direita -> Esquerda -> cor: Preto
+Iniciando busca por 87
+Raiz -> Direita -> Direita -> Esquerda -> cor: Preto
 
 
