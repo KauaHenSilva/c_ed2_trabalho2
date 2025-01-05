@@ -1,6 +1,18 @@
 #pragma once
 
-#include "include/memoria.h"
+typedef enum en_STATUS{
+    LIVRE = 'L',
+    OCUPADA = 'O',
+} STATUS;
+
+typedef struct st_Informacao
+{
+    int inicio;
+    int final;
+    int enderoco_final;
+    int endereco_inicial;
+    STATUS status;
+} Informacao;
 
 typedef struct Arvore_2_3
 {
@@ -19,8 +31,8 @@ void free_arvore_2_3(Arvore_2_3 *arvore);
 void show_arvore_2_3(Arvore_2_3 *raiz);
 int eh_folha(Arvore_2_3 *raiz);
 
-Arvore_2_3 *buscar_no_memoria(Arvore_2_3 **arvore, int quant, STATUS status, Informacao **info_escolhido);
 Informacao *no23_maior_info(Arvore_2_3 *raiz);
+Arvore_2_3 *buscar_no_memoria(Arvore_2_3 **arvore, int quant, STATUS status, Informacao **info_escolhido);
 Arvore_2_3 *arvore_2_3_buscar_menor_filho(Arvore_2_3 *raiz, Arvore_2_3 **pai);
 Arvore_2_3 *arvore_2_3_buscar_maior_filho(Arvore_2_3 *raiz, Arvore_2_3 **pai, Informacao **maior_valor);
 Arvore_2_3 *arvore_2_3_buscar_pai(Arvore_2_3 *raiz, int info);

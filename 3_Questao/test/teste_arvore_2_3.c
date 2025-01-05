@@ -1,5 +1,6 @@
 #include "test/Unity/unity.h"
 #include "include/arvore_2_3.h"
+#include "include/memoria.h"
 #include <stdlib.h>
 
 Arvore_2_3 *arvore;
@@ -21,14 +22,14 @@ void compare_info(Informacao info, int inicio, int final, STATUS status)
   TEST_ASSERT_EQUAL_INT(status, info.status);
 }
 
-void prencher_arvore(int *valores_adicionar, int tamanho, STATUS status_inicial)
+void prencher_arvore(int *valores_adicionar, int tamanho, STATUS status_inicial, int tamanho_maximo)
 {
   int inicio = 0;
   STATUS status = status_inicial;
   for (int i = 0; i < tamanho; i++)
   {
     Informacao info;
-    set_info(&info, inicio, valores_adicionar[i], status);
+    set_info(&info, inicio, valores_adicionar[i], status, 0, tamanho_maximo);
     set_inserir_arvore_2_3(&arvore, info);
     inicio = valores_adicionar[i] + 1;
     status = status == LIVRE ? OCUPADA : LIVRE;
@@ -79,14 +80,14 @@ int main(void)
 void test_set_info()
 {
   Informacao info;
-  set_info(&info, 10, 20, OCUPADA);
+  set_info(&info, 10, 20, OCUPADA, 0, 30);
   compare_info(info, 10, 20, OCUPADA);
 }
 
 void test_criar_arvore_2_3()
 {
   Informacao info;
-  set_info(&info, 10, 20, OCUPADA);
+  set_info(&info, 10, 20, OCUPADA, 0, 30);
 
   TEST_ASSERT_EQUAL(1, criar_arvore_2_3(&arvore, info, NULL, NULL));
   compare_info(arvore->info1, 10, 20, OCUPADA);
@@ -95,8 +96,8 @@ void test_criar_arvore_2_3()
 void test_adicionar_informacao_caso_1()
 {
   Informacao info1, info2;
-  set_info(&info1, 10, 20, OCUPADA);
-  set_info(&info2, 21, 40, OCUPADA);
+  set_info(&info1, 10, 20, OCUPADA, 0, 40);
+  set_info(&info2, 21, 40, OCUPADA, 0, 40);
 
   criar_arvore_2_3(&arvore, info1, NULL, NULL);
   adicionar_informacao(arvore, info2, NULL);
@@ -108,8 +109,8 @@ void test_adicionar_informacao_caso_1()
 void test_adicionar_informacao_caso_2()
 {
   Informacao info1, info2;
-  set_info(&info1, 21, 40, OCUPADA);
-  set_info(&info2, 10, 20, OCUPADA);
+  set_info(&info1, 21, 40, OCUPADA, 0, 40);
+  set_info(&info2, 10, 20, OCUPADA, 0, 40);
 
   criar_arvore_2_3(&arvore, info1, NULL, NULL);
   adicionar_informacao(arvore, info2, NULL);
@@ -121,7 +122,7 @@ void test_adicionar_informacao_caso_2()
 void test_eh_folha_caso_1()
 {
   Informacao info1;
-  set_info(&info1, 21, 40, OCUPADA);
+  set_info(&info1, 21, 40, OCUPADA, 0, 40);
 
   criar_arvore_2_3(&arvore, info1, NULL, NULL);
   TEST_ASSERT_EQUAL(1, eh_folha(arvore));
@@ -130,9 +131,9 @@ void test_eh_folha_caso_1()
 void test_eh_folha_caso_2()
 {
   Informacao info1, info2, info3;
-  set_info(&info1, 21, 40, OCUPADA);
-  set_info(&info2, 10, 20, OCUPADA);
-  set_info(&info3, 41, 50, OCUPADA);
+  set_info(&info1, 21, 40, OCUPADA, 0, 50);
+  set_info(&info2, 10, 20, OCUPADA, 0, 50);
+  set_info(&info3, 41, 50, OCUPADA, 0, 50);
 
   criar_arvore_2_3(&arvore, info1, NULL, NULL);
   criar_arvore_2_3(&arvore->esquerda, info2, NULL, NULL);
@@ -143,7 +144,7 @@ void test_eh_folha_caso_2()
 
 void test_inserct_arvore_2_3_caso_1()
 {
-  prencher_arvore((int[]){10, 20, 40}, 3, OCUPADA);
+  prencher_arvore((int[]){10, 20, 40}, 3, OCUPADA, 40);
 
   FILE *fp = freopen("output/test_inserct_arvore_2_3_caso_1.txt", "w", stdout);
   show_arvore_2_3(arvore);
@@ -168,7 +169,7 @@ void test_inserct_arvore_2_3_caso_1()
 
 void test_inserct_arvore_2_3_caso_2()
 {
-  prencher_arvore((int[]){10, 20, 40, 50, 60, 70}, 6, LIVRE);
+  prencher_arvore((int[]){10, 20, 40, 50, 60, 70}, 6, LIVRE, 70);
 
   FILE *fp = freopen("output/test_inserct_arvore_2_3_caso_2.txt", "w", stdout);
   show_arvore_2_3(arvore);
@@ -196,7 +197,7 @@ void test_inserct_arvore_2_3_caso_2()
 
 void test_inserct_arvore_2_3_caso_3()
 {
-  prencher_arvore((int[]){10, 20, 40, 50, 60, 70}, 6, OCUPADA);
+  prencher_arvore((int[]){10, 20, 40, 50, 60, 70}, 6, OCUPADA, 70);
 
   FILE *file = freopen("output/test_inserct_arvore_2_3_caso_3.txt", "w", stdout);
   show_arvore_2_3(arvore);
@@ -224,7 +225,7 @@ void test_inserct_arvore_2_3_caso_3()
 
 void test_inserct_arvore_2_3_caso_4()
 {
-  prencher_arvore((int[]){10, 20, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130}, 12, LIVRE);
+  prencher_arvore((int[]){10, 20, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130}, 12, LIVRE, 130);
 
   FILE *file = freopen("output/test_inserct_arvore_2_3_caso_4.txt", "w", stdout);
   show_arvore_2_3(arvore);
@@ -258,7 +259,7 @@ void test_inserct_arvore_2_3_caso_4()
 
 void test_aloca_desaloca_no_caso_1()
 {
-  prencher_arvore((int[]){10, 20, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130}, 12, LIVRE);
+  prencher_arvore((int[]){10, 20, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130}, 12, LIVRE, 130);
 
   int qtd_alocar = 10;
 
@@ -315,7 +316,7 @@ void test_aloca_desaloca_no_caso_1()
 
 void test_aloca_desaloca_no_caso_2()
 {
-  prencher_arvore((int[]){10, 20, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130}, 12, OCUPADA);
+  prencher_arvore((int[]){10, 20, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130}, 12, OCUPADA, 130);
 
   int qtd_alocar = 10;
 
@@ -370,7 +371,7 @@ void test_aloca_desaloca_no_caso_2()
 
 void test_aloca_desaloca_no_caso_3()
 {
-  prencher_arvore((int[]){1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 23}, 12, OCUPADA);
+  prencher_arvore((int[]){1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 23}, 12, OCUPADA, 23);
 
   int qtd_alocar = 10;
 
@@ -428,7 +429,7 @@ void test_aloca_desaloca_no_caso_3()
 
 void test_aloca_desaloca_no_caso_4()
 {
-  prencher_arvore((int[]){1, 2, 4, 5, 6, 7, 90, 100, 110, 120}, 10, OCUPADA);
+  prencher_arvore((int[]){1, 2, 4, 5, 6, 7, 90, 100, 110, 120}, 10, OCUPADA, 120);
 
   int qtd_alocar = 10;
 
@@ -445,7 +446,7 @@ void test_aloca_desaloca_no_caso_4()
 
 void test_aloca_desaloca_no_caso_5()
 {
-  prencher_arvore((int[]){10, 20, 30, 40, 50, 60, 70, 80, 90, 100}, 10, OCUPADA);
+  prencher_arvore((int[]){10, 20, 30, 40, 50, 60, 70, 80, 90, 100}, 10, OCUPADA, 100);
 
   int qtd_alocar = 10;
 
@@ -462,7 +463,7 @@ void test_aloca_desaloca_no_caso_5()
 
 void test_aloca_desaloca_no_caso_6()
 {
-  prencher_arvore((int[]){19, 40, 60, 80, 100}, 5, OCUPADA);
+  prencher_arvore((int[]){19, 40, 60, 80, 100}, 5, OCUPADA, 100);
 
   int qtd_alocar = 21;
 
@@ -478,7 +479,7 @@ void test_aloca_desaloca_no_caso_6()
 
 void test_aloca_desaloca_no_caso_7()
 {
-  prencher_arvore((int[]){19, 40, 60, 80, 100}, 5, OCUPADA);
+  prencher_arvore((int[]){19, 40, 60, 80, 100}, 5, OCUPADA, 100);
 
   int qtd_alocar = 20;
 

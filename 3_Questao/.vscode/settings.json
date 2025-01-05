@@ -12,6 +12,7 @@
     "cmath": "cpp",
     "limits": "cpp",
     "new": "cpp",
-    "arvore_2_3.h": "c"
+    "arvore_2_3.h": "c",
+    "utils.h": "c"
   }
 }

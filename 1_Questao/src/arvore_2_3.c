@@ -1,6 +1,4 @@
 #include "include/arvore_2_3.h"
-#include "include/lista_encadeada.h"
-#include "include/arvore_binaria.h"
 #include "include/utils.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -365,7 +363,7 @@ static Arvore_2_3 *arvore23_buscar_maior_pai(Arvore_2_3 *raiz, char *info)
 
             if(pai == NULL &&
              ((raiz->n_info == 1 && strcmp(raiz->info1.palavra_portugues, info) > 0 ||
-              (raiz->n_info == 2 &&strcmp(raiz->info2.palavra_portugues, info) > 0))))
+              (raiz->n_info == 2 && strcmp(raiz->info2.palavra_portugues, info) > 0))))
                 pai = raiz;
         }
     }

@@ -32,3 +32,10 @@ void pegar_inteiro_em_intervalo(int *numero, int inicio, int final, char *mensag
         }
     }
 }
+
+void pega_inteiro(int *numero, char *mensagem)
+{
+    printf("%s", mensagem);
+    scanf("%d", numero);
+    limpar_buffer();
+}

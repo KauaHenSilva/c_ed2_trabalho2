@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "include/memoria.h"
+#include "include/arvore_2_3.h"
+
 #include "include/utils.h"
 
 void pegar_status_da_memoria(STATUS *status)
@@ -34,9 +35,11 @@ int quantidade_blocos_disponiveis(Informacao info)
   return info.final - info.inicio + 1;
 }
 
-void set_info(Informacao *informacao, int incio, int final, STATUS status)
+void set_info(Informacao *informacao, int incio, int final, STATUS status, int endereco_inicial, int endereco_final)
 {
   informacao->inicio = incio;
   informacao->final = final;
   informacao->status = status;
+  informacao->endereco_inicial = endereco_inicial;
+  informacao->enderoco_final = endereco_final;
 }

@@ -4,19 +4,17 @@
 #include "include/utils.h"
 #include <stdlib.h>
 
-#define TAMANHO_MEMORIA 1000
-
-void informar_primeiro_nos(Arvore_2_3 **arvore)
+void informar_primeiro_nos(Arvore_2_3 **arvore, int tamanho_maximo)
 {
   // Setando o primeiro nó da árvore
   Informacao info_primeiro;
   int final;
   STATUS status;
 
-  pegar_inteiro_em_intervalo(&final, 0, TAMANHO_MEMORIA, "Digite o endereço final do nó: ");
+  pega_inteiro(&tamanho_maximo, "Digite o endereço final do nó: ");
   pegar_status_da_memoria(&status);
 
-  set_info(&info_primeiro, 0, final, status);
+  set_info(&info_primeiro, 0, final, status, 0, tamanho_maximo);
   set_inserir_arvore_2_3(arvore, info_primeiro);
 
   int inicio;
@@ -26,15 +24,15 @@ void informar_primeiro_nos(Arvore_2_3 **arvore)
   // Setando os demais nós, Aqui o usuário informa apenas o endereço final, o status é contabilizado pelo sistema
   // caso o status seja livre, o sistema muda para ocupado, caso seja ocupado, o sistema muda para livre.
   // e o endereço inicial é o endereço final do utlimo nó + 1
-  while (final != TAMANHO_MEMORIA)
+  while (final != tamanho_maximo)
   {
     inicio = final + 1;
     Informacao info;
 
-    pegar_inteiro_em_intervalo(&final, inicio, TAMANHO_MEMORIA, "Digite o endereço final do nó: ");
+    pegar_inteiro_em_intervalo(&final, inicio, tamanho_maximo, "Digite o endereço final do nó: ");
     trocar_status_da_memoria(&status);
 
-    set_info(&info, inicio, final, status);
+    set_info(&info, inicio, final, status, 0, tamanho_maximo);
     set_inserir_arvore_2_3(arvore, info);
   }
 }
@@ -53,7 +51,11 @@ void menu()
 int main()
 {
   Arvore_2_3 *arvore = NULL;
-  informar_primeiro_nos(&arvore);
+
+  int tamanho_maximo;
+  pega_inteiro(&tamanho_maximo, "Digite o tamanho da memória: ");
+
+  informar_primeiro_nos(&arvore, tamanho_maximo);
 
   int opcao = -1;
   while (opcao != 0)
@@ -66,13 +68,13 @@ int main()
     else if (opcao == 2)
     {
       int tamanho;
-      pegar_inteiro_em_intervalo(&tamanho, 0, TAMANHO_MEMORIA, "Digite o tamanho do nó a ser ocupado: ");
+      pegar_inteiro_em_intervalo(&tamanho, 0, tamanho_maximo, "Digite o tamanho do nó a ser ocupado: ");
       alocar_desalocar_no(&arvore, tamanho, OCUPADA);
     }
     else if (opcao == 3)
     {
       int tamanho;
-      pegar_inteiro_em_intervalo(&tamanho, 0, TAMANHO_MEMORIA, "Digite o tamanho do nó a ser desocupado: ");
+      pegar_inteiro_em_intervalo(&tamanho, 0, tamanho_maximo, "Digite o tamanho do nó a ser desocupado: ");
       alocar_desalocar_no(&arvore, tamanho, LIVRE);
     }
   }

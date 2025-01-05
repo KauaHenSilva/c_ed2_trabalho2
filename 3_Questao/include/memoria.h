@@ -1,18 +1,8 @@
 #pragma once
 
-typedef enum en_STATUS{
-    LIVRE = 'L',
-    OCUPADA = 'O',
-} STATUS;
+#include "arvore_2_3.h"
 
-typedef struct st_Informacao
-{
-    int inicio;
-    int final;
-    STATUS status;
-} Informacao;
-
-void set_info(Informacao *informacao, int incio, int final, STATUS status);
+void set_info(Informacao *informacao, int incio, int final, STATUS status, int endereco_inicial, int endereco_final);
 void pegar_status_da_memoria(STATUS *status);
 void trocar_status_da_memoria(STATUS *status);
 int quantidade_blocos_disponiveis(Informacao info);

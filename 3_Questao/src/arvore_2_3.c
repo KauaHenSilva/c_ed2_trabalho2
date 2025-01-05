@@ -1,4 +1,5 @@
 #include "include/arvore_2_3.h"
+#include "include/memoria.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -658,7 +659,6 @@ void concatenar_no(Arvore_2_3 **raiz, int *numero_final, int limite, int valor_r
   arvore_2_3_remover(raiz, valor_remover);
 }
 
-// Em desenvolvimento, não está funcionando corretamente
 void modificar_no(Arvore_2_3 **raiz, Arvore_2_3 *no, Informacao *info, int quant)
 {
   Arvore_2_3 *menor;
@@ -673,6 +673,8 @@ void modificar_no(Arvore_2_3 **raiz, Arvore_2_3 *no, Informacao *info, int quant
       Informacao data;
       data.inicio = info->inicio;
       data.final = info->inicio + quant - 1;
+      data.endereco_inicial = info->endereco_inicial;
+      data.enderoco_final = info->enderoco_final;
       data.status = info->status == LIVRE ? OCUPADA : LIVRE;
 
       info->inicio += quant;
@@ -758,8 +760,8 @@ void no23_exibir(Informacao info)
 int alocar_desalocar_no(Arvore_2_3 **arvore, int quant_nos, STATUS status)
 {
   Informacao *info_escolhido;
-  info_escolhido = NULL;
   Arvore_2_3 *no_escolhido;
+  info_escolhido = NULL;
   no_escolhido = buscar_no_memoria(arvore, quant_nos, status, &info_escolhido);
 
   if (info_escolhido != NULL)
